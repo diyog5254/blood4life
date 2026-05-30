@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/donor-form.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Donor Registration Form </h2>
+
+        <form action="#" method="POST">
+
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="full name">Full Name</label>
+                <input type="text" name="name" required>
+
+
+                <label for="dob">Date of Birth (Must be 18+)</label>
+                <input type="date" id="dob" name="dob">
+
+                <label for="gender">Gender</label>
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="Male" required>
+                        Male
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="Other">
+                        Other
+                    </label>
+                </div>
+
+
+
+                <label for="blood group">Blood Group</label>
+                <select name="blood" required>
+                    <option value="">Select</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                </select>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Contact Information</legend>
+
+                <label for="email ">Email</label>
+                <input type="email" name="email" required>
+
+
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" placeholder="+977-XXXXXXXXXX" required>
+
+
+                <label for="whatsapp number">WhatsApp Number</label>
+                <input type="tel" name="whatsapp" placeholder="+977-XXXXXXXXXX">
+
+
+                <label for="address">Address</label>
+                <textarea name="address" rows="3" required></textarea>
+
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

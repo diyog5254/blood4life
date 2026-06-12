@@ -36,6 +36,10 @@ body {
     align-items: center;
     gap: 6px;
 }
+.logo{
+    height: auto;
+    width: 20px;
+}
 
 .nav-links {
     display: flex;

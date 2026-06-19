@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/requestForm.css">
+</head>
+<body>
+     <form>
+
+        <fieldset>
+            <legend>Patient Information</legend>
+
+            <label for="patient name">Patient Name</label> <br>
+            <input type="text" name="patientName" required>
+            <br>
+            <label for="age">Age</label> <br>
+            <input type="number" name="age" min="1" required>
+            <br>
+            <label for="gender">Gender</label> <br>
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+            <br>
+            <label for="blood group required">Blood Group Required</label> <br>
+            <select name="bloodGroup" required>
+                <option value="">Select Blood Group</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+            </select>
+            <br><br>
+
+            <label for="unit required">Units Required</label> <br>
+            <input type="number" min="1" required>
+            <br><br>
+
+            <label for="Urgency Level">Urgency Level</label> 
+            <select required>
+                <option value="">Select</option>
+                <option>Emergency</option>
+                <option>Urgent</option>
+                <option>Normal</option>
+            </select>
+            <br>
+            <label for="Medical Reason">Medical Reason</label> <br>
+            <textarea rows="4" cols="50" required></textarea>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Hospital Information</legend>
+
+            <label for="Hospital information">Hospital Name</label> <br>
+            <input type="text" required>
+            <br>
+            <label for="Address">Address</label> <br>
+            <textarea rows="3" cols="50" required></textarea>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Contact Information</legend>
+
+            <label for="contact person name">Contact Person Name</label> <br>
+            <input type="text" required>
+            <br><br>
+
+            <label for="phone number">Phone Number</label> <br>
+            <input type="tel" required>
+            <br>
+            <label for="email address">Email Address</label> <br>
+            <input type="email" required>
+            <br>
+
+            <label for="additional notes">Additional Notes</label> <br>
+            <textarea rows="3" cols="50"></textarea>
+        </fieldset>
+        <br>
+        <input type="checkbox" required>
+        I confirm that the information provided is correct.
+        <br><br>
+
+        <button type="submit">Submit Request</button>
+        <button type="reset">Reset</button>
+
+    </form>
+</body>
+</html>

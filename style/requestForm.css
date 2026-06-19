@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff5f5;
+    padding: 30px 15px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #dc2626;
+    margin-bottom: 25px;
+}
+
+form {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.15);
+}
+
+fieldset {
+    border: 2px solid #dc2626;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    color: #dc2626;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 5px rgba(220, 38, 38, 0.3);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button[type="submit"] {
+    background: #dc2626;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background: #b91c1c;
+}
+
+button[type="reset"] {
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+    margin-left: 10px;
+}
+
+button[type="reset"]:hover {
+    background: #fee2e2;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    legend {
+        font-size: 16px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    button[type="reset"] {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    form {
+        padding: 15px;
+    }
+
+    fieldset {
+        padding: 15px;
+    }
+
+    legend {
+        font-size: 15px;
+    }
+}

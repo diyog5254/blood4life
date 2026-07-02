@@ -53,36 +53,8 @@
         </p>
     </main>
 
-    <script>
-        const form = document.getElementById("signupForm");
-        const message = document.getElementById("message");
+    <script src="javaScript/signup.js"></script>
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirmPassword").value;
-
-            if (password !== confirmPassword) {
-                message.textContent = "Passwords do not match!";
-                message.style.color = "red";
-                return;
-            }
-
-            message.textContent = "Account created successfully!";
-            message.style.color = "green";
-        });
-
-        function togglePassword(checkbox, id) {
-            const field = document.getElementById(id);
-
-            if (checkbox.checked) {
-                field.type = "text";
-            } else {
-                field.type = "password";
-            }
-        }
-    </script>
 </body>
 
 </html>

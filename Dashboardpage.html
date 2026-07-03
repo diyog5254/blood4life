@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="Dashboardpage.css">
+    <link rel="stylesheet" href="Dashboard.js">
+</head>
+<body>
+    <div class="container">
+    <div class="Header">
+        <header>
+                 <nav class="navbar">
+        <div class="container">
+
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="">
+                    <i class="fas fa-heart"></i>
+                    Blood4Life
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
+                <a href="donor-form.html" class="btn">Become Donor</a>
+            </div>
+
+            <button class="menu-btn">☰</button>
+        </div>
+            </nav>
+        </header>
+    </div>
+    <main class="Main">
+            <div class="DonorDashboard">
+                <h1> Donor Dashboard</h1>
+                    <p>Manage and view all registered blood donors</p>
+                        </div>
+        <div class="dashboard">
+    <div class="card">
+        <div class="top">
+            <div class="icon">👥</div>
+            <span class="badge">+12%</span>
+        </div>
+        <h1>12,458</h1>
+        <p>Total Donors</p>
+    </div>
+
+    <div class="card">
+        <div class="top">
+            <div class="icon">
+                <img src="" alt="">
+            </div>
+            <span class="badge">100%</span>
+        </div>
+        <h1>8</h1>
+        <p>Available Blood Groups</p>
+    </div>
+
+    <div class="card">
+        <div class="top">
+            <div class="icon">!</div>
+            <span class="badge">-8%</span>
+        </div>
+        <h1>24</h1>
+        <p>Emergency Requests</p>
+    </div>
+
+    <div class="card">
+        <div class="top">
+            <div class="icon">📈</div>
+            <span class="badge">+18%</span>
+        </div>
+        <h1>342</h1>
+        <p>This Month</p>
+    </div>
+    </div>
+    <!-- searchfield -->
+                <div class="searchbar">
+                <h1 class="SearchDonor">Search and Filter Donor</h1>
+                        <div class="inputdonor">
+                        <input type="text"class="Donordetails" placeholder="Search By Name, BloodGroup">
+                         <select class="Donordetails">
+                            <option value="All-Blood-Groups">All Blood Groups</option>
+                            <option value="o+">o+</option>
+                            <option value="o-">o-</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">o-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                         </select>
+                          <select class="Donordetails">
+                            <option value="All">Locations</option>
+                            <option value="Morang">Morang</option>
+                            <option value="Kathmandu">Kathmandu</option>
+                            <option value="Jhapa">Jhapa</option>
+                            <option value="Pokhara">Pokhara</option>
+                            <option value="Taplejung">Taplejung</option>
+                          </select>
+        </div>
+        </div>
+
+    <div class="RegisterDetails">
+        <table border="1" cell-spacing="0" cell-padding="10px" width="75%">
+        <h1 class="donorDetailsList">RegisterDonor</h1>
+          <tr>
+            <th width="25%" name="fullname">Name</th>
+            <th width="14%">Blood Groups</th>
+            <th width="20%">Location</th>
+            <th width="10%">Contact</th>
+            <th width="15%">Last Donation</th>
+            <th width="10%">Status</th>
+            <th Width="15%">Action</th>
+          </tr>  
+    </table>
+    </div>
+    
+    </main>
+      <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <div class="footer-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <span>BloodBank</span>
+                        </div>
+                        <p>Saving lives through safe blood donation. Join our community of lifesavers today.</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="dashboard.html">Donor Dashboard</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <br><br><br><br>
+
+                    <div class="footer-col">
+                        <h3>Contact Info</h3>
+                        <ul class="contact-list">
+                            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                            <li><i class="fas fa-envelope"></i> info@bloodbank.org</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Healthcare Ave, Medical District, CA 90210
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>2026 BloodBank. All rights reserved. Saving lives one donation at a time.</p>
+                 </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

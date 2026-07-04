@@ -19,7 +19,7 @@ body {
     z-index: 1000;
 }
 
-.container {
+.nav_container {
     width: 90%;
     margin: auto;
     display: flex;

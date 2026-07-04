@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Ram Sharma",
+        "bloodGroup": "A+",
+        "location": "Kathmandu",
+        "contact": "9812345678",
+        "lastDonation": "2026-04-15",
+        "status": "Available"
+    },
+    {
+        "id": 2,
+        "name": "Sita Rai",
+        "bloodGroup": "O+",
+        "location": "Pokhara",
+        "contact": "9801122334",
+        "lastDonation": "2026-05-10",
+        "status": "Unavailable"
+    },
+    {
+        "id": 3,
+        "name": "Hari Thapa",
+        "bloodGroup": "B+",
+        "location": "Jhapa",
+        "contact": "9865432109",
+        "lastDonation": "2026-03-20",
+        "status": "Available"
+    },
+    {
+        "id": 4,
+        "name": "Nabin Karki",
+        "bloodGroup": "AB+",
+        "location": "Morang",
+        "contact": "9845678901",
+        "lastDonation": "2026-06-01",
+        "status": "Available"
+    },
+    {
+        "id": 5,
+        "name": "Sabina Lama",
+        "bloodGroup": "O-",
+        "location": "Kathmandu",
+        "contact": "9823456789",
+        "lastDonation": "2026-05-28",
+        "status": "Unavailable"
+    },
+    {
+        "id": 6,
+        "name": "Ramesh Gurung",
+        "bloodGroup": "A-",
+        "location": "Pokhara",
+        "contact": "9809988776",
+        "lastDonation": "2026-02-14",
+        "status": "Available"
+    },
+    {
+        "id": 7,
+        "name": "Prakash Basnet",
+        "bloodGroup": "B-",
+        "location": "Taplejung",
+        "contact": "9811223344",
+        "lastDonation": "2026-06-20",
+        "status": "Available"
+    },
+    {
+        "id": 8,
+        "name": "Anisha KC",
+        "bloodGroup": "AB-",
+        "location": "Morang",
+        "contact": "9844556677",
+        "lastDonation": "2026-01-18",
+        "status": "Unavailable"
+    }
+]

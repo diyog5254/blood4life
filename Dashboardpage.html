@@ -1,128 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="Dashboardpage.css">
+    <link rel="stylesheet" href="style/dashboardpage.css">
+    <link rel="stylesheet" href="style/navbars.css">
+    <link rel="stylesheet" href="style/footer.css">
     <link rel="stylesheet" href="Dashboard.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
-    <div class="container">
-    <div class="Header">
-        <header>
-                 <nav class="navbar">
-        <div class="container">
+    <div class="page_container">
+        <div class="Header">
+            <header>
+                <nav class="navbar">
+                    <div class="nav_container">
 
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="">
-                    <i class="fas fa-heart"></i>
-                    Blood4Life
-                </a>
-            </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="images/logo.png" alt="">
+                                <i class="fas fa-heart"></i>
+                                Blood4Life
+                            </a>
+                        </div>
 
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-                <a href="donor-form.html" class="btn">Become Donor</a>
-            </div>
+                        <div class="nav-links">
+                            <a href="index.html" class="active">Home</a>
+                            <a href="about.html">About</a>
+                            <a href="Dashboardpage.html">Dashboard</a>
+                            <a href="gallery.html">Contact</a>
+                            <a href="signin.html">Login</a>
+                            <a href="donor-form.html" class="btn">Become Donor</a>
+                        </div>
 
-            <button class="menu-btn">☰</button>
+                        <button class="menu-btn">☰</button>
+                    </div>
+                </nav>
+            </header>
         </div>
-            </nav>
-        </header>
-    </div>
-    <main class="Main">
+        <main class="Main">
             <div class="DonorDashboard">
                 <h1> Donor Dashboard</h1>
-                    <p>Manage and view all registered blood donors</p>
-                        </div>
-        <div class="dashboard">
-    <div class="card">
-        <div class="top">
-            <div class="icon">👥</div>
-            <span class="badge">+12%</span>
-        </div>
-        <h1>12,458</h1>
-        <p>Total Donors</p>
-    </div>
-
-    <div class="card">
-        <div class="top">
-            <div class="icon">
-                <img src="" alt="">
+                <p>Manage and view all registered blood donors</p>
             </div>
-            <span class="badge">100%</span>
-        </div>
-        <h1>8</h1>
-        <p>Available Blood Groups</p>
-    </div>
+            <div class="dashboard">
+                <div class="card">
+                    <div class="top">
+                        <div class="icon">👥</div>
+                        <span class="badge">+12%</span>
+                    </div>
+                    <h1>12,458</h1>
+                    <p>Total Donors</p>
+                </div>
 
-    <div class="card">
-        <div class="top">
-            <div class="icon">!</div>
-            <span class="badge">-8%</span>
-        </div>
-        <h1>24</h1>
-        <p>Emergency Requests</p>
-    </div>
+                <div class="card">
+                    <div class="top">
+                        <div class="icon">
+                            <img src="" alt="">
+                        </div>
+                        <span class="badge">100%</span>
+                    </div>
+                    <h1>8</h1>
+                    <p>Available Blood Groups</p>
+                </div>
 
-    <div class="card">
-        <div class="top">
-            <div class="icon">📈</div>
-            <span class="badge">+18%</span>
-        </div>
-        <h1>342</h1>
-        <p>This Month</p>
-    </div>
-    </div>
-    <!-- searchfield -->
-                <div class="searchbar">
+                <div class="card">
+                    <div class="top">
+                        <div class="icon">!</div>
+                        <span class="badge">-8%</span>
+                    </div>
+                    <h1>24</h1>
+                    <p>Emergency Requests</p>
+                </div>
+
+                <div class="card">
+                    <div class="top">
+                        <div class="icon">📈</div>
+                        <span class="badge">+18%</span>
+                    </div>
+                    <h1>342</h1>
+                    <p>This Month</p>
+                </div>
+            </div>
+            <!-- searchfield -->
+            <div class="searchbar">
                 <h1 class="SearchDonor">Search and Filter Donor</h1>
-                        <div class="inputdonor">
-                        <input type="text"class="Donordetails" placeholder="Search By Name, BloodGroup">
-                         <select class="Donordetails">
-                            <option value="All-Blood-Groups">All Blood Groups</option>
-                            <option value="o+">o+</option>
-                            <option value="o-">o-</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">o-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                         </select>
-                          <select class="Donordetails">
-                            <option value="All">Locations</option>
-                            <option value="Morang">Morang</option>
-                            <option value="Kathmandu">Kathmandu</option>
-                            <option value="Jhapa">Jhapa</option>
-                            <option value="Pokhara">Pokhara</option>
-                            <option value="Taplejung">Taplejung</option>
-                          </select>
-        </div>
-        </div>
+                <div class="inputdonor">
+                    <input type="text" class="Donordetails" placeholder="Search By Name, BloodGroup">
+                    <select class="Donordetails">
+                        <option value="All-Blood-Groups">All Blood Groups</option>
+                        <option value="o+">o+</option>
+                        <option value="o-">o-</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">o-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                    <select class="Donordetails">
+                        <option value="All">Locations</option>
+                        <option value="Morang">Morang</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Jhapa">Jhapa</option>
+                        <option value="Pokhara">Pokhara</option>
+                        <option value="Taplejung">Taplejung</option>
+                    </select>
+                </div>
+            </div>
 
-    <div class="RegisterDetails">
-        <table border="1" cell-spacing="0" cell-padding="10px" width="75%">
-        <h1 class="donorDetailsList">RegisterDonor</h1>
-          <tr>
-            <th width="25%" name="fullname">Name</th>
-            <th width="14%">Blood Groups</th>
-            <th width="20%">Location</th>
-            <th width="10%">Contact</th>
-            <th width="15%">Last Donation</th>
-            <th width="10%">Status</th>
-            <th Width="15%">Action</th>
-          </tr>  
-    </table>
-    </div>
-    
-    </main>
-      <footer class="footer">
-            <div class="container">
+            <div class="RegisterDetails">
+                <table border="1" cell-spacing="0" cell-padding="10px" width="75%">
+                    <h1 class="donorDetailsList">RegisterDonor</h1>
+                    <thead>
+                        <tr>
+                            <th width="25%" name="fullname">Name</th>
+                            <th width="14%">Blood Groups</th>
+                            <th width="20%">Location</th>
+                            <th width="10%">Contact</th>
+                            <th width="15%">Last Donation</th>
+                            <th width="10%">Status</th>
+                            <th Width="15%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="donorTable">
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </main>
+        <footer class="footer">
+            <div class="foot_container">
                 <div class="footer-grid">
                     <div class="footer-col">
                         <div class="footer-logo">
@@ -167,9 +178,12 @@
                 </div>
                 <div class="footer-bottom">
                     <p>2026 BloodBank. All rights reserved. Saving lives one donation at a time.</p>
-                 </div>
+                </div>
             </div>
         </footer>
     </div>
 </body>
+
+<script src="javaScript/donor.js"></script>
+
 </html>

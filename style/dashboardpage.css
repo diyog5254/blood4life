@@ -1,0 +1,288 @@
+.page-container{
+    width:100%;
+}
+.container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    justify-content:space-between;
+    align-items:center;
+}
+.DonorDashboard{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto 20px;
+}
+
+.DonorDashboard h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.DonorDashboard p{
+    font-size:22px;
+    color:#555;
+}
+
+/* ==========================
+   DASHBOARD CARDS
+========================== */
+
+.dashboard{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.icon{
+    width:60px;
+    height:60px;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+}
+
+.badge{
+    background:#dcfce7;
+    color:#15803d;
+    padding:8px 12px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.card h1{
+    font-size:45px;
+    margin:25px 0 10px;
+}
+
+.card p{
+    color:#666;
+    font-size:18px;
+}
+
+/* search section */
+.searchbar{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+    background:#f3f4f6;
+    padding:25px;
+    border-radius:15px;
+}
+
+.SearchDonor{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.inputdonor{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:15px;
+}
+
+.Donordetails{
+    width:100%;
+    height:45px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:0 12px;
+    font-size:16px;
+    outline:none;
+}
+
+.Donordetails:focus{
+    border-color:#dc2626;
+}
+
+/* ==========================
+   TABLE SECTION
+========================== */
+
+.RegisterDetails{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.donorDetailsList{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+table th{
+    background:#dc2626;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+table td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+table tr:nth-child(even){
+    background:#f9fafb;
+}
+
+table tr:hover{
+    background:#fef2f2;
+}
+
+.status-available{
+    color:green;
+    font-weight:bold;
+}
+
+.status-unavailable{
+    color:red;
+    font-weight:bold;
+}
+
+.action-btn{
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.action-btn:hover{
+    background:#b91c1c;
+}
+
+@media screen and (max-width:768px){
+    /* Dashboard Heading */
+
+    .DonorDashboard{
+        width:95%;
+        margin:20px auto;
+        text-align:center;
+    }
+
+    .DonorDashboard h1{
+        font-size:30px;
+    }
+
+    .DonorDashboard p{
+        font-size:16px;
+    }
+
+    /* Cards */
+
+    .dashboard{
+        width:95%;
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .card h1{
+        font-size:36px;
+    }
+
+    .card p{
+        font-size:16px;
+    }
+
+    /* Search */
+
+    .searchbar{
+        width:95%;
+        padding:20px;
+    }
+
+    .SearchDonor{
+        font-size:28px;
+        text-align:center;
+    }
+
+    .inputdonor{
+        grid-template-columns:1fr;
+    }
+
+    .Donordetails{
+        width:100%;
+    }
+
+    /* Table */
+
+    .RegisterDetails{
+        width:95%;
+    }
+
+    .donorDetailsList{
+        font-size:28px;
+        text-align:center;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
+
+/* 
+   SMALL MOBILE (480px) */
+
+@media screen and (max-width:480px){
+
+    .DonorDashboard h1{
+        font-size:26px;
+    }
+
+    .SearchDonor{
+        font-size:24px;
+    }
+
+    .card h1{
+        font-size:30px;
+    }
+
+    .badge{
+        font-size:13px;
+        padding:6px 10px;
+    }
+
+    table th,
+    table td{
+        padding:10px;
+        font-size:14px;
+    }
+
+}

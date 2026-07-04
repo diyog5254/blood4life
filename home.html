@@ -26,7 +26,7 @@
   <section class="hero">
     <h1>DONATE BLOOD <span>SAVE LIFE</span></h1>
     <p>Centralizing blood collection &amp; distribution</p>
-    <button class="btn">Become Donor</button>
+    <button class="btn" id="becomeDonorBtn">Become Donor</button>
   </section>
 
   <div class="stats">
@@ -116,19 +116,19 @@
   </footer>
 
   <script>
-    // Buttons show a placeholder message only — no real backend logic
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', () => alert(btn.textContent.trim() + ' — coming soon!'));
+    // Become Donor button opens donor form
+    document.getElementById("becomeDonorBtn").addEventListener("click", function () {
+        window.location.href = "donor-form.html";
     });
 
-    // Chips just toggle which one looks "selected"
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelector('.chip.active')?.classList.remove('active');
-        chip.classList.add('active');
-      });
+    // Chips toggle active class
+    document.querySelectorAll(".chip").forEach(chip => {
+        chip.addEventListener("click", function () {
+            document.querySelector(".chip.active")?.classList.remove("active");
+            this.classList.add("active");
+        });
     });
-  </script>
+</script>
 </body>
 
 </html>

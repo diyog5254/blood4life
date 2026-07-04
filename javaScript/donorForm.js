@@ -65,14 +65,14 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    // Nepal Phone Number
-    const phonePattern = /^(98|97)\d{8}$/;
+    // // Nepal Phone Number
+    // const phonePattern = /^(98|97)\d{8}$/;
 
-    if (!phonePattern.test(phone)) {
-        alert("Enter a valid Nepal mobile number (98XXXXXXXX or 97XXXXXXXX).");
-        form.phone.focus();
-        return;
-    }
+    // if (!phonePattern.test(phone)) {
+    //     alert("Enter a valid Nepal mobile number (98XXXXXXXX or 97XXXXXXXX).");
+    //     form.phone.focus();
+    //     return;
+    // }
 
     // WhatsApp (Optional)
     if (whatsapp !== "" && !phonePattern.test(whatsapp)) {

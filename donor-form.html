@@ -18,7 +18,7 @@
                 <legend>Personal Information</legend>
 
                 <label for="full name">Full Name</label>
-                <input type="text" name="name" required>
+                <input type="text" id="name" name="name" required>
 
 
                 <label for="dob">Date of Birth (Must be 18+)</label>
@@ -46,7 +46,7 @@
 
 
                 <label for="blood group">Blood Group</label>
-                <select name="blood" required>
+                <select id="blood" name="blood" required>
                     <option value="">Select</option>
                     <option>A+</option>
                     <option>A-</option>
@@ -64,19 +64,19 @@
                 <legend>Contact Information</legend>
 
                 <label for="email ">Email</label>
-                <input type="email" name="email" required>
+                <input type="email" id="email" name="email" required>
 
 
                 <label for="phone">Phone</label>
-                <input type="tel" name="phone" placeholder="+977-XXXXXXXXXX" required>
+                <input type="tel" id="phone" name="phone" placeholder="+977-XXXXXXXXXX" required>
 
 
                 <label for="whatsapp number">WhatsApp Number</label>
-                <input type="tel" name="whatsapp" placeholder="+977-XXXXXXXXXX">
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+977-XXXXXXXXXX">
 
 
                 <label for="address">Address</label>
-                <textarea name="address" rows="3" required></textarea>
+                <textarea id="address" name="address" rows="3" required></textarea>
 
             </fieldset>
 
@@ -86,6 +86,8 @@
             </div>
         </form>
     </div>  
+
+    <script src="javaScript/donorForm.js"></script>
 </body>
 
 </html>

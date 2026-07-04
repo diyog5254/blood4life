@@ -1,30 +1,28 @@
-fetch("data/donors.json")
-.then(response => response.json())
-.then(donors => {
+async function loadDonors() {
+    try {
+        const response = await fetch("data/donor.json");
+        const donors = await response.json();
 
-    const table = document.getElementById("donorTable");
+        const table = document.getElementById("donorTable");
+        table.innerHTML = "";
 
-    donors.forEach(donor => {
+        donors.forEach(donor => {
+            table.innerHTML += `
+                <tr>
+                    <td>${donor.name}</td>
+                    <td>${donor.bloodGroup}</td>
+                    <td>${donor.location}</td>
+                    <td>${donor.contact}</td>
+                    <td>${donor.lastDonation}</td>
+                    <td>${donor.status}</td>
+                    <td><button>View</button></td>
+                </tr>
+            `;
+        });
 
-        const row = `
-        <tr>
-            <td>${donor.name}</td>
-            <td>${donor.bloodGroup}</td>
-            <td>${donor.location}</td>
-            <td>${donor.contact}</td>
-            <td>${donor.lastDonation}</td>
-            <td>${donor.status}</td>
-            <td>
-                <button>Request</button>
-            </td>
-        </tr>
-        `;
+    } catch (error) {
+        console.error("Error loading donors:", error);
+    }
+}
 
-        table.innerHTML += row;
-
-    });
-
-})
-.catch(error => {
-    console.log(error);
-});
+loadDonors();

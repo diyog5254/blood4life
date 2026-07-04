@@ -1,98 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blood4Life</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style/home.css">
 </head>
+
 <body>
 
-<nav>
-  <span class="logo"><span class="red">Blood</span>4Life</span>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <button class="btn">Become Donor</button>
-</nav>
+  <nav>
+    <span class="logo"><span class="red">Blood</span>4Life</span>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="dashboardpage.html">Dashboard</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+    <button class="btn"><a href="donor-form.html">Become Donor</a></button>
+    <button class="menu-btn">☰</button>
 
-<section class="hero">
-  <h1>DONATE BLOOD <span>SAVE LIFE</span></h1>
-  <p>Centralizing blood collection &amp; distribution</p>
-  <button class="btn">Become Donor</button>
-</section>
+  </nav>
 
-<div class="stats">
-  <div class="stat"><div class="stat-icon" style="background:#b71c1c;">🩸</div><div><h3>TOTAL DONORS</h3><div class="num">15,362</div></div></div>
-  <div class="stat"><div class="stat-icon" style="background:#388e3c;">🟢</div><div><h3>BLOOD GROUPS</h3><div class="num">8</div></div></div>
-  <div class="stat"><div class="stat-icon" style="background:#e65100;">⭐</div><div><h3>LIVES SAVED</h3><div class="num">8,753</div></div></div>
-  <div class="stat"><div class="stat-icon" style="background:#1565c0;">📋</div><div><h3>AVAILABLE REQUESTS</h3><div class="num">752</div></div></div>
-</div>
+  <section class="hero">
+    <h1>DONATE BLOOD <span>SAVE LIFE</span></h1>
+    <p>Centralizing blood collection &amp; distribution</p>
+    <button class="btn">Become Donor</button>
+  </section>
 
-<section class="search">
-  <h2>Find Blood Donors</h2>
-  <p>Search by blood group to find available donors near you</p>
-  <div class="search-box">
-    <span>Search by blood group (eg: A, A+, AB+, O-)</span>
-    <button class="btn">Search</button>
-  </div>
-  <div class="chips">
-    <span class="chip active">A+</span>
-    <span class="chip">A-</span>
-    <span class="chip">B+</span>
-    <span class="chip">B-</span>
-    <span class="chip">AB+</span>
-    <span class="chip">AB-</span>
-    <span class="chip">O+</span>
-    <span class="chip">O-</span>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="logo" style="margin-bottom:12px;"><span class="red">Blood</span>4Life</div>
-      <p style="font-size:13px;line-height:1.7;">Saving lives through safe blood donation.<br>Join our community of lifesavers today.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-icon" style="background:#b71c1c;">🩸</div>
+      <div>
+        <h3>TOTAL DONORS</h3>
+        <div class="num">15,362</div>
+      </div>
     </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul><li>About</li><li>Contact</li><li>Home</li><li>Dashboard</li></ul>
+    <div class="stat">
+      <div class="stat-icon" style="background:#388e3c;">🟢</div>
+      <div>
+        <h3>BLOOD GROUPS</h3>
+        <div class="num">8</div>
+      </div>
     </div>
-    <div>
-      <h4>Contact Info</h4>
-      <div class="contact-item">📞 +977-9874563214</div>
-      <div class="contact-item">✉️ blood4life@123gmail.com</div>
-      <div class="contact-item">📍 1469 Broaddus Avenue</div>
+    <div class="stat">
+      <div class="stat-icon" style="background:#e65100;">⭐</div>
+      <div>
+        <h3>LIVES SAVED</h3>
+        <div class="num">8,753</div>
+      </div>
     </div>
-    <div>
-      <h4>Follow Us On</h4>
-      <div class="social-row">
-        <span class="social-btn">f</span>
-        <span class="social-btn">in</span>
-        <span class="social-btn">ig</span>
-        <span class="social-btn">tw</span>
+    <div class="stat">
+      <div class="stat-icon" style="background:#1565c0;">📋</div>
+      <div>
+        <h3>AVAILABLE REQUESTS</h3>
+        <div class="num">752</div>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 <span>BLOOD4LIFE</span>. All rights reserved. Saving lives one donation at a time.</div>
-</footer>
 
-<script>
-  // Buttons show a placeholder message only — no real backend logic
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', () => alert(btn.textContent.trim() + ' — coming soon!'));
-  });
+  <section class="search">
+    <h2>Find Blood Donors</h2>
+    <p>Search by blood group to find available donors near you</p>
+    <div class="search-box">
+      <span>Search by blood group (eg: A, A+, AB+, O-)</span>
+      <button class="btn">Search</button>
+    </div>
+    <div class="chips">
+      <span class="chip active">A+</span>
+      <span class="chip">A-</span>
+      <span class="chip">B+</span>
+      <span class="chip">B-</span>
+      <span class="chip">AB+</span>
+      <span class="chip">AB-</span>
+      <span class="chip">O+</span>
+      <span class="chip">O-</span>
+    </div>
+  </section>
 
-  // Chips just toggle which one looks "selected"
-  document.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelector('.chip.active')?.classList.remove('active');
-      chip.classList.add('active');
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px;"><span class="red">Blood</span>4Life</div>
+        <p style="font-size:13px;line-height:1.7;">Saving lives through safe blood donation.<br>Join our community of
+          lifesavers today.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About </a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="dashboardpage.html">Dashboard</a></li>
+          <li><a href="home.html">Home</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Info</h4>
+        <div class="contact-item">📞 +977-9874563214</div>
+        <div class="contact-item">✉️ blood4life@123gmail.com</div>
+        <div class="contact-item">📍 1469 Broaddus Avenue</div>
+      </div>
+      <div>
+        <h4>Follow Us On</h4>
+        <div class="social-row">
+          <span class="social-btn">f</span>
+          <span class="social-btn">in</span>
+          <span class="social-btn">ig</span>
+          <span class="social-btn">tw</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 <span>BLOOD4LIFE</span>. All rights reserved. Saving lives one donation at a
+      time.</div>
+  </footer>
+
+  <script>
+    // Buttons show a placeholder message only — no real backend logic
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', () => alert(btn.textContent.trim() + ' — coming soon!'));
     });
-  });
-</script>
+
+    // Chips just toggle which one looks "selected"
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelector('.chip.active')?.classList.remove('active');
+        chip.classList.add('active');
+      });
+    });
+  </script>
 </body>
+
 </html>

@@ -14,8 +14,6 @@ function togglePassword() {
     }
 
 }
-
-
 // Sign In
 
 document.getElementById("signInForm").addEventListener("submit", function (submitEvent) {
@@ -25,10 +23,15 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value;
 
+    // Get all users
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
+    // Find matching user
     let user = users.find(function (currentUser) {
-        return currentUser.email === email && currentUser.password === password;
+
+        return currentUser.email === email &&
+               currentUser.password === password;
+
     });
 
     if (user) {
@@ -38,15 +41,29 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
 
         alert("Login Successful!");
 
-        // Redirect according to role
+        // Get previous page
+        let previousPage = sessionStorage.getItem("redirectAfterLogin");
 
+        // Admin Login
         if (user.role === "Admin") {
 
             window.location.href = "adminDashboard.html";
 
-        } else {
+        }
 
-            window.location.href = "donorDashboard.html";
+        // Donor Login
+        else {
+
+            if (previousPage) {
+
+                sessionStorage.removeItem("redirectAfterLogin");
+                window.location.href = previousPage;
+
+            } else {
+
+                window.location.href = "index.html";
+
+            }
 
         }
 
@@ -57,7 +74,6 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
     }
 
 });
-
 
 // Forgot Password
 
@@ -79,7 +95,7 @@ document.getElementById("forgotPassword").addEventListener("click", function () 
 
     if (user) {
 
-        alert("Your Password is : " + user.password);
+        alert("Your Password is: " + user.password);
 
     } else {
 

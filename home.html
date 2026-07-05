@@ -121,14 +121,6 @@
     document.getElementById("becomeDonorBtn").addEventListener("click", function () {
         window.location.href = "donor-form.html";
     });
-
-    // Chips toggle active class
-    document.querySelectorAll(".chip").forEach(chip => {
-        chip.addEventListener("click", function () {
-            document.querySelector(".chip.active")?.classList.remove("active");
-            this.classList.add("active");
-        });
-    });
 </script>
 </body>
 

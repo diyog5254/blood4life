@@ -304,20 +304,12 @@ table tr:hover{
 
 }
 
-/* Footer */
-footer { background: #2d2d3f; color: #aaa; padding: 48px 60px 0; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.4fr 1fr; gap: 36px; padding-bottom: 40px; border-bottom: 1px solid #444; }
-footer h4 { color: #fff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
-footer ul { list-style: none; }
-footer ul li { margin-bottom: 8px; font-size: 13px; }
-.contact-item { font-size: 13px; margin-bottom: 10px; }
-.social-row { display: flex; gap: 10px; }
-.social-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 13px; font-weight: 700; }
-.footer-bottom { text-align: center; padding: 18px 0; font-size: 12px; color: #555; }
-.footer-bottom span { color: #e53935; }
-
-@media (max-width: 768px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  nav ul { display: none; }
+/* Mobile */
+@media (max-width: 480px) {
+  footer { padding: 28px 16px 0; }
+  .footer-grid { gap: 24px; }
+  footer h4 { font-size: 10px; }
+  footer ul li, .contact-item { font-size: 12.5px; }
+  .social-btn { width: 32px; height: 32px; font-size: 12px; }
+  .footer-bottom { padding: 14px 0; font-size: 11px; }
 }

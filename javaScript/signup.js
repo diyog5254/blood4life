@@ -1,4 +1,6 @@
+// =============================
 // Show / Hide Password
+// =============================
 
 function togglePassword(checkbox, inputId) {
 
@@ -12,8 +14,35 @@ function togglePassword(checkbox, inputId) {
 
 }
 
+// =============================
+// Create Default Admin
+// =============================
 
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+let adminExists = users.find(function (user) {
+    return user.role === "Admin";
+});
+
+if (!adminExists) {
+
+    users.push({
+
+        id: 1,
+        fullName: "Administrator",
+        email: "admin@blood4life.com",
+        password: "admin123",
+        role: "Admin"
+
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+}
+
+// =============================
 // Sign Up
+// =============================
 
 document.getElementById("signupForm").addEventListener("submit", function (submitEvent) {
 
@@ -26,7 +55,7 @@ document.getElementById("signupForm").addEventListener("submit", function (submi
 
     let message = document.getElementById("message");
 
-    // Password Match Check
+    // Password Match
 
     if (password !== confirmPassword) {
 
@@ -65,11 +94,10 @@ document.getElementById("signupForm").addEventListener("submit", function (submi
         id: Date.now(),
         fullName: fullName,
         email: email,
-        password: password
+        password: password,
+        role: "Donor"
 
     };
-
-    // Save User
 
     users.push(newUser);
 
@@ -78,16 +106,25 @@ document.getElementById("signupForm").addEventListener("submit", function (submi
     message.style.color = "green";
     message.innerText = "Account created successfully.";
 
-    // Clear Form
-
     document.getElementById("signupForm").reset();
-
-    // Redirect after 2 seconds
 
     setTimeout(function () {
 
         window.location.href = "signin.html";
 
     }, 2000);
+
+});
+
+// =============================
+// Hamburger Menu
+// =============================
+
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".Header nav");
+
+menuBtn.addEventListener("click", function () {
+
+    nav.classList.toggle("open");
 
 });

@@ -1,4 +1,6 @@
+// =============================
 // Show / Hide Password
+// =============================
 
 function togglePassword() {
 
@@ -6,15 +8,22 @@ function togglePassword() {
     let button = document.querySelector(".show-btn");
 
     if (password.type === "password") {
+
         password.type = "text";
         button.innerText = "Hide";
+
     } else {
+
         password.type = "password";
         button.innerText = "Show";
+
     }
 
 }
+
+// =============================
 // Sign In
+// =============================
 
 document.getElementById("signInForm").addEventListener("submit", function (submitEvent) {
 
@@ -23,10 +32,8 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value;
 
-    // Get all users
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Find matching user
     let user = users.find(function (currentUser) {
 
         return currentUser.email === email &&
@@ -36,53 +43,32 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
 
     if (user) {
 
-        // Save logged in user
-        localStorage.setItem("loggedInUser", JSON.stringify(user));
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-        alert("Login Successful!");
+    alert("Login Successful!");
 
-        // Get previous page
-        let previousPage = sessionStorage.getItem("redirectAfterLogin");
+    window.location.href = "home.html";
 
-        // Admin Login
-        if (user.role === "Admin") {
+} else {
 
-            window.location.href = "adminDashboard.html";
+    alert("Invalid Email or Password.");
 
-        }
-
-        // Donor Login
-        else {
-
-            if (previousPage) {
-
-                sessionStorage.removeItem("redirectAfterLogin");
-                window.location.href = previousPage;
-
-            } else {
-
-                window.location.href = "index.html";
-
-            }
-
-        }
-
-    } else {
-
-        alert("Invalid Email or Password.");
-
-    }
+}
 
 });
 
+// =============================
 // Forgot Password
+// =============================
 
 document.getElementById("forgotPassword").addEventListener("click", function () {
 
     let email = prompt("Enter your registered email:");
 
     if (email === null || email.trim() === "") {
+
         return;
+
     }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -104,3 +90,16 @@ document.getElementById("forgotPassword").addEventListener("click", function () 
     }
 
 });
+
+// =============================
+// Hamburger Menu
+// =============================
+
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".Header nav");
+
+if (menuBtn && nav) {
+    menuBtn.addEventListener("click", function () {
+        nav.classList.toggle("open");
+    });
+}

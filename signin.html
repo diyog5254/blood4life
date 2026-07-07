@@ -5,42 +5,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - Blood Donation System</title>
+    <link rel="stylesheet" href="style/navbars.css">
     <link rel="stylesheet" href="style/signin.css">
 </head>
 
 <body>
-    <main class="login-box">
-        <h2>Sign In</h2>
-        <p>Blood Donation System</p>
+    <div class="container">
+        <header class="Header">
+            <nav>
+                <span class="logo"><span class="red">Blood</span>4Life</span>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="dashboardpage.html">Dashboard</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="signin.html">Signin</a></li>
+                </ul>
+                <button class="btn"><a href="donor-form.html">Become Donor</a></button>
+                <button class="menu-btn">☰</button>
 
-        <form id="signInForm">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+            </nav>
+        </header>
+        <main>
+            <form id="signInForm">
 
-            <label for="password">Password</label>
+                <label for="email">Email</label>
 
-            <section class="password-field">
-                <input type="password" id="password" placeholder="Enter your password" required>
+                <input type="email" id="email" placeholder="Enter your email" required>
 
-                <button type="button" class="show-btn" onclick="togglePassword()">
-                    Show
-                </button>
-            </section>
 
-            <button type="submit">Sign In</button>
-        </form>
 
-        <p class="forgot-password">
-            <a href="#" id="forgotPassword">Forgot Password?</a>
-        </p>
-        <p>
-            Don't have an account?
-            <a href="signup.html">Sign Up</a>
-        </p>
-    </main>
+                <label for="password">Password</label>
 
-    <script src="javaScript/signin.js"></script>
 
+
+                <section class="password-field">
+
+                    <input type="password" id="password" placeholder="Enter your password" required>
+
+
+
+                    <button type="button" class="show-btn" onclick="togglePassword()">
+
+                        Show
+
+                    </button>
+
+                </section>
+
+
+
+                <button type="submit">Sign In</button>
+
+            </form>
+
+
+
+            <p class="forgot-password">
+
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+
+            </p>
+
+            <p>
+
+                Don't have an account?
+
+                <a href="signup.html">Sign Up</a>
+
+            </p>
+
+        </main>
+
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="margin-bottom:12px;"><span class="red">Blood</span>4Life</div>
+                    <p style="font-size:13px;line-height:1.7;">Saving lives through safe blood donation.<br>Join our
+                        community of
+                        lifesavers today.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About </a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="dashboardpage.html">Dashboard</a></li>
+                        <li><a href="home.html">Home</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">📞 +977-9874563214</div>
+                    <div class="contact-item">✉️ blood4life@123gmail.com</div>
+                    <div class="contact-item">📍 1469 Broaddus Avenue</div>
+                </div>
+                <div>
+                    <h4>Follow Us On</h4>
+                    <div class="social-row">
+                        <span class="social-btn">f</span>
+                        <span class="social-btn">in</span>
+                        <span class="social-btn">ig</span>
+                        <span class="social-btn">tw</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 <span>BLOOD4LIFE</span>. All rights reserved. Saving lives one
+                donation
+                at a
+                time.</div>
+        </footer>
+
+        <script src="javaScript/signin.js"></script>
+
+    </div>
 </body>
 
 </html>

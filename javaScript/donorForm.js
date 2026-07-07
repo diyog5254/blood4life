@@ -1,3 +1,11 @@
+const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('.Header nav');
+
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  
+  
 const form = document.getElementById("donorForm");
 
 form.addEventListener("submit", function (e) {

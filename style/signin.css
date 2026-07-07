@@ -1,129 +1,172 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+/* Page Layout */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#f8f8f8;
-    padding:20px;
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.signin-box{
-    width:min(100%, 380px);
-    background:#fff;
-    padding:2rem;
-    border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+/* Center Sign In Section */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
 }
 
-.signin-box h2{
-    text-align:center;
-    color:#d10000;
-    margin-bottom:0.5rem;
+/* Sign In Box */
+#signInForm {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.signin-box p:first-of-type{
-    text-align:center;
-    color:#666;
-    margin-bottom:1.5rem;
+/* Labels */
+#signInForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
-label{
-    display:block;
-    margin:.8rem 0 .3rem;
-    font-weight:600;
-    color:#333;
+/* Inputs */
+#signInForm input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
 }
 
-input{
-    width:100%;
-    padding:.8rem;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:1rem;
+/* Password Section */
+.password-field {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
-input:focus{
-    outline:none;
-    border-color:#d10000;
+.password-field input {
+    flex: 1;
+    margin-bottom: 0;
 }
 
-.password-field{
-    display:flex;
-    gap:8px;
-    align-items:center;
+/* Show Button */
+.show-btn {
+    padding: 12px 18px;
+    border: none;
+    background: #d62828;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.password-field input{
-    flex:1;
+.show-btn:hover {
+    background: #b71c1c;
 }
 
-.show-btn{
-    width:auto;
-    margin:0;
-    padding:.8rem 1rem;
-    background:#f1f1f1;
-    color:#333;
-    border:1px solid #ccc;
-    border-radius:6px;
-    cursor:pointer;
+/* Sign In Button */
+#signInForm button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #d62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.show-btn:hover{
-    background:#e5e5e5;
+#signInForm button[type="submit"]:hover {
+    background: #b71c1c;
 }
 
-form button[type="submit"]{
-    width:100%;
-    padding:.9rem;
-    margin-top:1rem;
-    border:none;
-    border-radius:6px;
-    background:#d10000;
-    color:white;
-    font-size:1rem;
-    font-weight:bold;
-    cursor:pointer;
+/* Links */
+.forgot-password,
+main p:last-child {
+    text-align: center;
+    margin-top: 15px;
 }
 
-form button[type="submit"]:hover{
-    background:#b00000;
+.forgot-password a,
+main p a {
+    color: #d62828;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.signin-box p{
-    text-align:center;
-    margin-top:1rem;
+.forgot-password a:hover,
+main p a:hover {
+    text-decoration: underline;
 }
 
-a{
-    color:#d10000;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-/* Mobile Responsive */
-@media (max-width:480px){
-
-    .signin-box{
-        padding:1.5rem;
+/* Mobile */
+@media (max-width: 480px) {
+    #signInForm {
+        max-width: 90%;
+        padding: 25px;
     }
 
-    .password-field{
-        flex-direction:column;
-        align-items:stretch;
+    .password-field {
+        flex-direction: column;
     }
 
-    .show-btn{
-        width:100%;
+    .show-btn {
+        width: 100%;
     }
+}
+
+/* --- MOBILE VIEWPORTS (480px and below) --- */
+@media screen and (max-width: 480px) {
+  main {
+    padding: 2rem 1.5rem; /* Drops padding slightly for more side-to-side real estate */
+  }
+
+  /* Stack input and show-btn vertically so the input element doesn't crush on small devices */
+  .password-field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .show-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 13px;
+  }
+
+  /* Increase tap size of core buttons for better mobile ergonomics */
+  form button[type="submit"] {
+    padding: 1rem;
+  }
+}
+
+/* --- TOUCH ACCESSIBILITY (Clears sticky hover triggers) --- */
+@media (hover: none) {
+  .show-btn:hover,
+  form button[type="submit"]:hover {
+    background-color: initial; /* Strips desktop hovers off capacitive phone glass */
+  }
+
+  form button[type="submit"]:active {
+    background: #b91c1c;
+  }
+  .show-btn:active {
+    background: #e5e7eb;
+  }
 }

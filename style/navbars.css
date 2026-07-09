@@ -26,7 +26,7 @@
 }
 
 .logo .red {
-  color: #dc2626; 
+  color: #dc2626;
 }
 
 .Header ul {
@@ -79,15 +79,118 @@
   padding: 4px;
 }
 
+/* ===========================
+   Profile Section
+=========================== */
+
+.profile-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+/* ===========================
+   Profile Card
+=========================== */
+
+.profile-card {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 35px;
+  text-align: center;
+}
+
+/* ===========================
+   Profile Image
+=========================== */
+
+.profile-image img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #d62828;
+  margin-bottom: 20px;
+}
+
+.profile-card h2 {
+  margin: 10px 0;
+  color: #d62828;
+}
+
+.profile-card p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   User Information
+=========================== */
+
+.profile-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  text-align: left;
+}
+
+.profile-info div {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #d62828;
+}
+
+.profile-info strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #d62828;
+}
+
+.profile-info span {
+  color: #333;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.profile-buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.profile-buttons button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  background: #d62828;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.profile-buttons button:hover {
+  background: #b71c1c;
+}
+
 @media screen and (max-width: 850px) {
-  
+
   /* Reveal the Hamburger icon on smaller screens */
   .menu-btn {
     display: block;
   }
 
   .Header nav ul {
-    display: none; 
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -101,21 +204,75 @@
     text-align: center;
   }
 
-  
+
   .Header .btn {
-    display: none; 
+    display: none;
   }
 
   .Header nav ul.open {
     display: flex;
   }
+
+  .profile-card {
+
+    padding: 30px 20px;
+
+  }
+
+  .profile-info {
+
+    grid-template-columns: 1fr;
+
+  }
+}
+
+@media (max-width:480px) {
+
+  .profile-section {
+
+    padding: 20px 10px;
+
+  }
+
+  .profile-card {
+
+    padding: 20px 15px;
+
+  }
+
+  .profile-image img {
+
+    width: 110px;
+    height: 110px;
+
+  }
+
+  .profile-card h2 {
+
+    font-size: 24px;
+
+  }
+
+  .profile-buttons {
+
+    flex-direction: column;
+
+  }
+
+  .profile-buttons button {
+
+    width: 100%;
+
+  }
+
 }
 
 /*FOOTER */
 footer {
   background-color: #1a1a1a;
   color: #ffffff;
-  padding: 40px 20px 20px 20px; /* Snugger padding for small screens */
+  padding: 40px 20px 20px 20px;
+  /* Snugger padding for small screens */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -124,7 +281,7 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr; 
+  grid-template-columns: 1fr;
   gap: 30px;
 }
 
@@ -145,10 +302,12 @@ footer h4::after {
   bottom: -6px;
   width: 35px;
   height: 2px;
-  background-color: #e53e3e; 
+  background-color: #e53e3e;
 }
 
-footer p, .contact-item, footer ul li a {
+footer p,
+.contact-item,
+footer ul li a {
   color: #a0aec0;
   font-size: 14px;
 }
@@ -161,6 +320,7 @@ footer p, .contact-item, footer ul li a {
 .logo .red {
   color: #e53e3e;
 }
+
 footer ul {
   list-style: none;
   padding: 0;
@@ -179,9 +339,11 @@ footer ul li a {
 footer ul li a:hover {
   color: #e53e3e;
 }
+
 .contact-item {
   margin-bottom: 14px;
 }
+
 .social-row {
   display: flex;
   gap: 12px;
@@ -206,6 +368,7 @@ footer ul li a:hover {
   background-color: #e53e3e;
   transform: translateY(-3px);
 }
+
 .footer-bottom {
   max-width: 1200px;
   margin: 40px auto 0 auto;
@@ -228,6 +391,7 @@ footer ul li a:hover {
   footer {
     padding: 50px 30px 20px 30px;
   }
+
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -239,11 +403,12 @@ footer ul li a:hover {
   footer {
     padding: 60px 40px 25px 40px;
   }
+
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
   }
-  
+
   .footer-bottom {
     margin-top: 60px;
   }

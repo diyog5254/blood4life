@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../style/navbars.css">
+    <link rel="stylesheet" href="../style/admin.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <header class="Header">
+
+        <nav>
+
+            <span class="logo">
+                <span class="red">Blood</span>4Life
+            </span>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </nav>
+
+    </header>
+
+    <!-- Dashboard -->
+
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <h2>Admin Panel</h2>
+
+            <ul>
+
+                <li>
+                    <a href="adminDashboard.html" class="active">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="donorList.html">
+                        Manage Donors
+                    </a>
+                </li>
+
+                <li>
+                    <a href="bloodRequests.html">
+                        Blood Requests
+                    </a>
+                </li>
+
+                <li>
+                    <a href="reports.html">
+                        Reports
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../profile.html">
+                        Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="logout()">
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- Content -->
+
+        <section class="dashboard-content">
+
+            <h1>Dashboard</h1>
+
+            <!-- Cards -->
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Total Donors</h3>
+
+                    <h2 id="totalDonors">0</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Blood Requests</h3>
+
+                    <h2 id="totalRequests">0</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Total Users</h3>
+
+                    <h2 id="totalUsers">0</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Blood Groups</h3>
+
+                    <h2>8</h2>
+
+                </div>
+
+            </div>
+
+            <!-- Table -->
+
+            <div class="table-box">
+
+                <h2>Recent Donors</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Blood Group</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="donorTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="../javaScript/admin.js"></script>
+
+</body>
+
+</html>

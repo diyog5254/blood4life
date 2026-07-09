@@ -81,6 +81,67 @@ body {
     color: #d62828;
 }
 
+
+/* ===========================
+   Search Box
+=========================== */
+
+.search-box {
+
+    margin-bottom: 25px;
+
+}
+
+.search-box input {
+
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+
+}
+
+/* ===========================
+   Action Buttons
+=========================== */
+
+.action-btn {
+
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    margin: 2px;
+
+}
+
+.edit-btn {
+
+    background: #0077b6;
+
+}
+
+.delete-btn {
+
+    background: #d62828;
+
+}
+
+.edit-btn:hover {
+
+    background: #005f8f;
+
+}
+
+.delete-btn:hover {
+
+    background: #b71c1c;
+
+}
+
 /* ===========================
    Cards
 =========================== */
@@ -97,7 +158,7 @@ body {
     padding: 25px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
     border-top: 5px solid #d62828;
 }
 
@@ -121,7 +182,7 @@ body {
     background: white;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
 }
 
 .table-box h2 {
@@ -175,11 +236,11 @@ table tr:hover {
 
 /* Laptop */
 
-@media (max-width:1200px){
+@media (max-width:1200px) {
 
-    .cards{
+    .cards {
 
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
 
     }
 
@@ -187,45 +248,45 @@ table tr:hover {
 
 /* Tablet */
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-    .dashboard-container{
+    .dashboard-container {
 
-        flex-direction:column;
-
-    }
-
-    .sidebar{
-
-        width:100%;
-        padding:20px;
+        flex-direction: column;
 
     }
 
-    .sidebar ul{
+    .sidebar {
 
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:10px;
+        width: 100%;
+        padding: 20px;
 
     }
 
-    .sidebar li{
+    .sidebar ul {
 
-        margin:0;
-
-    }
-
-    .dashboard-content{
-
-        padding:20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
 
     }
 
-    .cards{
+    .sidebar li {
 
-        grid-template-columns:1fr;
+        margin: 0;
+
+    }
+
+    .dashboard-content {
+
+        padding: 20px;
+
+    }
+
+    .cards {
+
+        grid-template-columns: 1fr;
 
     }
 
@@ -233,29 +294,29 @@ table tr:hover {
 
 /* Mobile */
 
-@media (max-width:480px){
+@media (max-width:480px) {
 
-    .dashboard-content{
+    .dashboard-content {
 
-        padding:15px;
-
-    }
-
-    .card{
-
-        padding:20px;
+        padding: 15px;
 
     }
 
-    .table-box{
+    .card {
 
-        overflow-x:auto;
+        padding: 20px;
 
     }
 
-    table{
+    .table-box {
 
-        min-width:500px;
+        overflow-x: auto;
+
+    }
+
+    table {
+
+        min-width: 500px;
 
     }
 

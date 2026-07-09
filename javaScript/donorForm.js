@@ -1,102 +1,210 @@
-const menuBtn = document.querySelector('.menu-btn');
-  const nav = document.querySelector('.Header nav');
+// ===============================
+// LOGIN CHECK
+// ===============================
 
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-  
-  
-const form = document.getElementById("donorForm");
+let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+if (!loggedInUser) {
 
-    const name = form.name.value.trim();
-    const dob = form.dob.value;
-    const gender = document.querySelector('input[name="gender"]:checked');
-    const blood = form.blood.value;
-    const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
-    const whatsapp = form.whatsapp.value.trim();
-    const address = form.address.value.trim();
+    alert("Please Sign In First!");
 
-    // Name Validation
-    const namePattern = /^[A-Za-z\s]+$/;
-    if (!namePattern.test(name)) {
-        alert("Please enter a valid full name.");
-        form.name.focus();
-        return;
-    }
+    window.location.href = "signin.html";
 
-    // Age Validation (18+)
-    if (dob === "") {
-        alert("Please select your date of birth.");
-        form.dob.focus();
-        return;
-    }
+}
 
-    const birthDate = new Date(dob);
-    const today = new Date();
+// ===============================
+// AUTO FILL NAME & EMAIL
+// ===============================
+
+document.getElementById("name").value = loggedInUser.fullName;
+
+document.getElementById("email").value = loggedInUser.email;
+
+// ===============================
+// DONOR FORM
+// ===============================
+
+document.getElementById("donorForm").addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    let dob = document.getElementById("dob").value;
+    let weight = Number(document.getElementById("weight").value);
+    let blood = document.getElementById("blood").value;
+    let phone = document.getElementById("phone").value.trim();
+    let whatsapp = document.getElementById("whatsapp").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let previousDonation = document.getElementById("previousDonation").value;
+
+    let gender = document.querySelector('input[name="gender"]:checked');
+
+    // ===============================
+    // AGE VALIDATION
+    // ===============================
+
+    let birthDate = new Date(dob);
+
+    let today = new Date();
 
     let age = today.getFullYear() - birthDate.getFullYear();
-    const month = today.getMonth() - birthDate.getMonth();
+
+    let month = today.getMonth() - birthDate.getMonth();
 
     if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+
         age--;
+
     }
 
     if (age < 18) {
-        alert("Donor must be at least 18 years old.");
-        form.dob.focus();
+
+        alert("You must be at least 18 years old.");
+
         return;
+
     }
 
-    // Gender
-    if (!gender) {
-        alert("Please select your gender.");
+    // ===============================
+    // WEIGHT VALIDATION
+    // ===============================
+
+    if (weight < 45) {
+
+        alert("Minimum weight must be 45 kg.");
+
         return;
+
     }
 
-    // Blood Group
-    if (blood === "") {
-        alert("Please select your blood group.");
-        form.blood.focus();
-        return;
+    // ===============================
+    // PREVIOUS DONATION VALIDATION
+    // ===============================
+
+    if (previousDonation !== "") {
+
+        let lastDonation = new Date(previousDonation);
+
+        let difference = today - lastDonation;
+
+        let days = difference / (1000 * 60 * 60 * 24);
+
+        if (days < 90) {
+
+            alert("Blood can only be donated after 90 days.");
+
+            return;
+
+        }
+
     }
 
-    // Email Validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // ===============================
+    // DUPLICATE DONOR CHECK
+    // ===============================
 
-    if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
-        form.email.focus();
+    let donors = JSON.parse(localStorage.getItem("donors")) || [];
+
+    let alreadyDonor = donors.find(function (donor) {
+
+        return donor.userId === loggedInUser.id;
+
+    });
+
+    if (alreadyDonor) {
+
+        alert("You are already registered as a donor.");
+
+        window.location.href = "profile.html";
+
         return;
+
     }
 
-    // // Nepal Phone Number
-    // const phonePattern = /^(98|97)\d{8}$/;
+    // ===============================
+    // SAVE DONOR
+    // ===============================
 
-    // if (!phonePattern.test(phone)) {
-    //     alert("Enter a valid Nepal mobile number (98XXXXXXXX or 97XXXXXXXX).");
-    //     form.phone.focus();
-    //     return;
-    // }
+    let newDonor = {
 
-    // WhatsApp (Optional)
-    if (whatsapp !== "" && !phonePattern.test(whatsapp)) {
-        alert("Enter a valid WhatsApp number.");
-        form.whatsapp.focus();
-        return;
-    }
+        userId: loggedInUser.id,
 
-    // Address
-    if (address.length < 5) {
-        alert("Please enter a valid address.");
-        form.address.focus();
-        return;
-    }
+        fullName: loggedInUser.fullName,
 
-    alert("Donor Registration Successful!");
+        email: loggedInUser.email,
 
-    form.reset();
+        dob: dob,
+
+        age: age,
+
+        weight: weight,
+
+        gender: gender.value,
+
+        bloodGroup: blood,
+
+        previousDonation: previousDonation,
+
+        phone: phone,
+
+        whatsapp: whatsapp,
+
+        address: address
+
+    };
+
+    donors.push(newDonor);
+
+    localStorage.setItem("donors", JSON.stringify(donors));
+
+    // ===============================
+    // UPDATE USER ROLE
+    // ===============================
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    users.forEach(function (user) {
+
+        if (user.id === loggedInUser.id) {
+
+            user.role = "Donor";
+
+        }
+
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // ===============================
+    // UPDATE LOGGED USER
+    // ===============================
+
+    loggedInUser.role = "Donor";
+
+    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+
+    // ===============================
+    // SUCCESS
+    // ===============================
+
+    alert("Congratulations! You are now a Blood Donor.");
+
+    window.location.href = "profile.html";
+
 });
+
+// ===============================
+// MOBILE MENU
+// ===============================
+
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".Header nav");
+
+if (menuBtn) {
+
+    menuBtn.addEventListener("click", function () {
+
+        nav.classList.toggle("open");
+
+    });
+
+}

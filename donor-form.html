@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/navbars.css">
+    <link rel="stylesheet" href="style/forms.css">
     <link rel="stylesheet" href="style/donor-form.css">
 </head>
 
@@ -16,11 +17,21 @@
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="dashboardpage.html">Dashboard</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="signin.html">Signin</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
             </ul>
-            <button class="btn"><a href="donor-form.html">Become Donor</a></button>
+            <div class="hero-buttons">
+
+                <a href="donor-form.html" class="btn donate-btn">
+                    Become Donor
+                </a>
+
+                <button id="requestBtn" class="btn request-btn">
+                    Request Blood
+                </button>
+
+            </div>
             <button class="menu-btn">☰</button>
 
         </nav>
@@ -36,9 +47,15 @@
                 <label for="full name">Full Name</label>
                 <input type="text" id="name" name="name" required>
 
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" readonly>
+
 
                 <label for="dob">Date of Birth (Must be 18+)</label>
                 <input type="date" id="dob" name="dob">
+
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" name="weight" min="45" placeholder="Enter your weight" required>
 
                 <label for="gender">Gender</label>
 
@@ -74,13 +91,16 @@
                     <option>AB-</option>
                 </select>
 
+                <label for="previousDonation">
+                    Previous Donation Date
+                </label>
+
+                <input type="date" id="previousDonation" name="previousDonation">
+
             </fieldset>
 
             <fieldset>
                 <legend>Contact Information</legend>
-
-                <label for="email ">Email</label>
-                <input type="email" id="email" name="email" required>
 
 
                 <label for="phone">Phone</label>
@@ -95,6 +115,18 @@
                 <textarea id="address" name="address" rows="3" required></textarea>
 
             </fieldset>
+
+            <div class="declaration">
+
+                <label>
+
+                    <input type="checkbox" id="agree" required>
+
+                    I confirm that all the information provided is correct.
+
+                </label>
+
+            </div>
 
             <div class="button-group">
                 <button type="submit">Submit</button>
@@ -116,7 +148,6 @@
                 <ul>
                     <li><a href="about.html">About </a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="dashboardpage.html">Dashboard</a></li>
                     <li><a href="home.html">Home</a></li>
                 </ul>
             </div>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Donors</title>
+
+    <link rel="stylesheet" href="../style/navbars.css">
+    <link rel="stylesheet" href="../style/admin.css">
+
+</head>
+
+<body>
+
+<div class="container">
+    
+
+    <!-- Header -->
+
+    <header class="Header">
+
+        <nav>
+
+            <span class="logo">
+                <span class="red">Blood</span>4Life
+            </span>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </nav>
+
+    </header>
+
+    <!-- Dashboard -->
+
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <h2>Admin Panel</h2>
+
+            <ul>
+
+                <li>
+                    <a href="adminDashboard.html">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="donorList.html" class="active">
+                        Manage Donors
+                    </a>
+                </li>
+
+                <li>
+                    <a href="bloodRequests.html">
+                        Blood Requests
+                    </a>
+                </li>
+
+                <li>
+                    <a href="reports.html">
+                        Reports
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../profile.html">
+                        Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="logout()">
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- Main Content -->
+
+        <section class="dashboard-content">
+
+            <h1>Manage Donors</h1>
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search donor by name..."
+                >
+
+            </div>
+
+            <!-- Table -->
+
+            <div class="table-box">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Blood Group</th>
+
+                            <th>Phone</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="donorTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="../javaScript/donorList.js"></script>
+
+</body>
+
+</html>

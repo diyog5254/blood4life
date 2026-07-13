@@ -9,8 +9,8 @@
     <title>Blood Request</title>
 
     <link rel="stylesheet" href="style/navbars.css">
-    <link rel="stylesheet" href="style/forms.css">
-    <link rel="stylesheet" href="style/request.css">
+    <link rel="stylesheet" href="style/form.css">
+    <link rel="stylesheet" href="style/request-form.css">
 
 </head>
 
@@ -29,18 +29,19 @@
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="signin.html">Signin</a></li>
                     <li><a href="profile.html" class="active">Profile</a></li>
+                    <div class="hero-buttons">
+
+                        <a href="donor-form.html" class="btn donate-btn">
+                            Become Donor
+                        </a>
+
+                        <a href="request-form.html" id="requestBtn" class="btn request-btn">
+                            Request Blood
+                        </a>
+
+                    </div>
                 </ul>
-                <div class="hero-buttons">
 
-                    <a href="donor-form.html" class="btn donate-btn">
-                        Become Donor
-                    </a>
-
-                    <button id="requestBtn" class="btn request-btn">
-                        Request Blood
-                    </button>
-
-                </div>
                 <button class="menu-btn">☰</button>
 
             </nav>
@@ -57,7 +58,7 @@
                 <form id="requestForm">
 
                     <label>Patient Name</label>
-                    <input type="text" id="patientName" readonly>
+                    <input type="text" id="patientName" required>
 
                     <label>Email</label>
                     <input type="email" id="email" readonly>
@@ -147,7 +148,46 @@
 
     </div>
 
-    <script src="javaScript/request.js"></script>
+    <!-- Success Popup -->
+
+    <div id="popup" class="popup">
+
+        <div class="popup-box">
+
+            <h2 id="popupTitle">Success</h2>
+
+            <p id="popupMessage"></p>
+
+            <button id="popupBtn">OK</button>
+
+        </div>
+
+    </div>
+
+    <!-- Confirm Popup -->
+
+    <div id="confirmPopup" class="popup">
+
+        <div class="popup-box">
+
+            <h2 id="confirmTitle">Confirm</h2>
+
+            <p id="confirmMessage"></p>
+
+            <div class="popup-buttons">
+
+                <button id="confirmYes">Yes</button>
+
+                <button id="confirmNo">Cancel</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="javaScript/request-form.js"></script>
+    <script src="javaScript/popup.js"></script>
 
 </body>
 

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/navbars.css">
+    <link rel="stylesheet" href="../style/admin-dashboard.css">
+    <link rel="stylesheet" href="../style/dashboardPage.css">
+</head>
+
+<body>
+    <header class="Header">
+        <nav>
+            <span class="logo"><span class="red">Blood</span>4Life</span>
+            <ul>
+
+                <li><a href="admin-dashboard.html" class="active">Dashboard</a></li>
+
+                <li><a href="donor-list.html">Donors</a></li>
+
+                <li><a href="request-list.html">Requests</a></li>
+
+                <li><a href="../profile.html">Profile</a></li>
+
+                <li><a href="admin-dashboard.html">Home</a></li>
+
+                <div class="hero-buttons">
+
+                    <button id="logoutBtn" class="btn request-btn">
+                        Logout
+                    </button>
+
+                </div>
+
+            </ul>
+
+            <button class="menu-btn">☰</button>
+
+        </nav>
+    </header>
+
+    <main class="admin-container">
+
+        <h1>Registered Donors</h1>
+
+        <table class="donor-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Email</th>
+
+                    <th>Blood Group</th>
+
+                    <th>Phone</th>
+
+                    <th>Address</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="donorTableBody">
+
+            </tbody>
+
+        </table>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="logo" style="margin-bottom:12px;"><span class="red">Blood</span>4Life</div>
+                <p style="font-size:13px;line-height:1.7;">Saving lives through safe blood donation.<br>Join our
+                    community of
+                    lifesavers today.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../about.html">About </a></li>
+                    <li><a href="../gallery.html">Gallery</a></li>
+                    <li><a href="../home.html">Home</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <div class="contact-item">📞 +977-9874563214</div>
+                <div class="contact-item">✉️ blood4life@123gmail.com</div>
+                <div class="contact-item">📍 1469 Broaddus Avenue</div>
+            </div>
+            <div>
+                <h4>Follow Us On</h4>
+                <div class="social-row">
+                    <span class="social-btn">f</span>
+                    <span class="social-btn">in</span>
+                    <span class="social-btn">ig</span>
+                    <span class="social-btn">tw</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 <span>BLOOD4LIFE</span>. All rights reserved. Saving lives one donation
+            at a
+            time.</div>
+    </footer>
+
+    <!-- Success Popup -->
+
+    <div id="popup" class="popup">
+
+        <div class="popup-box">
+
+            <h2 id="popupTitle">Success</h2>
+
+            <p id="popupMessage"></p>
+
+            <button id="popupBtn">OK</button>
+
+        </div>
+
+    </div>
+
+    <!-- Confirm Popup -->
+
+    <div id="confirmPopup" class="popup">
+
+        <div class="popup-box">
+
+            <h2 id="confirmTitle">Confirm</h2>
+
+            <p id="confirmMessage"></p>
+
+            <div class="popup-buttons">
+
+                <button id="confirmYes">Yes</button>
+
+                <button id="confirmNo">Cancel</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../javaScript/admin-dashboard.js"></script>
+    <script src="../javaScript/popup.js"></script>
+</body>
+
+</html>

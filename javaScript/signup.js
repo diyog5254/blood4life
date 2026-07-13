@@ -28,13 +28,14 @@ if (!adminExists) {
 
     users.push({
 
-        id: 1,
+        id:Date.now(),
         fullName: "Administrator",
-        email: "admin@blood4life.com",
+        email: "admin123@gmail.com",
         password: "admin123",
         role: "Admin"
 
     });
+    
 
     localStorage.setItem("users", JSON.stringify(users));
 
@@ -91,13 +92,17 @@ document.getElementById("signupForm").addEventListener("submit", function (submi
 
     let newUser = {
 
-        id: Date.now(),
-        fullName: fullName,
-        email: email,
-        password: password,
-        role: "Donor"
+    id: Date.now(),
 
-    };
+    fullName: fullName,
+
+    email: email,
+
+    password: password,
+
+    role: "User"
+
+};
 
     users.push(newUser);
 

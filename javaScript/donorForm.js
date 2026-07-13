@@ -160,13 +160,29 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
     // UPDATE USER ROLE
     // ===============================
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
     users.forEach(function (user) {
 
         if (user.id === loggedInUser.id) {
 
             user.role = "Donor";
+
+            user.dob = dob;
+
+            user.age = age;
+
+            user.weight = weight;
+
+            user.gender = gender.value;
+
+            user.bloodGroup = blood;
+
+            user.previousDonation = previousDonation;
+
+            user.phone = phone;
+
+            user.whatsapp = whatsapp;
+
+            user.address = address;
 
         }
 
@@ -180,15 +196,35 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     loggedInUser.role = "Donor";
 
+    loggedInUser.dob = dob;
+
+    loggedInUser.age = age;
+
+    loggedInUser.weight = weight;
+
+    loggedInUser.gender = gender.value;
+
+    loggedInUser.bloodGroup = blood;
+
+    loggedInUser.previousDonation = previousDonation;
+
+    loggedInUser.phone = phone;
+
+    loggedInUser.whatsapp = whatsapp;
+
+    loggedInUser.address = address;
+
     localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
 
     // ===============================
     // SUCCESS
     // ===============================
 
-    alert("Congratulations! You are now a Blood Donor.");
-
-    window.location.href = "profile.html";
+    showPopup(
+        "Congratulations!",
+        "You are now a registered Blood Donor.",
+        "profile.html"
+    );
 
 });
 

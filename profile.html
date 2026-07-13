@@ -31,9 +31,9 @@
                         Become Donor
                     </a>
 
-                    <button id="requestBtn" class="btn request-btn">
+                    <a href="request-form.html" id="requestBtn" class="btn request-btn">
                         Request Blood
-                    </button>
+                    </a>
 
                 </div>
                 <button class="menu-btn">☰</button>
@@ -42,59 +42,69 @@
         </header>
 
         <!-- Profile -->
-        <main class="profile-section">
+        <main class="profile-container">
+
+            <h1>My Profile</h1>
 
             <div class="profile-card">
 
-                <div class="profile-image">
+                <div class="profile-header">
 
-                    <img src="images/profile.png" alt="Profile">
+                    <div class="profile-image">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <h2 id="profileName"></h2>
+
+                        <p id="profileEmail"></p>
+
+                        <span id="profileRole"></span>
+
+                    </div>
 
                 </div>
 
-                <h2 id="userName">User Name</h2>
+                <div class="profile-details">
 
-                <p id="userRole">Role</p>
+                    <div class="detail-box">
 
-                <div class="profile-info">
+                        <h3>Personal Information</h3>
 
-                    <div>
-                        <strong>Email</strong>
-                        <span id="userEmail"></span>
+                        <p><strong>Phone:</strong> <span id="profilePhone"></span></p>
+
+                        <p><strong>Address:</strong> <span id="profileAddress"></span></p>
+
+                        <p><strong>Gender:</strong> <span id="profileGender"></span></p>
+
+                        <p><strong>Age:</strong> <span id="profileAge"></span></p>
+
                     </div>
 
-                    <div>
-                        <strong>Phone</strong>
-                        <span id="userPhone"></span>
-                    </div>
+                    <div class="detail-box">
 
-                    <div>
-                        <strong>Blood Group</strong>
-                        <span id="userBlood"></span>
-                    </div>
+                        <h3>Donation Information</h3>
 
-                    <div>
-                        <strong>Age</strong>
-                        <span id="userAge"></span>
-                    </div>
+                        <p><strong>Blood Group:</strong> <span id="profileBlood"></span></p>
 
-                    <div>
-                        <strong>Gender</strong>
-                        <span id="userGender"></span>
-                    </div>
+                        <p><strong>Weight:</strong> <span id="profileWeight"></span></p>
 
-                    <div>
-                        <strong>Address</strong>
-                        <span id="userAddress"></span>
+                        <p><strong>Last Donation:</strong> <span id="profileDonation"></span></p>
+
+                        <p><strong>Status:</strong> <span id="profileStatus"></span></p>
+
                     </div>
 
                 </div>
 
                 <div class="profile-buttons">
 
-                    <button>Edit Profile</button>
+                    <a href="#" id="dashboardBtn">Dashboard</a>
 
-                    <button onclick="logout()">Logout</button>
+                    <a href="donor-form.html">Edit Profile</a>
+
+                    <button id="logoutBtn">Logout</button>
 
                 </div>
 
@@ -142,7 +152,46 @@
 
     </div>
 
+    <!-- Success Popup -->
+
+    <div id="popup" class="popup">
+
+        <div class="popup-box">
+
+            <h2 id="popupTitle">Success</h2>
+
+            <p id="popupMessage"></p>
+
+            <button id="popupBtn">OK</button>
+
+        </div>
+
+    </div>
+
+    <!-- Confirm Popup -->
+
+    <div id="confirmPopup" class="popup">
+
+        <div class="popup-box">
+
+            <h2 id="confirmTitle">Confirm</h2>
+
+            <p id="confirmMessage"></p>
+
+            <div class="popup-buttons">
+
+                <button id="confirmYes">Yes</button>
+
+                <button id="confirmNo">Cancel</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <script src="javaScript/profile.js"></script>
+    <script src="javaScript/popup.js"></script>
 
 </body>
 

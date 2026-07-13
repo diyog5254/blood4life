@@ -1,0 +1,115 @@
+.admin-container{
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+}
+
+.admin-container h1{
+
+    text-align:center;
+
+    color:#c62828;
+
+    margin-bottom:30px;
+
+}
+
+.admin-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.action-btn{
+
+    background:#c62828;
+
+    color:white;
+
+    padding:12px 20px;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.action-btn:hover{
+
+    background:#a61c1c;
+
+}
+
+
+/*DONOR LIST */
+.donor-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:30px;
+
+}
+
+.donor-table th{
+
+    background:#c62828;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+.donor-table td{
+
+    padding:15px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:center;
+
+}
+
+.donor-table tr:hover{
+
+    background:#f8f8f8;
+
+}
+
+.donor-table button{
+
+    background:#c62828;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+.donor-table button:hover{
+
+    background:#a61c1c;
+
+}

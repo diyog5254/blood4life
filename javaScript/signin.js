@@ -37,23 +37,40 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
     let user = users.find(function (currentUser) {
 
         return currentUser.email === email &&
-               currentUser.password === password;
+            currentUser.password === password;
 
     });
 
     if (user) {
 
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-    alert("Login Successful!");
+        if (user.role === "Admin") {
 
-    window.location.href = "home.html";
+            showPopup(
+                "Welcome Admin",
+                "Login Successful",
+                "admin/admin-dashboard.html"
+            );
 
-} else {
+        } else {
 
-    alert("Invalid Email or Password.");
+            showPopup(
+                "Welcome",
+                "Login Successful",
+                "home.html"
+            );
 
-}
+        }
+
+    } else {
+
+        showPopup(
+            "Login Failed",
+            "Invalid Email or Password."
+        );
+
+    }
 
 });
 
@@ -99,7 +116,11 @@ const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".Header nav");
 
 if (menuBtn && nav) {
+
     menuBtn.addEventListener("click", function () {
+
         nav.classList.toggle("open");
+
     });
+
 }

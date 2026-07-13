@@ -1,8 +1,22 @@
-// =============================
-// Check Login
-// =============================
+// ===============================
+// LOGIN CHECK
+// ===============================
 
-let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+document.getElementById("dashboardBtn").addEventListener("click", function () {
+
+    if (loggedInUser.role === "Admin") {
+
+        window.location.href = "admin/admin-dashboard.html";
+
+    } else {
+
+        window.location.href = "dashboardpage.html";
+
+    }
+
+});
+
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (!loggedInUser) {
 
@@ -12,61 +26,119 @@ if (!loggedInUser) {
 
 }
 
-// =============================
-// Display User Information
-// =============================
 
-document.getElementById("userName").innerText =
-    loggedInUser.fullName || "Not Available";
+// ===============================
+// GET DONOR INFORMATION
+// ===============================
 
-document.getElementById("userEmail").innerText =
-    loggedInUser.email || "Not Available";
+const donors = JSON.parse(localStorage.getItem("donors")) || [];
 
-document.getElementById("userRole").innerText =
-    loggedInUser.role || "Donor";
+const donor = donors.find(function (item) {
 
-document.getElementById("userPhone").innerText =
-    loggedInUser.phone || "Not Added";
+    return item.userId === loggedInUser.id;
 
-document.getElementById("userBlood").innerText =
-    loggedInUser.bloodGroup || "Not Added";
+});
 
-document.getElementById("userAge").innerText =
-    loggedInUser.age || "Not Added";
+// ===============================
+// BASIC INFORMATION
+// ===============================
 
-document.getElementById("userGender").innerText =
-    loggedInUser.gender || "Not Added";
+document.getElementById("profileName").textContent =
+    loggedInUser.fullName || "-";
 
-document.getElementById("userAddress").innerText =
-    loggedInUser.address || "Not Added";
+document.getElementById("profileEmail").textContent =
+    loggedInUser.email || "-";
 
-// =============================
-// Logout
-// =============================
+document.getElementById("profileRole").textContent =
+    loggedInUser.role || "User";
 
-function logout() {
+// ===============================
+// PERSONAL INFORMATION
+// ===============================
 
-    localStorage.removeItem("loggedInUser");
+document.getElementById("profilePhone").textContent =
+    donor ? donor.phone : "Not Available";
 
-    alert("Logged Out Successfully!");
+document.getElementById("profileAddress").textContent =
+    donor ? donor.address : "Not Available";
 
-    window.location.href = "signin.html";
+document.getElementById("profileGender").textContent =
+    donor ? donor.gender : "-";
+
+document.getElementById("profileAge").textContent =
+    donor ? donor.age : "-";
+
+// ===============================
+// DONATION INFORMATION
+// ===============================
+
+document.getElementById("profileBlood").textContent =
+    donor ? donor.bloodGroup : "Not Registered";
+
+document.getElementById("profileWeight").textContent =
+    donor ? donor.weight : "-";
+
+document.getElementById("profileDonation").textContent =
+    donor
+        ? (donor.previousDonation || "First Time Donor")
+        : "Not Registered";
+
+
+
+console.log("Logged User:", loggedInUser);
+
+console.log("Donors:", donors);
+
+console.log("Matched Donor:", donor);
+
+// ===============================
+// STATUS
+// ===============================
+
+if (donor) {
+
+    document.getElementById("profileStatus").textContent =
+        "Eligible Donor";
+
+} else {
+
+    document.getElementById("profileStatus").textContent =
+        "Not Registered";
 
 }
 
-// =============================
-// Responsive Navbar
-// =============================
+// ===============================
+// DASHBOARD REDIRECT
+// ===============================
 
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector(".Header nav");
+document.getElementById("dashboardBtn").addEventListener("click", function (event) {
 
-if (menuBtn && nav) {
+    event.preventDefault();
 
-    menuBtn.addEventListener("click", function () {
+    if (loggedInUser.role === "Admin") {
 
-        nav.classList.toggle("open");
+        window.location.href = "admin/admin-dashboard.html";
 
-    });
+    } else {
 
-}
+        window.location.href = "dashboardpage.html";
+
+    }
+
+});
+
+// ===============================
+// LOGOUT
+// ===============================
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+
+    if (confirm("Are you sure you want to logout?")) {
+
+        localStorage.removeItem("loggedInUser");
+
+        window.location.href = "signin.html";
+
+    }
+
+});

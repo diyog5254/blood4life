@@ -2,21 +2,8 @@
 // LOGIN CHECK
 // ===============================
 
-document.getElementById("dashboardBtn").addEventListener("click", function () {
-
-    if (loggedInUser.role === "Admin") {
-
-        window.location.href = "admin/admin-dashboard.html";
-
-    } else {
-
-        window.location.href = "dashboardpage.html";
-
-    }
-
-});
-
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
 
 if (!loggedInUser) {
 
@@ -33,11 +20,13 @@ if (!loggedInUser) {
 
 const donors = JSON.parse(localStorage.getItem("donors")) || [];
 
+
 const donor = donors.find(function (item) {
 
-    return item.userId === loggedInUser.id;
+    return item.userId == loggedInUser.id;
 
 });
+
 
 // ===============================
 // BASIC INFORMATION
@@ -46,11 +35,15 @@ const donor = donors.find(function (item) {
 document.getElementById("profileName").textContent =
     loggedInUser.fullName || "-";
 
+
 document.getElementById("profileEmail").textContent =
     loggedInUser.email || "-";
 
+
 document.getElementById("profileRole").textContent =
     loggedInUser.role || "User";
+
+
 
 // ===============================
 // PERSONAL INFORMATION
@@ -59,14 +52,19 @@ document.getElementById("profileRole").textContent =
 document.getElementById("profilePhone").textContent =
     donor ? donor.phone : "Not Available";
 
+
 document.getElementById("profileAddress").textContent =
     donor ? donor.address : "Not Available";
+
 
 document.getElementById("profileGender").textContent =
     donor ? donor.gender : "-";
 
+
 document.getElementById("profileAge").textContent =
     donor ? donor.age : "-";
+
+
 
 // ===============================
 // DONATION INFORMATION
@@ -75,8 +73,10 @@ document.getElementById("profileAge").textContent =
 document.getElementById("profileBlood").textContent =
     donor ? donor.bloodGroup : "Not Registered";
 
+
 document.getElementById("profileWeight").textContent =
-    donor ? donor.weight : "-";
+    donor ? donor.weight + " kg" : "-";
+
 
 document.getElementById("profileDonation").textContent =
     donor
@@ -85,14 +85,8 @@ document.getElementById("profileDonation").textContent =
 
 
 
-console.log("Logged User:", loggedInUser);
-
-console.log("Donors:", donors);
-
-console.log("Matched Donor:", donor);
-
 // ===============================
-// STATUS
+// DONOR STATUS
 // ===============================
 
 if (donor) {
@@ -107,6 +101,8 @@ if (donor) {
 
 }
 
+
+
 // ===============================
 // DASHBOARD REDIRECT
 // ===============================
@@ -114,6 +110,7 @@ if (donor) {
 document.getElementById("dashboardBtn").addEventListener("click", function (event) {
 
     event.preventDefault();
+
 
     if (loggedInUser.role === "Admin") {
 
@@ -127,18 +124,65 @@ document.getElementById("dashboardBtn").addEventListener("click", function (even
 
 });
 
+
+
+// ===============================
+// EDIT PROFILE
+// ===============================
+
+const editBtn = document.getElementById("editProfileBtn");
+
+
+if (editBtn) {
+
+    editBtn.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+
+        localStorage.setItem(
+            "editDonorId",
+            loggedInUser.id
+        );
+
+
+        window.location.href = "donor-form.html";
+
+    });
+
+}
+
+
+
 // ===============================
 // LOGOUT
 // ===============================
 
 document.getElementById("logoutBtn").addEventListener("click", function () {
 
-    if (confirm("Are you sure you want to logout?")) {
+
+    let confirmLogout = confirm("Are you sure you want to logout?");
+
+
+    if (confirmLogout) {
 
         localStorage.removeItem("loggedInUser");
+
 
         window.location.href = "signin.html";
 
     }
 
+
 });
+
+
+// ===============================
+// DEBUG
+// ===============================
+
+console.log("Logged User:", loggedInUser);
+
+console.log("Donors:", donors);
+
+console.log("Matched Donor:", donor);

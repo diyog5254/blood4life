@@ -18,7 +18,7 @@
 
                 <li><a href="admin-dashboard.html" class="active">Dashboard</a></li>
 
-                <li><a href="donor-list.html">Donors</a></li>
+                <li><a href="donor-list.html"> Manage Donors</a></li>
 
                 <li><a href="request-list.html">Requests</a></li>
 
@@ -48,8 +48,11 @@
         <div class="stats-section">
 
             <div class="stat-card">
+
                 <h3>Total Users</h3>
-                <h1 id="totalUsers">0</h1>
+
+                <h2 id="totalUsers">0</h2>
+
             </div>
 
             <div class="stat-card">
@@ -66,6 +69,37 @@
                 <h3>Pending Requests</h3>
                 <h1 id="pendingRequests">0</h1>
             </div>
+
+        </div>
+
+        <!-- ===============================
+     RECENT DONORS
+================================ -->
+
+        <div class="table-section">
+
+            <h2>Recent Donors</h2>
+
+            <table class="donor-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Blood Group</th>
+                        <th>Phone</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="recentDonorTable">
+
+                </tbody>
+
+
+            </table>
 
         </div>
 

@@ -1,3 +1,39 @@
+// ===============================
+// CREATE DEFAULT ADMIN
+// ===============================
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+if (users.length === 0) {
+
+    users.push({
+
+        id: 1,
+
+        fullName: "System Administrator",
+
+        email: "admin@gmail.com",
+
+        password: "admin123",
+
+        role: "Admin",
+
+        phone: "9800000000",
+
+        whatsapp: "9800000000",
+
+        gender: "Male",
+
+        dob: "2000-01-01",
+
+        address: "Kathmandu, Nepal"
+
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+}
+
 // =============================
 // Show / Hide Password
 // =============================

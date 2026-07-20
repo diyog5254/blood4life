@@ -13,47 +13,155 @@ if (!loggedInUser || loggedInUser.role !== "Admin") {
 }
 
 // ===============================
-// GET DATA
+// LOAD DASHBOARD STATISTICS
 // ===============================
 
-const users = JSON.parse(localStorage.getItem("users")) || [];
+let users = JSON.parse(localStorage.getItem("users")) || [];
 
-const donors = JSON.parse(localStorage.getItem("donors")) || [];
+let donors = JSON.parse(localStorage.getItem("donors")) || [];
 
-const requests = JSON.parse(localStorage.getItem("requests")) || [];
+let requests = JSON.parse(localStorage.getItem("requests")) || [];
+
 
 // ===============================
-// COUNT DATA
+// TOTAL USERS (Exclude Admin)
 // ===============================
 
-const totalUsers = users.filter(function (user) {
+let totalUsers = users.filter(function(user){
 
     return user.role !== "Admin";
 
 }).length;
 
-const totalDonors = donors.length;
 
-const totalRequests = requests.length;
+document.getElementById("totalUsers").textContent = totalUsers;
 
-const pendingRequests = requests.filter(function (request) {
+
+// ===============================
+// TOTAL DONORS
+// ===============================
+
+document.getElementById("totalDonors").textContent = donors.length;
+
+
+// ===============================
+// TOTAL REQUESTS
+// ===============================
+
+document.getElementById("totalRequests").textContent = requests.length;
+
+
+// ===============================
+// PENDING REQUESTS
+// ===============================
+
+let pendingRequests = requests.filter(function(request){
 
     return request.status === "Pending";
 
 }).length;
 
-// ===============================
-// DISPLAY
-// ===============================
-
-document.getElementById("totalUsers").textContent = totalUsers;
-
-document.getElementById("totalDonors").textContent = totalDonors;
-
-document.getElementById("totalRequests").textContent = totalRequests;
 
 document.getElementById("pendingRequests").textContent = pendingRequests;
 
+
+// ===============================
+// LOAD RECENT DONORS
+// ===============================
+
+const donorTable = document.getElementById("recentDonorTable");
+
+
+donors.slice(-5).reverse().forEach(function(donor){
+
+    let row = document.createElement("tr");
+
+
+    row.innerHTML = `
+
+        <td>${donor.name}</td>
+
+        <td>${donor.email}</td>
+
+        <td>${donor.bloodGroup}</td>
+
+        <td>${donor.phone}</td>
+
+    `;
+
+
+    donorTable.appendChild(row);
+
+});
+
+// ===============================
+// LOAD BLOOD REQUESTS
+// ===============================
+
+const requestTable = document.getElementById("requestTableBody");
+
+
+requests.forEach(function(request, index){
+
+    let row = document.createElement("tr");
+
+
+    row.innerHTML = `
+
+        <td>${request.patientName}</td>
+
+        <td>${request.bloodGroup}</td>
+
+        <td>${request.hospital}</td>
+
+        <td>${request.units}</td>
+
+        <td>${request.status}</td>
+
+
+        <td>
+
+            <button onclick="updateRequestStatus(${index}, 'Approved')">
+                Approve
+            </button>
+
+
+            <button onclick="updateRequestStatus(${index}, 'Rejected')">
+                Reject
+            </button>
+
+        </td>
+
+    `;
+
+
+    requestTable.appendChild(row);
+
+});
+
+
+// ===============================
+// UPDATE REQUEST STATUS
+// ===============================
+
+function updateRequestStatus(index, status){
+
+
+    let requests = JSON.parse(localStorage.getItem("requests")) || [];
+
+
+    requests[index].status = status;
+
+
+    localStorage.setItem("requests", JSON.stringify(requests));
+
+
+    alert("Request " + status);
+
+
+    location.reload();
+
+}
 // ===============================
 // LOGOUT
 // ===============================

@@ -20,7 +20,7 @@ let requests = JSON.parse(localStorage.getItem("requests")) || [];
 
 const tableBody = document.getElementById("requestTableBody");
 
-displayRequests();
+displayRequests(requests);
 
 // ===============================
 // DISPLAY REQUESTS
@@ -47,6 +47,8 @@ function displayRequests(requestList) {
         <td>${request.units}</td>
 
         <td>${request.emergency}</td>
+
+        <td>${request.requestDate}</td>
 
         <td>${request.status}</td>
 
@@ -124,31 +126,56 @@ function approveRequest(id) {
 
     });
 
-    localStorage.setItem("requests", JSON.stringify(requests));
+
+    localStorage.setItem(
+        "requests",
+        JSON.stringify(requests)
+    );
+
+
+    showPopup(
+        "Success",
+        "Blood request approved successfully!"
+    );
+
 
     displayRequests(requests);
 
 }
-
 // ===============================
 // DELETE REQUEST
 // ===============================
 
 function deleteRequest(id) {
 
-    let confirmDelete = confirm("Delete this request?");
+    showConfirm(
+        "Delete Request",
+        "Are you sure you want to delete this request?",
+        function () {
 
-    if (!confirmDelete) return;
 
-    requests = requests.filter(function (request) {
+            requests = requests.filter(function (request) {
 
-        return request.requestId !== id;
+                return request.requestId !== id;
 
-    });
+            });
 
-    localStorage.setItem("requests", JSON.stringify(requests));
 
-    displayRequests(requests);
+            localStorage.setItem(
+                "requests",
+                JSON.stringify(requests)
+            );
+
+
+            showPopup(
+                "Deleted",
+                "Request deleted successfully!"
+            );
+
+
+            displayRequests(requests);
+
+        }
+    );
 
 }
-

@@ -14,32 +14,20 @@ function togglePassword(checkbox, inputId) {
 
 }
 
-// =============================
-// Create Default Admin
-// =============================
+// ===============================
+// CREATE DEFAULT ADMIN
+// ===============================
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
-let adminExists = users.find(function (user) {
+
+// Check Admin already exists
+
+let adminExist = users.find(function(user){
+
     return user.role === "Admin";
+
 });
-
-if (!adminExists) {
-
-    users.push({
-
-        id:Date.now(),
-        fullName: "Administrator",
-        email: "admin123@gmail.com",
-        password: "admin123",
-        role: "Admin"
-
-    });
-    
-
-    localStorage.setItem("users", JSON.stringify(users));
-
-}
 
 // =============================
 // Sign Up

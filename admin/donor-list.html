@@ -18,7 +18,7 @@
 
                 <li><a href="admin-dashboard.html" class="active">Dashboard</a></li>
 
-                <li><a href="donor-list.html">Donors</a></li>
+                <li><a href="donor-list.html"> Manage Donor</a></li>
 
                 <li><a href="request-list.html">Requests</a></li>
 
@@ -42,6 +42,60 @@
     </header>
 
     <main class="admin-container">
+
+        <div class="filter-container">
+
+            <input type="text" id="searchInput" placeholder="Search by Name">
+
+            <select id="bloodFilter">
+                <option value="">All Blood Groups</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+            </select>
+
+        </div>
+
+        <!-- Edit Donor Form -->
+
+        <div id="editDonorForm" style="display:none;">
+
+            <h2>Edit Donor</h2>
+
+            <input type="text" id="editName" placeholder="Name">
+
+            <input type="email" id="editEmail" readonly>
+
+            <select id="editBloodGroup">
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+            </select>
+
+            <input type="text" id="editPhone" placeholder="Phone">
+
+            <input type="text" id="editAddress" placeholder="Address">
+
+
+            <button onclick="updateDonor()">
+                Update
+            </button>
+
+            <button onclick="closeEditForm()">
+                Cancel
+            </button>
+
+        </div>
 
         <h1>Registered Donors</h1>
 
@@ -88,7 +142,7 @@
                 <ul>
                     <li><a href="../about.html">About </a></li>
                     <li><a href="../gallery.html">Gallery</a></li>
-                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="admin-dashboard.html">Home</a></li>
                 </ul>
             </div>
             <div>
@@ -150,8 +204,8 @@
 
     </div>
 
-    <script src="../javaScript/admin-dashboard.js"></script>
     <script src="../javaScript/popup.js"></script>
+    <script src="../javaScript/donorList.js"></script>
 </body>
 
 </html>

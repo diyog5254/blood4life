@@ -12,6 +12,9 @@ if (!loggedInUser) {
 
 }
 
+let editDonorId = localStorage.getItem("editDonorId");
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
 // ===============================
 // AUTO FILL NAME & EMAIL
 // ===============================
@@ -19,6 +22,39 @@ if (!loggedInUser) {
 document.getElementById("name").value = loggedInUser.fullName;
 
 document.getElementById("email").value = loggedInUser.email;
+
+
+// ===============================
+// EDIT DONOR AUTO FILL
+// ===============================
+
+if (editDonorId) {
+
+    let donors = JSON.parse(localStorage.getItem("donors")) || [];
+
+    let donor = donors.find(function (d) {
+        return d.userId == editDonorId;
+    });
+
+    if (donor) {
+
+        document.getElementById("name").value = donor.fullName;
+        document.getElementById("email").value = donor.email;
+        document.getElementById("dob").value = donor.dob;
+        document.getElementById("weight").value = donor.weight;
+        document.getElementById("blood").value = donor.bloodGroup;
+        document.getElementById("phone").value = donor.phone;
+        document.getElementById("whatsapp").value = donor.whatsapp;
+        document.getElementById("address").value = donor.address;
+        document.getElementById("previousDonation").value = donor.previousDonation;
+
+        document.querySelector(
+            `input[name="gender"][value="${donor.gender}"]`
+        ).checked = true;
+
+    }
+
+}
 
 // ===============================
 // DONOR FORM
@@ -28,6 +64,8 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     event.preventDefault();
 
+
+    let donors = JSON.parse(localStorage.getItem("donors")) || []
     let dob = document.getElementById("dob").value;
     let weight = Number(document.getElementById("weight").value);
     let blood = document.getElementById("blood").value;
@@ -37,6 +75,15 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
     let previousDonation = document.getElementById("previousDonation").value;
 
     let gender = document.querySelector('input[name="gender"]:checked');
+
+
+    if (!gender) {
+
+        alert("Please select gender.");
+
+        return;
+
+    }
 
     // ===============================
     // AGE VALIDATION
@@ -102,15 +149,13 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
     // DUPLICATE DONOR CHECK
     // ===============================
 
-    let donors = JSON.parse(localStorage.getItem("donors")) || [];
-
     let alreadyDonor = donors.find(function (donor) {
 
         return donor.userId === loggedInUser.id;
 
     });
 
-    if (alreadyDonor) {
+    if (alreadyDonor && !editDonorId) {
 
         alert("You are already registered as a donor.");
 
@@ -126,11 +171,13 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     let newDonor = {
 
+        donorId: Date.now(),
+
         userId: loggedInUser.id,
 
-        fullName: loggedInUser.fullName,
+        fullName: document.getElementById("name").value.trim(),
 
-        email: loggedInUser.email,
+        email: document.getElementById("email").value.trim(),
 
         dob: dob,
 
@@ -148,11 +195,37 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
         whatsapp: whatsapp,
 
-        address: address
+        address: address,
+
+        status: "Active"
 
     };
 
-    donors.push(newDonor);
+
+
+    if (editDonorId) {
+
+        let index = donors.findIndex(function (d) {
+
+            return d.userId == editDonorId;
+
+        });
+
+
+        if (index !== -1) {
+
+            donors[index] = newDonor;
+
+        }
+
+
+        localStorage.removeItem("editDonorId");
+
+    } else {
+
+        donors.push(newDonor);
+
+    }
 
     localStorage.setItem("donors", JSON.stringify(donors));
 
@@ -220,11 +293,23 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
     // SUCCESS
     // ===============================
 
-    showPopup(
-        "Congratulations!",
-        "You are now a registered Blood Donor.",
-        "profile.html"
-    );
+    if (editDonorId) {
+
+        showPopup(
+            "Success!",
+            "Donor information updated successfully.",
+            "admin/donor-list.html"
+        );
+
+    } else {
+
+        showPopup(
+            "Congratulations!",
+            "You are now a registered Blood Donor.",
+            "profile.html"
+        );
+
+    }
 
 });
 

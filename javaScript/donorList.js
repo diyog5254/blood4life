@@ -361,7 +361,19 @@ function closeEditForm() {
 
 }
 
+// ===============================
+// ADMIN LOGIN CHECK
+// ===============================
 
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (!loggedInUser || loggedInUser.role !== "Admin") {
+
+    alert("Access Denied!");
+
+    window.location.href = "../signin.html";
+
+}
 // ===============================
 // SEARCH AND FILTER
 // ===============================

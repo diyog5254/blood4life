@@ -1,296 +1,197 @@
+/* ===============================
+   NAVBAR
+================================ */
+
 .Header {
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  font-family: Arial, sans-serif;
-}
 
-.Header ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.Header ul li a {
-  text-decoration: none;
-  color: #4b5563;
-  font-weight: 600;
-  font-size: 15px;
-  transition: color 0.2s ease;
-}
-
-.Header ul li a:hover {
-  color: #dc2626;
-}
-
-/* Nav */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-  height: 60px;
   background: #fff;
-  border-bottom: 1px solid #ddd;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
 }
 
-nav ul {
+nav {
+
   display: flex;
-  gap: 28px;
-  list-style: none;
-}
 
-nav ul a {
-  text-decoration: none;
-  color: #444;
-  font-size: 14px;
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 8%;
+
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 700;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
 }
 
 .logo .red {
+
   color: #c62828;
+
 }
 
-/* Buttons */
-.btn {
-  background: #c62828;
-  color: #fff;
-  padding: 10px 22px;
-  border: none;
-  border-radius: 24px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-}
+.nav-links {
 
-.btn:hover {
-  background: #a81f1f;
-}
-
-.btn:active {
-  transform: scale(0.96);
-}
-
-.btn a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.menu-btn .hero-buttons {
   display: flex;
-  gap: 38px;
+
+  gap: 30px;
+
   list-style: none;
+
+  align-items: center;
+
+}
+
+.nav-links a {
+
+  text-decoration: none;
+
+  color: #333;
+
+  font-weight: 600;
+
+  transition: .3s;
+
+}
+
+.nav-links a:hover {
+
+  color: #c62828;
+
 }
 
 .menu-btn {
+
   display: none;
+
+  font-size: 30px;
+
   background: none;
+
   border: none;
-  font-size: 28px;
-  color: #333;
+
   cursor: pointer;
-  padding: 4px;
+
+  color: #c62828;
+
 }
 
-*/
-/* ===========================
-   Profile Section
-=========================== */
+.mobile-action {
 
-.profile-section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 20px;
+  display: none;
+
 }
 
-/* ===========================
-   Profile Card
-=========================== */
+@media (max-width:768px) {
 
-.profile-card {
-  width: 100%;
-  max-width: 700px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  padding: 35px;
-  text-align: center;
-}
+  nav {
 
-/* ===========================
-   Profile Image
-=========================== */
+    position: relative;
 
-.profile-image img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid #d62828;
-  margin-bottom: 20px;
-}
+    padding: 15px 20px;
 
-.profile-card h2 {
-  margin: 10px 0;
-  color: #d62828;
-}
+  }
 
-.profile-card p {
-  color: #666;
-  margin-bottom: 30px;
-}
-
-/* ===========================
-   User Information
-=========================== */
-
-.profile-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  text-align: left;
-}
-
-.profile-info div {
-  background: #fafafa;
-  padding: 15px;
-  border-radius: 10px;
-  border-left: 5px solid #d62828;
-}
-
-.profile-info strong {
-  display: block;
-  margin-bottom: 8px;
-  color: #d62828;
-}
-
-.profile-info span {
-  color: #333;
-}
-
-/* ===========================
-   Buttons
-=========================== */
-
-.profile-buttons {
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.profile-buttons button {
-  padding: 12px 30px;
-  border: none;
-  border-radius: 8px;
-  background: #d62828;
-  color: white;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.3s;
-}
-
-.profile-buttons button:hover {
-  background: #b71c1c;
-}
-
-@media screen and (max-width: 850px) {
-
-  /* Reveal the Hamburger icon on smaller screens */
   .menu-btn {
+
     display: block;
+
   }
 
-  .Header nav ul {
-    display: none;
-    flex-direction: column;
+  .nav-links {
+
     position: absolute;
-    top: 100%;
+
+    top: 70px;
+
     left: 0;
+
     width: 100%;
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border-top: 1px solid #f3f4f6;
-    gap: 15px;
-    text-align: center;
-  }
 
+    background: #ffffff;
 
-  .Header .btn {
     display: none;
-  }
-
-  .Header nav ul.open {
-    display: flex;
-  }
-
-  .profile-card {
-
-    padding: 30px 20px;
-
-  }
-
-  .profile-info {
-
-    grid-template-columns: 1fr;
-
-  }
-}
-
-@media (max-width:480px) {
-
-  .profile-section {
-
-    padding: 20px 10px;
-
-  }
-
-  .profile-card {
-
-    padding: 20px 15px;
-
-  }
-
-  .profile-image img {
-
-    width: 110px;
-    height: 110px;
-
-  }
-
-  .profile-card h2 {
-
-    font-size: 24px;
-
-  }
-
-  .profile-buttons {
 
     flex-direction: column;
 
+    align-items: center;
+
+    gap: 0;
+
+    padding: 0;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+
+    z-index: 999;
+
   }
 
-  .profile-buttons button {
+  .nav-links.open {
+
+    display: flex;
+
+  }
+
+  .nav-links li {
 
     width: 100%;
 
+    text-align: center;
+
+    border-bottom: 1px solid #eee;
+
   }
+
+  .nav-links li:last-child {
+
+    border-bottom: none;
+
+  }
+
+  .nav-links a {
+
+    display: block;
+
+    padding: 16px;
+
+    color: #333;
+
+    font-size: 17px;
+
+  }
+
+  .nav-links a:hover {
+
+    background: #c62828;
+
+    color: #fff;
+
+  }
+
+  .hero-buttons {
+
+    display: none;
+
+  }
+
+  .mobile-action {
+
+    display: block;
+
+  }
+
 
 }
 
@@ -413,6 +314,37 @@ footer ul li a:hover {
 }
 
 
+/* Mobile */
+@media (max-width: 480px) {
+  footer {
+    padding: 28px 16px 0;
+  }
+
+  .footer-grid {
+    gap: 24px;
+  }
+
+  footer h4 {
+    font-size: 10px;
+  }
+
+  footer ul li,
+  .contact-item {
+    font-size: 12.5px;
+  }
+
+  .social-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    padding: 14px 0;
+    font-size: 11px;
+  }
+}
+
 /*TABLET BREAKPOINT */
 @media screen and (min-width: 600px) and (max-width: 900px) {
   footer {
@@ -442,146 +374,43 @@ footer ul li a:hover {
 }
 
 /* ===============================
-   POPUP
-=============================== */
+   COMMON CLASSES
+================================ */
 
-.popup {
+.container {
 
-  position: fixed;
+  width: 90%;
 
-  top: 0;
+  max-width: 1200px;
 
-  left: 0;
-
-  width: 100%;
-
-  height: 100%;
-
-  background: rgba(0, 0, 0, .5);
-
-  display: none;
-
-  justify-content: center;
-
-  align-items: center;
-
-  z-index: 9999;
+  margin: auto;
 
 }
 
-.popup-box {
-
-  background: #fff;
-
-  width: 350px;
-
-  padding: 30px;
-
-  border-radius: 12px;
+.section-title {
 
   text-align: center;
 
-  animation: popup .3s ease;
-
-}
-
-.popup-box h2 {
-
   color: #c62828;
 
-  margin-bottom: 15px;
-
-}
-
-.popup-box p {
+  font-size: 36px;
 
   margin-bottom: 20px;
 
+}
+
+.section-text {
+
+  max-width: 750px;
+
+  margin: 0 auto;
+
+  text-align: center;
+
   color: #555;
 
-}
+  line-height: 1.8;
 
-.popup-box button {
-
-  background: #c62828;
-
-  color: #fff;
-
-  border: none;
-
-  padding: 10px 25px;
-
-  border-radius: 6px;
-
-  cursor: pointer;
-
-}
-
-.popup-box button:hover {
-
-  background: #a91d1d;
-
-}
-
-@keyframes popup {
-
-  from {
-
-    transform: scale(.8);
-
-    opacity: 0;
-
-  }
-
-  to {
-
-    transform: scale(1);
-
-    opacity: 1;
-
-  }
-
-}
-
-
-.popup-buttons{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-}
-
-#confirmYes{
-
-    background:#c62828;
-
-    color:#fff;
-
-    border:none;
-
-    padding:10px 20px;
-
-    border-radius:6px;
-
-    cursor:pointer;
-
-}
-
-#confirmNo{
-
-    background:#777;
-
-    color:#fff;
-
-    border:none;
-
-    padding:10px 20px;
-
-    border-radius:6px;
-
-    cursor:pointer;
+  font-size: 18px;
 
 }

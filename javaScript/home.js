@@ -1,40 +1,38 @@
-// const menuBtn = document.querySelector('.menu-btn');
-//   const nav = document.querySelector('.Header nav');
+const menuBtn = document.querySelector('.menu-btn');
+const nav = document.querySelector('.Header nav');
 
-//   menuBtn.addEventListener('click', () => {
-//     nav.classList.toggle('open');
-//   });
+if(menuBtn){
 
-//   document.getElementById("becomeDonorBtn").addEventListener("click", function () {
-//       window.location.href = "donor-form.html";
-//     });
+menuBtn.addEventListener('click', () => {
 
+    nav.classList.toggle('open');
 
+});
 
-//     let slides = document.querySelectorAll(".slide");
-
-// let index = 0;
+}
 
 
-// function changeSlide(){
+// Check Admin Login
+// =======================================
 
-//     slides[index].classList.remove("active");
+let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
+if (!loggedInUser) {
 
-//     index++;
+    alert("Please Sign In First!");
 
-//     if(index >= slides.length){
-//         index = 0;
-//     }
+    window.location.href = "../signin.html";
 
+}
 
-//     slides[index].classList.add("active");
+if (loggedInUser.role !== "Admin") {
 
-// }
+    alert("Access Denied!");
 
+    window.location.href = "../home.html";
 
+}
 
-// setInterval(changeSlide, 3000);
 
 let slides = document.querySelectorAll(".slide");
 

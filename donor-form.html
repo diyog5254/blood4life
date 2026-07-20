@@ -8,35 +8,11 @@
     <link rel="stylesheet" href="style/navbars.css">
     <link rel="stylesheet" href="style/form.css">
     <link rel="stylesheet" href="style/donor-form.css">
+    <link rel="stylesheet" href="style/pop-up.css">
 </head>
 
 <body>
-    <header class="Header">
-        <nav>
-            <span class="logo"><span class="red">Blood</span>4Life</span>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="signin.html">Signin</a></li>
-                <li><a href="profile.html" class="active">Profile</a></li>
-                <div class="hero-buttons">
-
-                    <a href="donor-form.html" class="btn donate-btn">
-                        Become Donor
-                    </a>
-
-                    <a href="request-form.html" id="requestBtn" class="btn request-btn">
-                        Request Blood
-                    </a>
-
-                </div>
-            </ul>
-
-            <button class="menu-btn">☰</button>
-
-        </nav>
-    </header>
+    <div id="header"></div>
     <div class="form-container">
         <h2>Donor Registration Form </h2>
 
@@ -136,43 +112,7 @@
         </form>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="logo" style="margin-bottom:12px;"><span class="red">Blood</span>4Life</div>
-                <p style="font-size:13px;line-height:1.7;">Saving lives through safe blood donation.<br>Join our
-                    community of
-                    lifesavers today.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="about.html">About </a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="home.html">Home</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contact Info</h4>
-                <div class="contact-item">📞 +977-9874563214</div>
-                <div class="contact-item">✉️ blood4life@123gmail.com</div>
-                <div class="contact-item">📍 1469 Broaddus Avenue</div>
-            </div>
-            <div>
-                <h4>Follow Us On</h4>
-                <div class="social-row">
-                    <span class="social-btn">f</span>
-                    <span class="social-btn">in</span>
-                    <span class="social-btn">ig</span>
-                    <span class="social-btn">tw</span>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">&copy; 2026 <span>BLOOD4LIFE</span>. All rights reserved. Saving lives one donation
-            at a
-            time.</div>
-    </footer>
-
+    <div id="footer"></div>
     <!-- Success Popup -->
 
     <div id="popup" class="popup">
@@ -210,8 +150,10 @@
         </div>
 
     </div>
+    <script src="javaScript/header.js"></script>
     <script src="javaScript/popup.js"></script>
     <script src="javaScript/donorForm.js"></script>
+    <script src="javaScript/footer.js"></script>
     
 </body>
 

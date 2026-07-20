@@ -10,126 +10,141 @@
 </head>
 
 <body>
-    <header class="Header">
-        <nav>
-            <span class="logo"><span class="red">Blood</span>4Life</span>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="signin.html">Signin</a></li>
-                <li><a href="profile.html" class="active">Profile</a></li>
-                <div class="hero-buttons">
+    <div id="header"></div>
 
-                    <a href="donor-form.html" class="btn donate-btn">
-                        Become Donor
-                    </a>
+    <!-- ===============================
+     GALLERY HERO
+================================ -->
 
-                    <a href="request-form.html" id="requestBtn" class="btn request-btn">
-                        Request Blood
-                    </a>
+<section class="gallery-hero">
 
-                </div>
-            </ul>
+    <div class="container">
 
-            <button class="menu-btn">☰</button>
+        <h1 class="section-title">Our Gallery</h1>
 
-        </nav>
-    </header>
-    <main class="main">
-        <div class="OurGallery">
-            <h1>Our Gallery</h1>
-            <p>Moments from Blood Donation Campgains and event</p>
-        </div>
-        <div class="Gallery">
-            <div class="card">
-                <img src="C:\Users\acer\OneDrive\Desktop\BLOOD4LIFE\images\firstphoto.jpg" alt="BloodDonation photos">
-                <div class="bioofphotos">
-                </div>
-            </div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="logo" style="margin-bottom:12px;"><span class="red">Blood</span>4Life</div>
-                <p style="font-size:13px;line-height:1.7;">Saving lives through safe blood donation.<br>Join our
-                    community of lifesavers today.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="about.html">About </a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="home.html">Home</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contact Info</h4>
-                <div class="contact-item">📞 +977-9874563214</div>
-                <div class="contact-item">✉️ blood4life@123gmail.com</div>
-                <div class="contact-item">📍 1469 Broaddus Avenue</div>
-            </div>
-            <div>
-                <h4>Follow Us On</h4>
-                <div class="social-row">
-                    <span class="social-btn">f</span>
-                    <span class="social-btn">in</span>
-                    <span class="social-btn">ig</span>
-                    <span class="social-btn">tw</span>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">&copy; 2026 <span>BLOOD4LIFE</span>. All rights reserved. Saving lives one donation
-            at a time.</div>
-    </footer>
-
-    <!-- Success Popup -->
-
-    <div id="popup" class="popup">
-
-        <div class="popup-box">
-
-            <h2 id="popupTitle">Success</h2>
-
-            <p id="popupMessage"></p>
-
-            <button id="popupBtn">OK</button>
-
-        </div>
+        <p class="section-text">
+            Moments of Hope, Humanity and Blood Donation
+        </p>
 
     </div>
 
-    <!-- Confirm Popup -->
+</section>
 
-    <div id="confirmPopup" class="popup">
+<!-- ===============================
+     GALLERY INTRO
+================================ -->
 
-        <div class="popup-box">
+<section class="gallery-intro">
 
-            <h2 id="confirmTitle">Confirm</h2>
+    <div class="container">
 
-            <p id="confirmMessage"></p>
+        <h2 class="section-title">Blood Donation Moments</h2>
 
-            <div class="popup-buttons">
+        <p class="section-text">
+            Explore inspiring moments from blood donation campaigns,
+            donor registrations, awareness programs, and life-saving
+            initiatives that highlight the importance of voluntary
+            blood donation.
+        </p>
 
-                <button id="confirmYes">Yes</button>
+    </div>
 
-                <button id="confirmNo">Cancel</button>
+</section>
 
+<!-- ===============================
+     GALLERY GRID
+================================ -->
+
+<section class="gallery">
+
+    <div class="container">
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card">
+                <img src="images/gallery1.jpg" alt="Blood Donation Camp">
+                <div class="gallery-content">
+                    <h3>Blood Donation Camp</h3>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="images/gallery2.jpg" alt="Blood Collection">
+                <div class="gallery-content">
+                    <h3>Blood Collection</h3>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="images/gallery3.jpg" alt="Happy Donor">
+                <div class="gallery-content">
+                    <h3>Happy Donor</h3>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="images/gallery4.jpg" alt="Medical Team">
+                <div class="gallery-content">
+                    <h3>Medical Team</h3>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="images/gallery5.jpg" alt="Emergency Support">
+                <div class="gallery-content">
+                    <h3>Emergency Support</h3>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="images/gallery6.jpg" alt="Community Service">
+                <div class="gallery-content">
+                    <h3>Community Service</h3>
+                </div>
             </div>
 
         </div>
 
     </div>
 
-    <script src="javaScript/popup.js"></script>
+</section>
+
+<!-- ===============================
+     GALLERY CTA
+================================ -->
+
+<section class="gallery-cta">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Every Drop Counts
+        </h2>
+
+        <p class="section-text">
+
+            Every blood donation is a gift of hope.
+            Together, we can save lives and build a healthier community.
+
+        </p>
+
+        <a href="donor-form.html" class="gallery-btn">
+
+            Become a Donor
+
+        </a>
+
+    </div>
+
+</section>
+   
+
+    <div id="footer"></div>
+
+
+<script src="javaScript/header.js"></script>
     <script src="javaScript/gallery.js"></script>
+    <script src="javaScript/footer.js"></script>
 
 </body>
 

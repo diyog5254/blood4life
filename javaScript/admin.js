@@ -1,24 +1,17 @@
-// =======================================
-// Check Admin Login
-// =======================================
+// ===============================
+// ADMIN LOGIN CHECK
+// ===============================
 
-let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-if (!loggedInUser) {
+if (!loggedInUser || loggedInUser.role !== "Admin") {
 
-    alert("Please Sign In First!");
+    alert("Access Denied!");
 
     window.location.href = "../signin.html";
 
 }
 
-if (loggedInUser.role !== "Admin") {
-
-    alert("Access Denied!");
-
-    window.location.href = "../home.html";
-
-}
 
 // =======================================
 // Get Users

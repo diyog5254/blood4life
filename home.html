@@ -7,235 +7,206 @@
   <title>Blood4Life</title>
   <link rel="stylesheet" href="style/navbars.css">
   <link rel="stylesheet" href="style/home.css">
-  <link rel="stylesheet" href="style/about.css">
 </head>
 
 <body>
+  <div id="header"></div>
 
-  <header class="Header">
-    <nav>
-      <span class="logo"><span class="red">Blood</span>4Life</span>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li id="loginLink">
-    <a href="signin.html">Signin</a>
-</li>
+  <section class="hero-slider">
 
-<li id="profileLink" style="display:none;">
-    <a href="profile.html">Profile</a>
-</li>
+    <div class="slide active">
+      <img src="images/image1.webp" alt="Blood Donation">
+      <div class="hero-text">
+        <h2>Donate Blood, Save Lives</h2>
+        <p>Your small contribution can save someone's life.</p>
 
-<li id="dashboardLink" style="display:none;">
-    <a href="dashboardpage.html">Dashboard</a>
-</li>
-
-<li id="logoutLink" style="display:none;">
-    <a href="#">Logout</a>
-</li>
         <div class="hero-buttons">
 
-          <a href="donor-form.html" class="btn donate-btn">
+          <a href="donor-form.html">
             Become Donor
           </a>
 
-          <a href="request-form.html" id="requestBtn" class="btn request-btn">
+          <a href="request-form.html">
             Request Blood
           </a>
 
-
         </div>
-      </ul>
-
-      <button class="menu-btn">☰</button>
-
-    </nav>
-  </header>
-
- <section class="hero-slider">
-
-    <div class="slide active">
-        <img src="images/image1.webp" alt="Blood Donation">
-        <div class="hero-text">
-            <h2>Donate Blood, Save Lives</h2>
-            <p>Your small contribution can save someone's life.</p>
-        </div>
+      </div>
     </div>
 
 
     <div class="slide">
-        <img src="images/image2.jpg" alt="">
-        <div class="hero-text">
-            <h2>Every Drop Matters</h2>
-            <p>Join our blood donation community.</p>
-        </div>
+      <img src="images/image2.jpg" alt="">
+      <div class="hero-text">
+        <h2>Every Drop Matters</h2>
+        <p>Join our blood donation community.</p>
+      </div>
     </div>
 
 
     <div class="slide">
-        <img src="images/image3.jpg" alt="">
-        <div class="hero-text">
-            <h2>Together We Save Lives</h2>
-            <p>Be a hero by donating blood.</p>
-        </div>
+      <img src="images/image3.jpg" alt="">
+      <div class="hero-text">
+        <h2>Together We Save Lives</h2>
+        <p>Be a hero by donating blood.</p>
+      </div>
     </div>
 
 
     <button id="prevBtn">❮</button>
     <button id="nextBtn">❯</button>
 
-</section>
+  </section>
 
 
-<!-- Quick Actions Section -->
+  <!-- Quick Actions Section -->
 
-<section class="quick-actions">
+  <section class="quick-actions">
 
     <h1>What Do You Want To Do?</h1>
 
-    <div class="action-container">
+    <div class="container">
 
 
-        <div class="action-card">
+      <div class="action-card">
 
-            <div class="action-icon">
-                🩸
-            </div>
-
-            <h2>Become Donor</h2>
-
-            <p>
-                Register yourself as a donor
-                and help save lives.
-            </p>
-
-            <a href="donor-form.html">
-                Become Donor
-            </a>
-
+        <div class="action-icon">
+          🩸
         </div>
 
+        <h2 class="section-title">Become Donor</h2>
+
+        <p class="section-text">
+          Register yourself as a donor
+          and help save lives.
+        </p>
+
+        <a href="donor-form.html">
+          Become Donor
+        </a>
+
+      </div>
 
 
-        <div class="action-card">
 
-            <div class="action-icon">
-                🏥
-            </div>
+      <div class="action-card">
 
-            <h2>Request Blood</h2>
-
-            <p>
-                Need blood urgently?
-                Submit a request.
-            </p>
-
-            <a href="request-form.html">
-                Request Now
-            </a>
-
+        <div class="action-icon">
+          🏥
         </div>
 
+        <h2>Request Blood</h2>
+
+        <p>
+          Need blood urgently?
+          Submit a request.
+        </p>
+
+        <a href="request-form.html">
+          Request Now
+        </a>
+
+      </div>
 
 
-        <div class="action-card">
 
-            <div class="action-icon">
-                📞
-            </div>
+      <div class="action-card">
 
-            <h2>Emergency Help</h2>
-
-            <p>
-                Contact our team for
-                urgent support.
-            </p>
-
-            <a href="#">
-                Contact Us
-            </a>
-
+        <div class="action-icon">
+          📞
         </div>
+
+        <h2>Emergency Help</h2>
+
+        <p>
+          Contact our team for
+          urgent support.
+        </p>
+
+        <a href="tel:+9779874563214">
+          Call Now
+        </a>
+
+      </div>
 
 
     </div>
 
-</section>
+  </section>
 
-<!-- How It Works Section -->
+  <!-- How It Works Section -->
 
-<section class="how-it-works">
+  <section class="how-it-works">
 
     <h1>How Blood4Life Works</h1>
 
     <p class="section-text">
-        Our platform makes blood donation simple, fast and effective.
+      Our platform makes blood donation simple, fast and effective.
     </p>
 
 
-    <div class="steps-container">
+    <div class="container">
 
 
-        <div class="step-card">
+      <div class="step-card">
 
-            <div class="step-number">1</div>
+        <div class="step-number">1</div>
 
-            <h2>Create Account</h2>
+        <h2 class="section-title">Create Account</h2>
 
-            <p>
-                Register yourself and create your Blood4Life account.
-            </p>
+        <p>
+          Register yourself and create your Blood4Life account.
+        </p>
 
-        </div>
-
-
-
-        <div class="step-card">
-
-            <div class="step-number">2</div>
-
-            <h2>Become Donor</h2>
-
-            <p>
-                Provide your donor details and join our donor community.
-            </p>
-
-        </div>
+      </div>
 
 
 
-        <div class="step-card">
+      <div class="step-card">
 
-            <div class="step-number">3</div>
+        <div class="step-number">2</div>
 
-            <h2>Receive Request</h2>
+        <h2>Become Donor</h2>
 
-            <p>
-                Get notified when someone needs blood.
-            </p>
+        <p>
+          Provide your donor details and join our donor community.
+        </p>
 
-        </div>
+      </div>
 
 
 
-        <div class="step-card">
+      <div class="step-card">
 
-            <div class="step-number">4</div>
+        <div class="step-number">3</div>
 
-            <h2>Save Lives</h2>
+        <h2>Receive Request</h2>
 
-            <p>
-                Donate blood and help people in emergencies.
-            </p>
+        <p>
+          Get notified when someone needs blood.
+        </p>
 
-        </div>
+      </div>
+
+
+
+      <div class="step-card">
+
+        <div class="step-number">4</div>
+
+        <h2>Save Lives</h2>
+
+        <p>
+          Donate blood and help people in emergencies.
+        </p>
+
+      </div>
 
 
     </div>
 
 
-</section>
+  </section>
 
   <div class="stats">
     <div class="stat">
@@ -249,7 +220,7 @@
       <div class="stat-icon" style="background:#388e3c;">🟢</div>
       <div>
         <h3>BLOOD GROUPS</h3>
-        <div class="num">8</div>
+        <div class="num" id="bloodGroups">0</div>
       </div>
     </div>
     <div class="stat">
@@ -272,101 +243,32 @@
 
     <h1>Why Blood Donation Matters</h1>
 
-    <p>
-      Blood donation is one of the most significant contributions you can make to help save lives. Every two seconds
-      someone in the world needs blood. Whether it's for surgery, cancer treatment, chronic illnesses or traumatic
-      injuries, safe blood is critical.
-    </p>
+    <div class="container">
+      <p class="section-text">
+        Blood donation is one of the most significant contributions you can make to help save lives. Every two seconds
+        someone in the world needs blood. Whether it's for surgery, cancer treatment, chronic illnesses or traumatic
+        injuries, safe blood is critical.
+      </p>
 
-    <p>
-      Despite medical advances, there is no substitute for human blood. Blood cannot be manufactured and can only come
-      from generous donors like you. A single donation can potentially save up to three lives.
-    </p>
+      <p class="section-text">
+        Despite medical advances, there is no substitute for human blood. Blood cannot be manufactured and can only come
+        from generous donors like you. A single donation can potentially save up to three lives.
+      </p>
 
-    <p>
-      Regular blood donors help maintain a stable blood supply, ensuring that blood is available whenever emergencies
-      strike.
-    </p>
+      <p class="section-text">
+        Regular blood donors help maintain a stable blood supply, ensuring that blood is available whenever emergencies
+        strike.
+      </p>
+    </div>
 
   </section>
 
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="logo" style="margin-bottom:12px;"><span class="red">Blood</span>4Life</div>
-        <p style="font-size:13px;line-height:1.7;">Saving lives through safe blood donation.<br>Join our community of
-          lifesavers today.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="about.html">About </a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="home.html">Home</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact Info</h4>
-        <div class="contact-item">📞 +977-9874563214</div>
-        <div class="contact-item">✉️ blood4life@123gmail.com</div>
-        <div class="contact-item">📍 1469 Broaddus Avenue</div>
-      </div>
-      <div>
-        <h4>Follow Us On</h4>
-        <div class="social-row">
-          <span class="social-btn">f</span>
-          <span class="social-btn">in</span>
-          <span class="social-btn">ig</span>
-          <span class="social-btn">tw</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">&copy; 2026 <span>BLOOD4LIFE</span>. All rights reserved. Saving lives one donation at a
-      time.</div>
-  </footer>
+  <div id="footer"></div>
 
-  <!-- Success Popup -->
-
-  <div id="popup" class="popup">
-
-    <div class="popup-box">
-
-      <h2 id="popupTitle">Success</h2>
-
-      <p id="popupMessage"></p>
-
-      <button id="popupBtn">OK</button>
-
-    </div>
-
-  </div>
-
-  <!-- Confirm Popup -->
-
-  <div id="confirmPopup" class="popup">
-
-    <div class="popup-box">
-
-      <h2 id="confirmTitle">Confirm</h2>
-
-      <p id="confirmMessage"></p>
-
-      <div class="popup-buttons">
-
-        <button id="confirmYes">Yes</button>
-
-        <button id="confirmNo">Cancel</button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
+  <script src="javaScript/header.js"></script>
   <script src="javaScript/home.js"></script>
-  <script src="javaScript/popup.js"></script>
   <script src="javaScript/signin.js"></script>
+  <script src="javaScript/footer.js"></script>
 
 </body>
 

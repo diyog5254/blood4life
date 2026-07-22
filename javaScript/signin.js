@@ -1,6 +1,4 @@
-// ===============================
 // CREATE DEFAULT ADMIN
-// ===============================
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -34,9 +32,7 @@ if (users.length === 0) {
 
 }
 
-// =============================
 // Show / Hide Password
-// =============================
 
 function togglePassword() {
 
@@ -57,9 +53,7 @@ function togglePassword() {
 
 }
 
-// =============================
 // Sign In
-// =============================
 
 document.getElementById("signInForm").addEventListener("submit", function (submitEvent) {
 
@@ -110,9 +104,7 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
 
 });
 
-// =============================
 // Forgot Password
-// =============================
 
 document.getElementById("forgotPassword").addEventListener("click", function () {
 
@@ -144,9 +136,7 @@ document.getElementById("forgotPassword").addEventListener("click", function () 
 
 });
 
-// =============================
 // Hamburger Menu
-// =============================
 
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".Header nav");

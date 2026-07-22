@@ -5,10 +5,10 @@ let footerPath = window.location.pathname.includes("/admin/")
 
 fetch(footerPath)
 
-.then(response => response.text())
+    .then(response => response.text())
 
-.then(data => {
+    .then(data => {
 
-    document.getElementById("footer").innerHTML = data;
+        document.getElementById("footer").innerHTML = data;
 
-});
+    });

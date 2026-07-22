@@ -1,6 +1,4 @@
-/* ===============================
-   NAVBAR
-================================ */
+/* NAVBAR*/
 
 .Header {
 
@@ -384,6 +382,8 @@ footer ul li a:hover {
   max-width: 1200px;
 
   margin: auto;
+  display: flex;
+  gap: 10px;
 
 }
 

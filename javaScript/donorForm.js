@@ -1,6 +1,4 @@
-// ===============================
 // LOGIN CHECK
-// ===============================
 
 let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -15,18 +13,14 @@ if (!loggedInUser) {
 let editDonorId = localStorage.getItem("editDonorId");
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
-// ===============================
 // AUTO FILL NAME & EMAIL
-// ===============================
 
 document.getElementById("name").value = loggedInUser.fullName;
 
 document.getElementById("email").value = loggedInUser.email;
 
 
-// ===============================
 // EDIT DONOR AUTO FILL
-// ===============================
 
 if (editDonorId) {
 
@@ -56,9 +50,7 @@ if (editDonorId) {
 
 }
 
-// ===============================
 // DONOR FORM
-// ===============================
 
 document.getElementById("donorForm").addEventListener("submit", function (event) {
 
@@ -85,9 +77,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     }
 
-    // ===============================
     // AGE VALIDATION
-    // ===============================
 
     let birthDate = new Date(dob);
 
@@ -111,9 +101,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     }
 
-    // ===============================
     // WEIGHT VALIDATION
-    // ===============================
 
     if (weight < 45) {
 
@@ -123,9 +111,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     }
 
-    // ===============================
     // PREVIOUS DONATION VALIDATION
-    // ===============================
 
     if (previousDonation !== "") {
 
@@ -145,9 +131,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     }
 
-    // ===============================
     // DUPLICATE DONOR CHECK
-    // ===============================
 
     let alreadyDonor = donors.find(function (donor) {
 
@@ -165,9 +149,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     }
 
-    // ===============================
     // SAVE DONOR
-    // ===============================
 
     let newDonor = {
 
@@ -229,9 +211,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     localStorage.setItem("donors", JSON.stringify(donors));
 
-    // ===============================
     // UPDATE USER ROLE
-    // ===============================
 
     users.forEach(function (user) {
 
@@ -263,9 +243,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     localStorage.setItem("users", JSON.stringify(users));
 
-    // ===============================
     // UPDATE LOGGED USER
-    // ===============================
 
     loggedInUser.role = "Donor";
 
@@ -289,9 +267,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
 
-    // ===============================
     // SUCCESS
-    // ===============================
 
     if (editDonorId) {
 
@@ -313,9 +289,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
 });
 
-// ===============================
 // MOBILE MENU
-// ===============================
 
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".Header nav");

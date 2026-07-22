@@ -1,19 +1,17 @@
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('.Header nav');
 
-if(menuBtn){
+if (menuBtn) {
 
-menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', () => {
 
-    nav.classList.toggle('open');
+        nav.classList.toggle('open');
 
-});
+    });
 
 }
 
-
 // Check Admin Login
-// =======================================
 
 let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -39,14 +37,14 @@ let slides = document.querySelectorAll(".slide");
 let current = 0;
 
 
-setInterval(function(){
+setInterval(function () {
 
     slides[current].classList.remove("active");
 
 
     current++;
 
-    if(current >= slides.length){
+    if (current >= slides.length) {
         current = 0;
     }
 
@@ -56,14 +54,8 @@ setInterval(function(){
 
 }, 3000);
 
-
-
-// ===============================
 // HOME STATISTICS
-// ===============================
-
-
-function loadHomeStats(){
+function loadHomeStats() {
 
 
     let donors = JSON.parse(
@@ -89,7 +81,7 @@ function loadHomeStats(){
     let groups = new Set();
 
 
-    donors.forEach(function(donor){
+    donors.forEach(function (donor) {
 
         groups.add(donor.bloodGroup);
 
@@ -103,7 +95,7 @@ function loadHomeStats(){
 
     // Available Requests
 
-    let pendingRequests = requests.filter(function(request){
+    let pendingRequests = requests.filter(function (request) {
 
         return request.status === "Pending";
 
@@ -128,9 +120,7 @@ function loadHomeStats(){
 
 loadHomeStats();
 
-// ===============================
 // NAVBAR LOGIN STATUS
-// ===============================
 
 
 let loggedInUser = JSON.parse(
@@ -146,7 +136,7 @@ let logoutLink = document.getElementById("logoutLink");
 
 
 
-if(loggedInUser){
+if (loggedInUser) {
 
 
     loginLink.style.display = "none";
@@ -157,7 +147,7 @@ if(loggedInUser){
 
 
 
-    if(loggedInUser.role === "Admin"){
+    if (loggedInUser.role === "Admin") {
 
         dashboardLink.style.display = "block";
 
@@ -171,19 +161,19 @@ if(loggedInUser){
 // Logout
 
 logoutLink.addEventListener(
-"click",
-function(e){
+    "click",
+    function (e) {
 
-    e.preventDefault();
-
-
-    localStorage.removeItem(
-        "loggedInUser"
-    );
+        e.preventDefault();
 
 
-    window.location.href =
-    "signin.html";
+        localStorage.removeItem(
+            "loggedInUser"
+        );
 
 
-});
+        window.location.href =
+            "signin.html";
+
+
+    });

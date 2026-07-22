@@ -1,6 +1,4 @@
-// ===============================
 // LOGIN CHECK
-// ===============================
 
 let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -12,17 +10,14 @@ if (!loggedInUser) {
 
 }
 
-// ===============================
+
 // AUTO FILL
-// ===============================
+
 
 let patientName = document.getElementById("patientName").value.trim();
 document.getElementById("email").value = loggedInUser.email;
 
-
-// ===============================
 // REQUEST FORM
-// ===============================
 
 document.getElementById("requestForm").addEventListener("submit", function (event) {
 
@@ -40,9 +35,7 @@ document.getElementById("requestForm").addEventListener("submit", function (even
 
     let reason = document.getElementById("reason").value.trim();
 
-    // ===============================
     // VALIDATION
-    // ===============================
 
     if (units < 1) {
 
@@ -52,9 +45,7 @@ document.getElementById("requestForm").addEventListener("submit", function (even
 
     }
 
-    // ===============================
     // SAVE REQUEST
-    // ===============================
 
     let requests = JSON.parse(localStorage.getItem("requests")) || [];
 
@@ -65,7 +56,7 @@ document.getElementById("requestForm").addEventListener("submit", function (even
         userId: loggedInUser.id,
 
         patientName: patientName,
-        
+
         email: loggedInUser.email,
 
         bloodGroup: bloodGroup,
@@ -90,9 +81,7 @@ document.getElementById("requestForm").addEventListener("submit", function (even
 
     localStorage.setItem("requests", JSON.stringify(requests));
 
-    // ===============================
     // SUCCESS
-    // ===============================
 
     showPopup(
         "Success",
@@ -102,10 +91,7 @@ document.getElementById("requestForm").addEventListener("submit", function (even
 
 });
 
-
-// ===============================
 // MOBILE MENU
-// ===============================
 
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".Header nav");

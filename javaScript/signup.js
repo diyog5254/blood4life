@@ -1,6 +1,4 @@
-// =============================
 // Show / Hide Password
-// =============================
 
 function togglePassword(checkbox, inputId) {
 
@@ -14,24 +12,20 @@ function togglePassword(checkbox, inputId) {
 
 }
 
-// ===============================
 // CREATE DEFAULT ADMIN
-// ===============================
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
 
 // Check Admin already exists
 
-let adminExist = users.find(function(user){
+let adminExist = users.find(function (user) {
 
     return user.role === "Admin";
 
 });
 
-// =============================
 // Sign Up
-// =============================
 
 document.getElementById("signupForm").addEventListener("submit", function (submitEvent) {
 
@@ -80,17 +74,17 @@ document.getElementById("signupForm").addEventListener("submit", function (submi
 
     let newUser = {
 
-    id: Date.now(),
+        id: Date.now(),
 
-    fullName: fullName,
+        fullName: fullName,
 
-    email: email,
+        email: email,
 
-    password: password,
+        password: password,
 
-    role: "User"
+        role: "User"
 
-};
+    };
 
     users.push(newUser);
 
@@ -109,9 +103,7 @@ document.getElementById("signupForm").addEventListener("submit", function (submi
 
 });
 
-// =============================
 // Hamburger Menu
-// =============================
 
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".Header nav");

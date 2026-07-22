@@ -10,9 +10,7 @@ fetch(path)
 
         document.getElementById("header").innerHTML = data;
 
-        // ===============================
         // MOBILE MENU
-        // ===============================
 
         const menuBtn = document.querySelector(".menu-btn");
         const navLinks = document.querySelector(".nav-links");
@@ -25,8 +23,8 @@ fetch(path)
 
                 menuBtn.textContent =
                     navLinks.classList.contains("open")
-                    ? "✖"
-                    : "☰";
+                        ? "✖"
+                        : "☰";
 
             });
 

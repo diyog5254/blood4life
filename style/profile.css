@@ -1,225 +1,213 @@
-/* ===========================
-   Profile
-=========================== */
+/*Profile*/
 
-.profile-container{
+.profile-container {
 
-    max-width:1100px;
+    max-width: 1100px;
 
-    margin:40px auto;
+    margin: 40px auto;
 
-    padding:20px;
+    padding: 20px;
 
 }
 
-.profile-container h1{
+.profile-container h1 {
 
-    text-align:center;
+    text-align: center;
 
-    color:#c62828;
+    color: #c62828;
 
-    margin-bottom:30px;
-
-}
-
-
-/* ===========================
-   Profile Card
-=========================== */
-
-.profile-card{
-
-    background:#fff;
-
-    border-radius:12px;
-
-    padding:30px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    margin-bottom: 30px;
 
 }
 
 
-/* ===========================
-   Header
-=========================== */
+/*  Profile Card*/
 
-.profile-header{
+.profile-card {
 
-    display:flex;
+    background: #fff;
 
-    align-items:center;
+    border-radius: 12px;
 
-    gap:20px;
+    padding: 30px;
 
-    border-bottom:1px solid #eee;
-
-    padding-bottom:20px;
-
-    margin-bottom:30px;
-
-}
-
-.profile-image{
-
-    width:90px;
-
-    height:90px;
-
-    border-radius:50%;
-
-    background:#c62828;
-
-    color:#fff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:40px;
-
-}
-
-#profileRole{
-
-    display:inline-block;
-
-    margin-top:8px;
-
-    padding:6px 12px;
-
-    background:#c62828;
-
-    color:#fff;
-
-    border-radius:20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
 
 }
 
 
-/* ===========================
-   Details
-=========================== */
+/* Header */
 
-.profile-details{
+.profile-header {
 
-    display:grid;
+    display: flex;
 
-    grid-template-columns:repeat(2,1fr);
+    align-items: center;
 
-    gap:25px;
+    gap: 20px;
 
-}
+    border-bottom: 1px solid #eee;
 
-.detail-box{
+    padding-bottom: 20px;
 
-    background:#fafafa;
-
-    padding:20px;
-
-    border-radius:10px;
-
-    border:1px solid #eee;
+    margin-bottom: 30px;
 
 }
 
-.detail-box h3{
+.profile-image {
 
-    color:#c62828;
+    width: 90px;
 
-    margin-bottom:15px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #c62828;
+
+    color: #fff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 40px;
 
 }
 
-.detail-box p{
+#profileRole {
 
-    margin:12px 0;
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 6px 12px;
+
+    background: #c62828;
+
+    color: #fff;
+
+    border-radius: 20px;
 
 }
 
 
-/* ===========================
-   Buttons
-=========================== */
+/* Details*/
 
-.profile-buttons{
+.profile-details {
 
-    margin-top:30px;
+    display: grid;
 
-    display:flex;
+    grid-template-columns: repeat(2, 1fr);
 
-    gap:15px;
+    gap: 25px;
 
-    flex-wrap:wrap;
+}
+
+.detail-box {
+
+    background: #fafafa;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid #eee;
+
+}
+
+.detail-box h3 {
+
+    color: #c62828;
+
+    margin-bottom: 15px;
+
+}
+
+.detail-box p {
+
+    margin: 12px 0;
+
+}
+
+
+/* Buttons*/
+
+.profile-buttons {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
 
 }
 
 .profile-buttons a,
 
-.profile-buttons button{
+.profile-buttons button {
 
-    background:#c62828;
+    background: #c62828;
 
-    color:#fff;
+    color: #fff;
 
-    text-decoration:none;
+    text-decoration: none;
 
-    border:none;
+    border: none;
 
-    padding:12px 20px;
+    padding: 12px 20px;
 
-    border-radius:8px;
+    border-radius: 8px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.3s;
+    transition: .3s;
 
 }
 
 .profile-buttons a:hover,
 
-.profile-buttons button:hover{
+.profile-buttons button:hover {
 
-    background:#a61c1c;
+    background: #a61c1c;
 
 }
 
 
-/* ===========================
-   Responsive
-=========================== */
+/* Responsive*/
 
-@media(max-width:768px){
+@media(max-width:768px) {
 
-    .profile-header{
+    .profile-header {
 
-        flex-direction:column;
+        flex-direction: column;
 
-        text-align:center;
+        text-align: center;
 
     }
 
-    .profile-details{
+    .profile-details {
 
-        grid-template-columns:1fr;
+        grid-template-columns: 1fr;
 
     }
 
-    .profile-buttons{
+    .profile-buttons {
 
-        flex-direction:column;
+        flex-direction: column;
 
     }
 
     .profile-buttons a,
 
-    .profile-buttons button{
+    .profile-buttons button {
 
-        width:100%;
+        width: 100%;
 
-        text-align:center;
+        text-align: center;
 
     }
 

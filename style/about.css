@@ -1,6 +1,4 @@
-/* ===============================
-   ABOUT HERO
-================================ */
+/*ABOUT HERO*/
 
 .about-hero {
 
@@ -72,9 +70,7 @@
 
 }
 
-/* ===============================
-   ABOUT SECTION
-================================ */
+/* ABOUT SECTION*/
 
 .about-section {
 
@@ -140,9 +136,7 @@
 
 }
 
-/* ===============================
-   OBJECTIVES
-================================ */
+/* OBJECTIVES*/
 
 .objectives {
 
@@ -234,9 +228,7 @@
 
 }
 
-/* ===============================
-   TEAM
-================================ */
+/* TEAM*/
 
 .team {
 
@@ -336,9 +328,7 @@
 
 }
 
-/* ===============================
-   PROJECT INFORMATION
-================================ */
+/* PROJECT INFORMATION*/
 
 .project-info {
 
@@ -417,135 +407,131 @@
 
 }
 
-/* ===============================
-   CTA SECTION
-================================ */
+/*  CTA SECTION*/
 
-.cta-section{
+.cta-section {
 
-    padding:70px 20px;
+    padding: 70px 20px;
 
-    background:linear-gradient(
-        rgba(198,40,40,.9),
-        rgba(198,40,40,.9)
-    ),
-    url("../images/blood-banner.jpg");
+    background: linear-gradient(rgba(198, 40, 40, .9),
+            rgba(198, 40, 40, .9)),
+        url("../images/blood-banner.jpg");
 
-    background-size:cover;
+    background-size: cover;
 
-    background-position:center;
+    background-position: center;
 
-    text-align:center;
+    text-align: center;
 
-    color:white;
+    color: white;
 
 }
 
 
-.cta-content{
+.cta-content {
 
-    max-width:800px;
+    max-width: 800px;
 
-    margin:auto;
-
-}
-
-
-.cta-content h2{
-
-    font-size:38px;
-
-    margin-bottom:20px;
+    margin: auto;
 
 }
 
 
-.cta-content p{
+.cta-content h2 {
 
-    font-size:18px;
+    font-size: 38px;
 
-    line-height:1.7;
-
-    margin-bottom:35px;
+    margin-bottom: 20px;
 
 }
 
 
-.cta-buttons{
+.cta-content p {
 
-    display:flex;
+    font-size: 18px;
 
-    justify-content:center;
+    line-height: 1.7;
 
-    gap:20px;
-
-}
-
-
-.cta-btn{
-
-    text-decoration:none;
-
-    background:white;
-
-    color:#c62828;
-
-    padding:12px 30px;
-
-    border-radius:30px;
-
-    font-weight:600;
-
-    transition:.3s;
+    margin-bottom: 35px;
 
 }
 
 
-.cta-btn:hover{
+.cta-buttons {
 
-    transform:translateY(-5px);
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+}
+
+
+.cta-btn {
+
+    text-decoration: none;
+
+    background: white;
+
+    color: #c62828;
+
+    padding: 12px 30px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: .3s;
 
 }
 
 
-.cta-btn.outline{
+.cta-btn:hover {
 
-    background:transparent;
-
-    color:white;
-
-    border:2px solid white;
+    transform: translateY(-5px);
 
 }
 
-@media(max-width:600px){
 
-    .cta-content h2{
+.cta-btn.outline {
 
-        font-size:30px;
+    background: transparent;
+
+    color: white;
+
+    border: 2px solid white;
+
+}
+
+@media(max-width:600px) {
+
+    .cta-content h2 {
+
+        font-size: 30px;
 
     }
 
 
-    .cta-content p{
+    .cta-content p {
 
-        font-size:16px;
-
-    }
-
-
-    .cta-buttons{
-
-        flex-direction:column;
-
-        align-items:center;
+        font-size: 16px;
 
     }
 
 
-    .cta-btn{
+    .cta-buttons {
 
-        width:200px;
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+
+    .cta-btn {
+
+        width: 200px;
 
     }
 

@@ -1,6 +1,4 @@
-// ===============================
 // ADMIN LOGIN CHECK
-// ===============================
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -12,9 +10,7 @@ if (!loggedInUser || loggedInUser.role !== "Admin") {
 
 }
 
-// ===============================
 // LOAD REQUESTS
-// ===============================
 
 let requests = JSON.parse(localStorage.getItem("requests")) || [];
 
@@ -22,9 +18,7 @@ const tableBody = document.getElementById("requestTableBody");
 
 displayRequests(requests);
 
-// ===============================
 // DISPLAY REQUESTS
-// ===============================
 
 function displayRequests(requestList) {
 
@@ -108,11 +102,7 @@ function filterRequests() {
 
 }
 
-
-
-// ===============================
 // APPROVE REQUEST
-// ===============================
 
 function approveRequest(id) {
 
@@ -142,9 +132,7 @@ function approveRequest(id) {
     displayRequests(requests);
 
 }
-// ===============================
 // DELETE REQUEST
-// ===============================
 
 function deleteRequest(id) {
 

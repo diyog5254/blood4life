@@ -1,6 +1,4 @@
-// ===============================
 // LOGIN CHECK
-// ===============================
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -13,10 +11,7 @@ if (!loggedInUser) {
 
 }
 
-
-// ===============================
 // GET DONOR INFORMATION
-// ===============================
 
 const donors = JSON.parse(localStorage.getItem("donors")) || [];
 
@@ -27,10 +22,7 @@ const donor = donors.find(function (item) {
 
 });
 
-
-// ===============================
 // BASIC INFORMATION
-// ===============================
 
 document.getElementById("profileName").textContent =
     loggedInUser.fullName || "-";
@@ -43,11 +35,7 @@ document.getElementById("profileEmail").textContent =
 document.getElementById("profileRole").textContent =
     loggedInUser.role || "User";
 
-
-
-// ===============================
 // PERSONAL INFORMATION
-// ===============================
 
 document.getElementById("profilePhone").textContent =
     donor ? donor.phone : "Not Available";
@@ -64,11 +52,7 @@ document.getElementById("profileGender").textContent =
 document.getElementById("profileAge").textContent =
     donor ? donor.age : "-";
 
-
-
-// ===============================
 // DONATION INFORMATION
-// ===============================
 
 document.getElementById("profileBlood").textContent =
     donor ? donor.bloodGroup : "Not Registered";
@@ -83,11 +67,7 @@ document.getElementById("profileDonation").textContent =
         ? (donor.previousDonation || "First Time Donor")
         : "Not Registered";
 
-
-
-// ===============================
 // DONOR STATUS
-// ===============================
 
 if (donor) {
 
@@ -101,11 +81,7 @@ if (donor) {
 
 }
 
-
-
-// ===============================
 // DASHBOARD REDIRECT
-// ===============================
 
 document.getElementById("dashboardBtn").addEventListener("click", function (event) {
 
@@ -124,11 +100,7 @@ document.getElementById("dashboardBtn").addEventListener("click", function (even
 
 });
 
-
-
-// ===============================
 // EDIT PROFILE
-// ===============================
 
 const editBtn = document.getElementById("editProfileBtn");
 
@@ -152,11 +124,7 @@ if (editBtn) {
 
 }
 
-
-
-// ===============================
 // LOGOUT
-// ===============================
 
 document.getElementById("logoutBtn").addEventListener("click", function () {
 
@@ -176,10 +144,7 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
 
 });
 
-
-// ===============================
 // DEBUG
-// ===============================
 
 console.log("Logged User:", loggedInUser);
 

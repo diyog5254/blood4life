@@ -1,6 +1,4 @@
-// ===============================
 // ADMIN LOGIN CHECK
-// ===============================
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -12,11 +10,7 @@ if (!loggedInUser || loggedInUser.role !== "Admin") {
 
 }
 
-
-
-// ===============================
 // LOAD DASHBOARD STATISTICS
-// ===============================
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -24,12 +18,9 @@ let donors = JSON.parse(localStorage.getItem("donors")) || [];
 
 let requests = JSON.parse(localStorage.getItem("requests")) || [];
 
-
-// ===============================
 // TOTAL USERS (Exclude Admin)
-// ===============================
 
-let totalUsers = users.filter(function(user){
+let totalUsers = users.filter(function (user) {
 
     return user.role !== "Admin";
 
@@ -38,26 +29,17 @@ let totalUsers = users.filter(function(user){
 
 document.getElementById("totalUsers").textContent = totalUsers;
 
-
-// ===============================
 // TOTAL DONORS
-// ===============================
 
 document.getElementById("totalDonors").textContent = donors.length;
 
-
-// ===============================
 // TOTAL REQUESTS
-// ===============================
 
 document.getElementById("totalRequests").textContent = requests.length;
 
-
-// ===============================
 // PENDING REQUESTS
-// ===============================
 
-let pendingRequests = requests.filter(function(request){
+let pendingRequests = requests.filter(function (request) {
 
     return request.status === "Pending";
 
@@ -66,15 +48,12 @@ let pendingRequests = requests.filter(function(request){
 
 document.getElementById("pendingRequests").textContent = pendingRequests;
 
-
-// ===============================
 // LOAD RECENT DONORS
-// ===============================
 
 const donorTable = document.getElementById("recentDonorTable");
 
 
-donors.slice(-5).reverse().forEach(function(donor){
+donors.slice(-5).reverse().forEach(function (donor) {
 
     let row = document.createElement("tr");
 
@@ -96,14 +75,12 @@ donors.slice(-5).reverse().forEach(function(donor){
 
 });
 
-// ===============================
 // LOAD BLOOD REQUESTS
-// ===============================
 
 const requestTable = document.getElementById("requestTableBody");
 
 
-requests.forEach(function(request, index){
+requests.forEach(function (request, index) {
 
     let row = document.createElement("tr");
 
@@ -141,12 +118,9 @@ requests.forEach(function(request, index){
 
 });
 
-
-// ===============================
 // UPDATE REQUEST STATUS
-// ===============================
 
-function updateRequestStatus(index, status){
+function updateRequestStatus(index, status) {
 
 
     let requests = JSON.parse(localStorage.getItem("requests")) || [];
@@ -164,9 +138,8 @@ function updateRequestStatus(index, status){
     location.reload();
 
 }
-// ===============================
+
 // LOGOUT
-// ===============================
 
 document.getElementById("logoutBtn").addEventListener("click", function () {
 

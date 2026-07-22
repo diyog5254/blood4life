@@ -1,6 +1,4 @@
-// ===============================
 // ADMIN LOGIN CHECK
-// ===============================
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -12,10 +10,7 @@ if (!loggedInUser || loggedInUser.role !== "Admin") {
 
 }
 
-
-// ===============================
 // LOAD DONORS
-// ===============================
 
 let donors = JSON.parse(localStorage.getItem("donors")) || [];
 
@@ -24,9 +19,7 @@ const donorTable = document.getElementById("donorTableBody");
 
 displayDonors();
 
-// ===============================
 // EDIT DONOR
-// ===============================
 
 let editEmail = "";
 
@@ -68,11 +61,7 @@ function editDonor(email) {
 
 }
 
-
-
-// ===============================
 // DELETE DONOR
-// ===============================
 
 function deleteDonor(email) {
 
@@ -81,10 +70,7 @@ function deleteDonor(email) {
         "Are you sure you want to remove this donor?",
         function () {
 
-
-            // ===============================
             // REMOVE DONOR
-            // ===============================
 
             donors = donors.filter(function (donor) {
 
@@ -98,11 +84,7 @@ function deleteDonor(email) {
                 JSON.stringify(donors)
             );
 
-
-
-            // ===============================
             // RESET DONOR DATA FUNCTION
-            // ===============================
 
             function resetDonorData(user) {
 
@@ -119,11 +101,7 @@ function deleteDonor(email) {
 
             }
 
-
-
-            // ===============================
             // UPDATE USERS DATA
-            // ===============================
 
             let users = JSON.parse(
                 localStorage.getItem("users")
@@ -146,11 +124,7 @@ function deleteDonor(email) {
                 JSON.stringify(users)
             );
 
-
-
-            // ===============================
             // UPDATE LOGGED IN USER
-            // ===============================
 
             let currentUser = JSON.parse(
                 localStorage.getItem("loggedInUser")
@@ -184,9 +158,9 @@ function deleteDonor(email) {
     );
 
 }
-// ===============================
+
 // UPDATE DONOR
-// ===============================
+
 
 function updateDonor() {
 
@@ -207,10 +181,7 @@ function updateDonor() {
     let updatedPhone = document.getElementById("editPhone").value;
     let updatedAddress = document.getElementById("editAddress").value;
 
-
-    // ===============================
     // UPDATE DONOR DATA
-    // ===============================
 
     let donor = donors.find(
         donor => donor.email === editEmail
@@ -232,10 +203,7 @@ function updateDonor() {
         JSON.stringify(donors)
     );
 
-
-    // ===============================
     // UPDATE USER DATA
-    // ===============================
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -260,10 +228,7 @@ function updateDonor() {
         JSON.stringify(users)
     );
 
-
-    // ===============================
     // UPDATE LOGGED IN USER
-    // ===============================
 
     let currentUser = JSON.parse(
         localStorage.getItem("loggedInUser")
@@ -299,9 +264,7 @@ function updateDonor() {
 
 }
 
-// ===============================
 // DISPLAY DONORS
-// ===============================
 
 function displayDonors() {
 
@@ -349,11 +312,7 @@ function displayDonors() {
 
 }
 
-
-
-// ===============================
 // CLOSE FORM
-// ===============================
 
 function closeEditForm() {
 
@@ -361,9 +320,7 @@ function closeEditForm() {
 
 }
 
-// ===============================
 // ADMIN LOGIN CHECK
-// ===============================
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -374,9 +331,8 @@ if (!loggedInUser || loggedInUser.role !== "Admin") {
     window.location.href = "../signin.html";
 
 }
-// ===============================
+
 // SEARCH AND FILTER
-// ===============================
 
 document.getElementById("searchInput")
     .addEventListener("keyup", filterDonors);
@@ -423,11 +379,7 @@ function filterDonors() {
 
 }
 
-
-
-// ===============================
 // DISPLAY FILTERED DONORS
-// ===============================
 
 function displayFilteredDonors(donorList) {
 
@@ -469,9 +421,7 @@ function displayFilteredDonors(donorList) {
 
 }
 
-// ===============================
 // LOGOUT
-// ===============================
 
 document.getElementById("logoutBtn")
     .addEventListener("click", function () {

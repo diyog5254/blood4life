@@ -1,6 +1,4 @@
-// ===============================
 // ADMIN LOGIN CHECK
-// ===============================
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -12,10 +10,7 @@ if (!loggedInUser || loggedInUser.role !== "Admin") {
 
 }
 
-
-// =======================================
 // Get Users
-// =======================================
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -26,9 +21,7 @@ let donors = users.filter(function (user) {
 
 });
 
-// =======================================
 // Dashboard Cards
-// =======================================
 
 document.getElementById("totalDonors").innerText = donors.length;
 
@@ -37,9 +30,7 @@ document.getElementById("totalUsers").innerText = users.length;
 // Static value for now
 document.getElementById("totalRequests").innerText = 0;
 
-// =======================================
 // Recent Donor Table
-// =======================================
 
 let donorTable = document.getElementById("donorTable");
 
@@ -63,9 +54,7 @@ donors.forEach(function (donor) {
 
 });
 
-// =======================================
 // Logout
-// =======================================
 
 function logout() {
 

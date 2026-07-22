@@ -1,6 +1,4 @@
-/* ===========================
-   Admin Dashboard
-=========================== */
+/* Admin Dashboard */
 
 html,
 body {
@@ -9,25 +7,14 @@ body {
     background: #f5f5f5;
     font-family: Arial, sans-serif;
 }
-
-.container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ===========================
-   Dashboard Layout
-=========================== */
+/* Dashboard Layout*/
 
 .dashboard-container {
     flex: 1;
     display: flex;
 }
 
-/* ===========================
-   Sidebar
-=========================== */
+/* Sidebar*/
 
 .sidebar {
     width: 240px;
@@ -67,9 +54,7 @@ body {
     font-weight: bold;
 }
 
-/* ===========================
-   Dashboard Content
-=========================== */
+/* Dashboard Content*/
 
 .dashboard-content {
     flex: 1;
@@ -82,9 +67,7 @@ body {
 }
 
 
-/* ===========================
-   Search Box
-=========================== */
+/* Search Box*/
 
 .search-box {
 
@@ -103,9 +86,7 @@ body {
 
 }
 
-/* ===========================
-   Action Buttons
-=========================== */
+/* Action Buttons*/
 
 .action-btn {
 
@@ -142,9 +123,7 @@ body {
 
 }
 
-/* ===========================
-   Cards
-=========================== */
+/* Cards*/
 
 .cards {
     display: grid;
@@ -174,9 +153,7 @@ body {
     font-size: 34px;
 }
 
-/* ===========================
-   Table
-=========================== */
+/* Table*/
 
 .table-box {
     background: white;
@@ -212,9 +189,7 @@ table tr:hover {
     background: #fafafa;
 }
 
-/* ===========================
-   Logout Button
-=========================== */
+/* Logout Button*/
 
 .logout-btn {
     padding: 10px 22px;
@@ -230,9 +205,7 @@ table tr:hover {
     background: #b71c1c;
 }
 
-/* ===========================
-   Responsive
-=========================== */
+/*  Responsive*/
 
 /* Laptop */
 

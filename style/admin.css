@@ -1,11 +1,14 @@
 /* Admin Dashboard */
 
-html,
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: #f5f5f5;
+}
+
+body {
     font-family: Arial, sans-serif;
+    color: #222;
 }
 /* Dashboard Layout*/
 

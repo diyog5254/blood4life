@@ -67,98 +67,89 @@ function deleteDonor(email) {
 
     showConfirm(
         "Delete Donor",
-        "Are you sure you want to remove this donor?",
+        "Are you sure you want to delete this donor?",
         function () {
-
-            // REMOVE DONOR
-
-            donors = donors.filter(function (donor) {
-
-                return donor.email !== email;
-
-            });
-
-
-            localStorage.setItem(
-                "donors",
-                JSON.stringify(donors)
-            );
-
-            // RESET DONOR DATA FUNCTION
-
-            function resetDonorData(user) {
-
-                user.role = "User";
-
-                user.bloodGroup = "";
-                user.phone = "";
-                user.whatsapp = "";
-                user.address = "";
-                user.gender = "";
-                user.weight = "";
-                user.age = "";
-                user.previousDonation = "";
-
-            }
-
-            // UPDATE USERS DATA
-
-            let users = JSON.parse(
-                localStorage.getItem("users")
-            ) || [];
-
-
-            users.forEach(function (user) {
-
-                if (user.email === email) {
-
-                    resetDonorData(user);
-
-                }
-
-            });
-
-
-            localStorage.setItem(
-                "users",
-                JSON.stringify(users)
-            );
-
-            // UPDATE LOGGED IN USER
-
-            let currentUser = JSON.parse(
-                localStorage.getItem("loggedInUser")
-            );
-
-
-            if (currentUser && currentUser.email === email) {
-
-                resetDonorData(currentUser);
-
-
-                localStorage.setItem(
-                    "loggedInUser",
-                    JSON.stringify(currentUser)
-                );
-
-            }
-
-
-
-            showPopup(
-                "Deleted",
-                "Donor removed successfully!"
-            );
-
-
-            displayDonors();
-
-
+            deleteDonor(id);
         }
     );
 
-}
 
+    localStorage.setItem(
+        "donors",
+        JSON.stringify(donors)
+    );
+
+    // RESET DONOR DATA FUNCTION
+
+    function resetDonorData(user) {
+
+        user.role = "User";
+
+        user.bloodGroup = "";
+        user.phone = "";
+        user.whatsapp = "";
+        user.address = "";
+        user.gender = "";
+        user.weight = "";
+        user.age = "";
+        user.previousDonation = "";
+
+    }
+
+    // UPDATE USERS DATA
+
+    let users = JSON.parse(
+        localStorage.getItem("users")
+    ) || [];
+
+
+    users.forEach(function (user) {
+
+        if (user.email === email) {
+
+            resetDonorData(user);
+
+        }
+
+    });
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+    // UPDATE LOGGED IN USER
+
+    let currentUser = JSON.parse(
+        localStorage.getItem("loggedInUser")
+    );
+
+
+    if (currentUser && currentUser.email === email) {
+
+        resetDonorData(currentUser);
+
+
+        localStorage.setItem(
+            "loggedInUser",
+            JSON.stringify(currentUser)
+        );
+
+    }
+
+
+
+    showPopup(
+        "Deleted",
+        "Donor removed successfully!"
+    );
+
+
+    displayDonors();
+
+
+}
 // UPDATE DONOR
 
 
@@ -259,7 +250,7 @@ function updateDonor() {
     showPopup(
         "Updated",
         "Donor information updated successfully!",
-        "donor-list.html"
+        "donorList.html"
     );
 
 }
@@ -317,18 +308,6 @@ function displayDonors() {
 function closeEditForm() {
 
     document.getElementById("editDonorForm").style.display = "none";
-
-}
-
-// ADMIN LOGIN CHECK
-
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-if (!loggedInUser || loggedInUser.role !== "Admin") {
-
-    alert("Access Denied!");
-
-    window.location.href = "../signin.html";
 
 }
 
@@ -420,22 +399,3 @@ function displayFilteredDonors(donorList) {
     });
 
 }
-
-// LOGOUT
-
-document.getElementById("logoutBtn")
-    .addEventListener("click", function () {
-
-        showConfirm(
-            "Logout",
-            "Are you sure you want to logout?",
-            function () {
-
-                localStorage.removeItem("loggedInUser");
-
-                window.location.href = "../signin.html";
-
-            }
-        );
-
-    });

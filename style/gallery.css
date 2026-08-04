@@ -1,3 +1,13 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+}
 /* GALLERY HERO*/
 
 .gallery-hero {
@@ -7,7 +17,7 @@
     background:
         linear-gradient(rgba(198, 40, 40, .75),
             rgba(198, 40, 40, .75)),
-        url("../images/gallery-banner.jpg");
+        url("../images/gallery-banner.webp");
 
     background-size: cover;
 
@@ -264,7 +274,16 @@
     padding: 70px 20px;
 
     text-align: center;
+    display: flex;
 
+}
+.gallery-cta a{
+
+    background: #c62828;
+    color: #fff;
+    padding: 70px 20px;
+
+    text-align: center;
 }
 
 .gallery-cta .section-title {
@@ -300,6 +319,7 @@
     transition: .3s;
 
 }
+
 
 .gallery-btn:hover {
 

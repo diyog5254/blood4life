@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../style/navbars.css">
-    <link rel="stylesheet" href="../style/admin-dashboard.css">
+    <link rel="stylesheet" href="../style/adminDashboard.css">
     <link rel="stylesheet" href="../style/dashboardPage.css">
     <link rel="stylesheet" href="../style/pop-up.css">
 </head>
 
 <body>
-
     <div id="header"></div>
+
     <main class="admin-container">
 
         <h1>Admin Dashboard</h1>
@@ -45,9 +45,7 @@
 
         </div>
 
-        <!-- ===============================
-     RECENT DONORS
-================================ -->
+        //RECENT DONORS
 
         <div class="table-section">
 
@@ -78,9 +76,9 @@
 
         <div class="admin-actions">
 
-            <a href="donor-list.html" class="action-btn">View Donors</a>
+            <a href="donorList.html" class="action-btn">View Donors</a>
 
-            <a href="request-list.html" class="action-btn">View Requests</a>
+            <a href="requestList.html" class="action-btn">View Requests</a>
 
             <a href="../home.html" class="action-btn">Home</a>
 
@@ -88,49 +86,14 @@
 
     </main>
     <div id="footer"></div>
+    
+    <div id="popup-container"></div>
 
-
-    <!-- Success Popup -->
-
-    <div id="popup" class="popup">
-
-        <div class="popup-box">
-
-            <h2 id="popupTitle">Success</h2>
-
-            <p id="popupMessage"></p>
-
-            <button id="popupBtn">OK</button>
-
-        </div>
-
-    </div>
-
-    <!-- Confirm Popup -->
-
-    <div id="confirmPopup" class="popup">
-
-        <div class="popup-box">
-
-            <h2 id="confirmTitle">Confirm</h2>
-
-            <p id="confirmMessage"></p>
-
-            <div class="popup-buttons">
-
-                <button id="confirmYes">Yes</button>
-
-                <button id="confirmNo">Cancel</button>
-
-            </div>
-
-        </div>
-
-    </div>
     <script src="../javaScript/header.js"></script>
-    <script src="../javaScript/admin-dashboard.js"></script>
-    <script src="../javaScript/popup.js"></script>
     <script src="../javaScript/footer.js"></script>
+    <script src="../javaScript/adminDashboard.js"></script>
+    <script src="../javaScript/popup.js"></script>
+    
 </body>
 
 </html>

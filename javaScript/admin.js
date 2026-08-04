@@ -55,13 +55,27 @@ donors.forEach(function (donor) {
 });
 
 // Logout
+document.getElementById("logoutBtn").addEventListener("click", function () {
 
-function logout() {
 
-    localStorage.removeItem("loggedInUser");
+    let confirmLogout = confirm("Are you sure you want to logout?");
 
-    alert("Logged Out Successfully!");
 
-    window.location.href = "../signin.html";
+    showConfirm(
+        "Logout",
+        "Are you sure you want to logout?",
+        function () {
 
-}
+            localStorage.removeItem("loggedInUser");
+
+            showPopup(
+                "Logged Out",
+                "You have been logged out successfully.",
+                "signin.html"
+            );
+
+        }
+    );
+
+
+});

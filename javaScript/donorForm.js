@@ -274,7 +274,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
         showPopup(
             "Success!",
             "Donor information updated successfully.",
-            "admin/donor-list.html"
+            "admin/donorList.html"
         );
 
     } else {

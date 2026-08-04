@@ -80,7 +80,7 @@ document.getElementById("signInForm").addEventListener("submit", function (submi
             showPopup(
                 "Welcome Admin",
                 "Login Successful",
-                "admin/admin-dashboard.html"
+                "admin/adminDashboard.html"
             );
 
         } else {

@@ -7,6 +7,7 @@
   <title>Blood4Life</title>
   <link rel="stylesheet" href="style/navbars.css">
   <link rel="stylesheet" href="style/home.css">
+  <link rel="stylesheet" href="style/pop-up.css">
 </head>
 
 <body>
@@ -19,18 +20,6 @@
       <div class="hero-text">
         <h2>Donate Blood, Save Lives</h2>
         <p>Your small contribution can save someone's life.</p>
-
-        <div class="hero-buttons">
-
-          <a href="donor-form.html">
-            Become Donor
-          </a>
-
-          <a href="request-form.html">
-            Request Blood
-          </a>
-
-        </div>
       </div>
     </div>
 
@@ -58,6 +47,37 @@
 
   </section>
 
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-icon" style="background:#b71c1c;">🩸</div>
+      <div>
+        <h3>TOTAL DONORS</h3>
+        <div class="num" id="homeDonors">0</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon" style="background:#388e3c;">🟢</div>
+      <div>
+        <h3>BLOOD GROUPS</h3>
+        <div class="num" id="bloodGroups">0</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon" style="background:#e65100;">⭐</div>
+      <div>
+        <h3>LIVES SAVED</h3>
+        <div class="num" id="livesSaved">0</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon" style="background:#1565c0;">📋</div>
+      <div>
+        <h3>AVAILABLE REQUESTS</h3>
+        <div class="num" id="availableRequests">0</div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Quick Actions Section -->
 
@@ -65,7 +85,7 @@
 
     <h1>What Do You Want To Do?</h1>
 
-    <div class="container">
+    <div class="action-container">
 
 
       <div class="action-card">
@@ -74,7 +94,7 @@
           🩸
         </div>
 
-        <h2 class="section-title">Become Donor</h2>
+        <h2>Become Donor</h2>
 
         <p class="section-text">
           Register yourself as a donor
@@ -97,7 +117,7 @@
 
         <h2>Request Blood</h2>
 
-        <p>
+        <p class="section-text">
           Need blood urgently?
           Submit a request.
         </p>
@@ -118,12 +138,12 @@
 
         <h2>Emergency Help</h2>
 
-        <p>
+        <p class="section-text">
           Contact our team for
           urgent support.
         </p>
 
-        <a href="tel:+9779874563214">
+        <a href="tel:+9779800000000">
           Call Now
         </a>
 
@@ -145,14 +165,14 @@
     </p>
 
 
-    <div class="container">
+    <div class="step-container">
 
 
       <div class="step-card">
 
         <div class="step-number">1</div>
 
-        <h2 class="section-title">Create Account</h2>
+        <h2>Create Account</h2>
 
         <p>
           Register yourself and create your Blood4Life account.
@@ -208,36 +228,6 @@
 
   </section>
 
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-icon" style="background:#b71c1c;">🩸</div>
-      <div>
-        <h3>TOTAL DONORS</h3>
-        <div class="num" id="homeDonors">0</div>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-icon" style="background:#388e3c;">🟢</div>
-      <div>
-        <h3>BLOOD GROUPS</h3>
-        <div class="num" id="bloodGroups">0</div>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-icon" style="background:#e65100;">⭐</div>
-      <div>
-        <h3>LIVES SAVED</h3>
-        <div class="num" id="livesSaved">0</div>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-icon" style="background:#1565c0;">📋</div>
-      <div>
-        <h3>AVAILABLE REQUESTS</h3>
-        <div class="num" id="availableRequests">0</div>
-      </div>
-    </div>
-  </div>
 
   <section class="why">
 
@@ -265,10 +255,13 @@
 
   <div id="footer"></div>
 
+  <div id="popup-container"></div>
+
   <script src="javaScript/header.js"></script>
-  <script src="javaScript/home.js"></script>
-  <script src="javaScript/signin.js"></script>
   <script src="javaScript/footer.js"></script>
+  <script src="javaScript/home.js"></script>
+  <script src="javaScript/popup.js"></script>
+  
 
 </body>
 

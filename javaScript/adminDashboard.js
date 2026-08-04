@@ -138,19 +138,3 @@ function updateRequestStatus(index, status) {
     location.reload();
 
 }
-
-// LOGOUT
-
-document.getElementById("logoutBtn").addEventListener("click", function () {
-
-    let confirmLogout = confirm("Are you sure you want to logout?");
-
-    if (confirmLogout) {
-
-        localStorage.removeItem("loggedInUser");
-
-        window.location.href = "../signin.html";
-
-    }
-
-});

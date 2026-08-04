@@ -90,7 +90,7 @@ document.getElementById("dashboardBtn").addEventListener("click", function (even
 
     if (loggedInUser.role === "Admin") {
 
-        window.location.href = "admin/admin-dashboard.html";
+        window.location.href = "admin/adminDashboard.html";
 
     } else {
 
@@ -123,26 +123,6 @@ if (editBtn) {
     });
 
 }
-
-// LOGOUT
-
-document.getElementById("logoutBtn").addEventListener("click", function () {
-
-
-    let confirmLogout = confirm("Are you sure you want to logout?");
-
-
-    if (confirmLogout) {
-
-        localStorage.removeItem("loggedInUser");
-
-
-        window.location.href = "signin.html";
-
-    }
-
-
-});
 
 // DEBUG
 

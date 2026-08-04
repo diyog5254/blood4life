@@ -74,23 +74,3 @@ document.getElementById("userName").innerText =
 
 document.getElementById("userRole").innerText =
     loggedInUser.role;
-
-// LOGOUT
-
-const logoutBtn = document.getElementById("logoutBtn");
-
-
-if (logoutBtn) {
-
-    logoutBtn.addEventListener("click", function () {
-
-
-        localStorage.removeItem("loggedInUser");
-
-
-        window.location.href = "signin.html";
-
-
-    });
-
-}

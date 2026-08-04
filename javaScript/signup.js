@@ -102,14 +102,3 @@ document.getElementById("signupForm").addEventListener("submit", function (submi
     }, 2000);
 
 });
-
-// Hamburger Menu
-
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector(".Header nav");
-
-menuBtn.addEventListener("click", function () {
-
-    nav.classList.toggle("open");
-
-});

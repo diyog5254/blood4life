@@ -1,34 +1,10 @@
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('.Header nav');
 
-if (menuBtn) {
-
+if (menuBtn && nav) {
     menuBtn.addEventListener('click', () => {
-
         nav.classList.toggle('open');
-
     });
-
-}
-
-// Check Admin Login
-
-let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-if (!loggedInUser) {
-
-    alert("Please Sign In First!");
-
-    window.location.href = "../signin.html";
-
-}
-
-if (loggedInUser.role !== "Admin") {
-
-    alert("Access Denied!");
-
-    window.location.href = "../home.html";
-
 }
 
 
@@ -116,64 +92,62 @@ function loadHomeStats() {
 
 }
 
-
-
 loadHomeStats();
 
-// NAVBAR LOGIN STATUS
+// // NAVBAR LOGIN STATUS
 
 
-let loggedInUser = JSON.parse(
-    localStorage.getItem("loggedInUser")
-);
-
-
-
-let loginLink = document.getElementById("loginLink");
-let profileLink = document.getElementById("profileLink");
-let dashboardLink = document.getElementById("dashboardLink");
-let logoutLink = document.getElementById("logoutLink");
+// let loggedInUser = JSON.parse(
+//     localStorage.getItem("loggedInUser")
+// );
 
 
 
-if (loggedInUser) {
-
-
-    loginLink.style.display = "none";
-
-    profileLink.style.display = "block";
-
-    logoutLink.style.display = "block";
+// let loginLink = document.getElementById("loginLink");
+// let profileLink = document.getElementById("profileLink");
+// let dashboardLink = document.getElementById("dashboardLink");
+// let logoutLink = document.getElementById("logoutLink");
 
 
 
-    if (loggedInUser.role === "Admin") {
-
-        dashboardLink.style.display = "block";
-
-    }
+// if (loggedInUser) {
 
 
-}
+//     loginLink.style.display = "none";
+
+//     profileLink.style.display = "block";
+
+//     logoutLink.style.display = "block";
+
+
+
+//     if (loggedInUser.role === "Admin") {
+
+//         dashboardLink.style.display = "block";
+
+//     }
+
+
+// }
 
 
 
 // Logout
 
-logoutLink.addEventListener(
-    "click",
-    function (e) {
+// logoutLink.addEventListener(
+//     "click",
+//     function (e) {
 
-        e.preventDefault();
-
-
-        localStorage.removeItem(
-            "loggedInUser"
-        );
+//         e.preventDefault();
 
 
-        window.location.href =
-            "signin.html";
+//         localStorage.removeItem(
+//             "loggedInUser"
+//         );
 
 
-    });
+//         window.location.href =
+//             "signin.html";
+
+
+//     });

@@ -5,9 +5,12 @@ const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (!loggedInUser) {
 
-    alert("Please Sign In First!");
-
-    window.location.href = "signin.html";
+    showPopup(
+        "Login Required",
+        "Please sign in first.",
+        "signin.html",
+        "warning"
+    );
 
 }
 
@@ -116,7 +119,6 @@ if (editBtn) {
             "editDonorId",
             loggedInUser.id
         );
-
 
         window.location.href = "donor-form.html";
 

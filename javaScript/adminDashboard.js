@@ -4,9 +4,12 @@ const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (!loggedInUser || loggedInUser.role !== "Admin") {
 
-    alert("Access Denied!");
-
-    window.location.href = "../signin.html";
+    showPopup(
+        "Access Denied",
+        "You are not authorized to access this page.",
+        "../signin.html",
+        "error"
+    );
 
 }
 
@@ -132,7 +135,12 @@ function updateRequestStatus(index, status) {
     localStorage.setItem("requests", JSON.stringify(requests));
 
 
-    alert("Request " + status);
+    showPopup(
+        status === "Approved" ? "Success" : "Request Rejected",
+        "Request " + status + ".",
+        null,
+        status === "Approved" ? "success" : "error"
+    );
 
 
     location.reload();

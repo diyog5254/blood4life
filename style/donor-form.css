@@ -310,3 +310,14 @@ input[readonly] {
 .button-group button[type="reset"]:hover {
     background: #1f1f2b;
 }
+
+input[readonly]{
+    background:#f3f3f3;
+    cursor:not-allowed;
+}
+
+select:disabled{
+    background:#f3f3f3;
+    color:#666;
+    cursor:not-allowed;
+}

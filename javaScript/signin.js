@@ -123,14 +123,23 @@ document.getElementById("forgotPassword").addEventListener("click", function () 
         return currentUser.email === email.trim();
 
     });
-
     if (user) {
 
-        alert("Your Password is: " + user.password);
+        showPopup(
+            "Password Reset",
+            "Password reset feature is not available yet.",
+            null,
+            "info"
+        );
 
     } else {
 
-        alert("Email not found.");
+        showPopup(
+            "Email Not Found",
+            "No account exists with this email address.",
+            null,
+            "error"
+        );
 
     }
 

@@ -4,9 +4,45 @@ let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (!loggedInUser) {
 
-    alert("Please Sign In First!");
+    showPopup(
+        "Login Required",
+        "Please sign in first.",
+        "signin.html",
+        "warning"
+    );
 
-    window.location.href = "signin.html";
+}
+
+if (!loggedInUser) {
+
+    showPopup(
+        "Login Required",
+        "Please sign in first to become a donor.",
+        "signin.html",
+        "warning"
+    );
+
+    throw new Error("User not logged in");
+}
+
+let donors = JSON.parse(localStorage.getItem("donors")) || [];
+
+const alreadyDonor = donors.find(function (donor) {
+
+    return donor.email === loggedInUser.email;
+
+});
+
+if (alreadyDonor) {
+
+    showPopup(
+        "Already a Donor",
+        "You are already registered as a blood donor.",
+        "dashboardPage.html",
+        "info"
+    );
+
+    throw new Error("User is already a donor");
 
 }
 
@@ -24,7 +60,7 @@ document.getElementById("email").value = loggedInUser.email;
 
 if (editDonorId) {
 
-    let donors = JSON.parse(localStorage.getItem("donors")) || [];
+    // let donors = JSON.parse(localStorage.getItem("donors")) || [];
 
     let donor = donors.find(function (d) {
         return d.userId == editDonorId;
@@ -45,6 +81,13 @@ if (editDonorId) {
         document.querySelector(
             `input[name="gender"][value="${donor.gender}"]`
         ).checked = true;
+
+        document.getElementById("name").readOnly = true;
+        document.getElementById("email").readOnly = true;
+        document.getElementById("dob").readOnly = true;
+
+        document.getElementById("blood").style.pointerEvents = "none";
+        document.getElementById("blood").style.backgroundColor = "#eee";
 
     }
 
@@ -71,7 +114,12 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     if (!gender) {
 
-        alert("Please select gender.");
+        showPopup(
+            "Validation Error",
+            "Please select gender.",
+            null,
+            "warning"
+        );
 
         return;
 
@@ -94,9 +142,12 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
     }
 
     if (age < 18) {
-
-        alert("You must be at least 18 years old.");
-
+        showPopup(
+            "Age Requirement",
+            "You must be at least 18 years old.",
+            null,
+            "warning"
+        );
         return;
 
     }
@@ -104,11 +155,13 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
     // WEIGHT VALIDATION
 
     if (weight < 45) {
-
-        alert("Minimum weight must be 45 kg.");
-
+        showPopup(
+            "Weight Requirement",
+            "Minimum weight must be 45 kg.",
+            null,
+            "warning"
+        );
         return;
-
     }
 
     // PREVIOUS DONATION VALIDATION
@@ -122,9 +175,12 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
         let days = difference / (1000 * 60 * 60 * 24);
 
         if (days < 90) {
-
-            alert("Blood can only be donated after 90 days.");
-
+            showPopup(
+                "Donation Interval",
+                "Blood can only be donated after 90 days.",
+                null,
+                "warning"
+            );
             return;
 
         }
@@ -141,9 +197,12 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     if (alreadyDonor && !editDonorId) {
 
-        alert("You are already registered as a donor.");
-
-        window.location.href = "profile.html";
+        showPopup(
+            "Information",
+            "You are already registered as a donor.",
+            null,
+            "info"
+        );
 
         return;
 
@@ -215,7 +274,7 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
 
     users.forEach(function (user) {
 
-        if (user.id === loggedInUser.id) {
+        if (user.email === loggedInUser.email) {
 
             user.role = "Donor";
 
@@ -246,6 +305,12 @@ document.getElementById("donorForm").addEventListener("submit", function (event)
     // UPDATE LOGGED USER
 
     loggedInUser.role = "Donor";
+    loggedInUser.fullName = loggedInUser.fullName || loggedInUser.name;
+
+    localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify(loggedInUser)
+    );
 
     loggedInUser.dob = dob;
 

@@ -2,12 +2,22 @@
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
+if (loggedInUser) {
 
-if (!loggedInUser) {
+    // Role update
+    const userRole = document.getElementById("userRole");
 
-    alert("Please Sign In First!");
+    if (userRole) {
+        userRole.innerText = loggedInUser.role || "User";
+    }
 
-    window.location.href = "signin.html";
+
+    // Blood group update
+    const userBlood = document.getElementById("userBlood");
+
+    if (userBlood) {
+        userBlood.innerText = loggedInUser.bloodGroup || "-";
+    }
 
 }
 
@@ -16,32 +26,17 @@ if (!loggedInUser) {
 const donors = JSON.parse(localStorage.getItem("donors")) || [];
 
 
-const donor = donors.find(function (item) {
+let donor = null;
 
-    return item.userId == loggedInUser.id;
+if (loggedInUser) {
 
-});
+    donor = donors.find(function (item) {
 
-// BECOME DONOR BUTTON
+        return item.userId == loggedInUser.id;
 
-const donorBtn = document.querySelector(".donate-btn");
-
-
-if (donor) {
-
-
-    donorBtn.style.display = "none";
-
-
-} else {
-
-
-    donorBtn.style.display = "block";
-
+    });
 
 }
-
-// REQUEST BLOOD BUTTON
 
 const requestBtn = document.getElementById("requestBtn");
 
@@ -56,7 +51,12 @@ if (requestBtn) {
 
             event.preventDefault();
 
-            alert("Please login first!");
+            showPopup(
+                "Login Required",
+                "Please sign in first.",
+                "signin.html",
+                "warning"
+            );
 
         }
 
@@ -68,9 +68,56 @@ if (requestBtn) {
 
 // DASHBOARD PROFILE INFO
 
-document.getElementById("userName").innerText =
-    loggedInUser.fullName;
+if (donor) {
+
+    document.getElementById("profileName").innerText =
+        donor.fullName;
+
+    document.getElementById("profileEmail").innerText =
+        donor.email;
+
+    document.getElementById("profileBlood").innerText =
+        donor.bloodGroup;
+
+    document.getElementById("profilePhone").innerText =
+        donor.phone;
+
+}
+else {
+
+    document.getElementById("profileName").innerText =
+        loggedInUser.fullName;
+
+    document.getElementById("profileEmail").innerText =
+        loggedInUser.email;
+
+}
 
 
-document.getElementById("userRole").innerText =
-    loggedInUser.role;
+const donationStatus = document.getElementById("donationStatus");
+const lastDonation = document.getElementById("lastDonation");
+const nextDonation = document.getElementById("nextDonation");
+
+
+if (loggedInUser) {
+
+    if (donor) {
+
+        donationStatus.innerText = donor.status || "Available";
+
+        lastDonation.innerText = donor.lastDonation || "-";
+
+        nextDonation.innerText = donor.nextDonation || "-";
+
+    }
+    else {
+
+        donationStatus.innerText = "Not Available";
+
+        lastDonation.innerText = "-";
+
+        nextDonation.innerText = "-";
+
+    }
+
+}

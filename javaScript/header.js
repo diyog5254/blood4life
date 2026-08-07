@@ -82,6 +82,48 @@ fetch(headerPath)
             `;
         }
 
+
+        const donorBtn = document.querySelector('a[href$="donor-form.html"]');
+        const requestBtn = document.querySelector('a[href$="request-form.html"]');
+
+        function requireLogin(event, message) {
+
+            const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+            if (!user) {
+
+                event.preventDefault();
+
+                showPopup(
+                    "Login Required",
+                    message,
+                    signin,
+                    "warning"
+                );
+
+            }
+
+        }
+
+        if (donorBtn) {
+
+            donorBtn.addEventListener("click", function (event) {
+
+                requireLogin(event, "Please sign in first to become a donor.");
+
+            });
+
+        }
+
+        if (requestBtn) {
+
+            requestBtn.addEventListener("click", function (event) {
+
+                requireLogin(event, "Please sign in first to request blood.");
+
+            });
+
+        }
         // MOBILE MENU
 
         const menuBtn = document.querySelector(".menu-btn");
@@ -108,7 +150,12 @@ fetch(headerPath)
 
                 localStorage.removeItem("loggedInUser");
 
-                alert("Logged out successfully!");
+                showPopup(
+                    "Success",
+                    "Logged out successfully!",
+                    signin,
+                    "success"
+                );
 
                 window.location.href = signin;
 

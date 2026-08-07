@@ -4,9 +4,12 @@ let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (!loggedInUser) {
 
-    alert("Please Sign In First!");
-
-    window.location.href = "signin.html";
+    showPopup(
+        "Login Required",
+        "Please sign in first.",
+        "signin.html",
+        "warning"
+    );
 
 }
 
@@ -39,10 +42,13 @@ document.getElementById("requestForm").addEventListener("submit", function (even
 
     if (units < 1) {
 
-        alert("Units must be at least 1.");
-
+        showPopup(
+            "Invalid Units",
+            "Units must be at least 1.",
+            null,
+            "warning"
+        );
         return;
-
     }
 
     // SAVE REQUEST

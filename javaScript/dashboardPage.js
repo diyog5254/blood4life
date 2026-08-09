@@ -32,11 +32,65 @@ if (loggedInUser) {
 
     donor = donors.find(function (item) {
 
-        return item.userId == loggedInUser.id;
+        return item.userId == loggedInUser.id ||
+            item.email === loggedInUser.email;
 
     });
 
 }
+
+// QUICK ACTION - BECOME DONOR
+
+const quickDonorBtn =
+    document.querySelector('.action-btn[href="donor-form.html"]');
+
+if (quickDonorBtn) {
+
+    quickDonorBtn.addEventListener("click", function (event) {
+
+        // LOGIN CHECK
+
+        if (!loggedInUser) {
+
+            event.preventDefault();
+
+            showPopup(
+                "Login Required",
+                "Please sign in first to become a donor.",
+                "signin.html",
+                "warning"
+            );
+
+            return;
+        }
+
+
+        // ALREADY DONOR CHECK
+
+        if (donor) {
+
+            event.preventDefault();
+
+            showPopup(
+                "Already a Donor",
+                "You have already registered as a blood donor.",
+                "dashboardPage.html",
+                "warning"
+            );
+
+            return;
+        }
+
+        // If user is not donor,
+        // donor-form.html opens normally.
+
+    });
+
+}
+
+// BECOME DONOR BUTTON
+
+const donorBtn = document.querySelector(".donate-btn");
 
 const requestBtn = document.getElementById("requestBtn");
 
@@ -93,7 +147,7 @@ else {
 
 }
 
-
+//DONATION STATUS
 const donationStatus = document.getElementById("donationStatus");
 const lastDonation = document.getElementById("lastDonation");
 const nextDonation = document.getElementById("nextDonation");

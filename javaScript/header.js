@@ -109,7 +109,55 @@ fetch(headerPath)
 
             donorBtn.addEventListener("click", function (event) {
 
-                requireLogin(event, "Please sign in first to become a donor.");
+                const currentUser =
+                    JSON.parse(localStorage.getItem("loggedInUser"));
+
+                // LOGIN CHECK
+
+                if (!currentUser) {
+
+                    event.preventDefault();
+
+                    requireLogin(
+                        event,
+                        "Please sign in first to become a donor."
+                    );
+
+                    return;
+                }
+
+                // CHECK DONOR STATUS
+
+                const donors =
+                    JSON.parse(localStorage.getItem("donors")) || [];
+
+
+                const existingDonor = donors.find(function (donor) {
+
+                    return donor.userId == currentUser.id ||
+                        donor.email === currentUser.email;
+
+                });
+
+                // ALREADY DONOR
+
+                if (existingDonor) {
+
+                    event.preventDefault();
+
+                    showPopup(
+                        "Already a Donor",
+                        "You have already registered as a blood donor.",
+                        dashboard,
+                        "warning"
+                    );
+
+                    return;
+                }
+
+                // NOT A DONOR
+                // No preventDefault()
+                // So donor-form.html will open normally.
 
             });
 

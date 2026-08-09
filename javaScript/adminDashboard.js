@@ -77,49 +77,6 @@ donors.slice(-5).reverse().forEach(function (donor) {
     donorTable.appendChild(row);
 
 });
-// LOAD BLOOD REQUESTS
-
-const requestTable = document.getElementById("requestTableBody");
-
-requests.forEach(function (request, index) {
-
-    let row = document.createElement("tr");
-
-    row.innerHTML = `
-
-        <td>${request.patientName}</td>
-
-        <td>${request.bloodGroup}</td>
-
-        <td>${request.hospital}</td>
-
-        <td>${request.units}</td>
-
-        <td>${request.status}</td>
-
-        <td>
-            <div class="request-actions">
-
-                <button
-                    class="approve-btn"
-                    onclick="updateRequestStatus(${index}, 'Approved')">
-                    Approve
-                </button>
-
-                <button
-                    class="reject-btn"
-                    onclick="updateRequestStatus(${index}, 'Rejected')">
-                    Reject
-                </button>
-
-            </div>
-        </td>
-
-    `;
-
-    requestTable.appendChild(row);
-
-});
 
 // UPDATE REQUEST STATUS
 

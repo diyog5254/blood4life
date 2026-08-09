@@ -29,7 +29,6 @@
 
 
 /* TABLE */
-
 .table-wrapper {
     width: 100%;
     overflow-x: auto;
@@ -37,47 +36,49 @@
 
 .donor-table {
     width: 100%;
-    min-width: 1050px;
+    min-width: 900px;
     border-collapse: collapse;
 }
 
 .donor-table th {
     background: #d62828;
     color: white;
-    padding: 14px 10px;
+    padding: 12px 8px;
     white-space: nowrap;
     text-align: center;
+    font-size: 14px;
 }
 
 .donor-table td {
-    padding: 12px 10px;
+    padding: 10px 8px;
     text-align: center;
     white-space: nowrap;
     border-bottom: 1px solid #ddd;
+    font-size: 13px;
 }
-
 
 /* ACTION */
 
 .donor-table th:last-child,
 .donor-table td:last-child {
-    min-width: 180px;
+    min-width: 160px;
 }
 
 .request-actions {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .request-actions button {
-    width: 75px;
-    height: 34px;
+    width: 68px;
+    height: 32px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 12px;
 }
 
 .approve-btn {
@@ -89,18 +90,17 @@
     background: #dc3545;
     color: white;
 }
-
-
 /* MOBILE */
 
 @media (max-width: 600px) {
 
     .admin-container {
-        padding: 20px 12px;
+        padding: 20px 10px;
     }
 
     .admin-container h1 {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 15px;
     }
 
     .request-controls {
@@ -112,20 +112,41 @@
     .request-controls input,
     .request-controls select {
         width: 100%;
+        box-sizing: border-box;
     }
 
     .table-wrapper {
         width: 100%;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .donor-table {
-        min-width: 1050px;
+        min-width: 750px;
+    }
+
+    .donor-table th {
+        padding: 9px 6px;
+        font-size: 12px;
+    }
+
+    .donor-table td {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+
+    .donor-table th:last-child,
+    .donor-table td:last-child {
+        min-width: 145px;
+    }
+
+    .request-actions {
+        gap: 5px;
     }
 
     .request-actions button {
-        width: 70px;
-        height: 32px;
-        font-size: 12px;
+        width: 62px;
+        height: 30px;
+        font-size: 11px;
     }
 }

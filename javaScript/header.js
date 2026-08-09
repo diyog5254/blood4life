@@ -29,9 +29,9 @@ fetch(headerPath)
             ? "adminDashboard.html"
             : "admin/adminDashboard.html";
 
-        const donorList = isAdminPage
-            ? "donorList.html"
-            : "admin/donorList.html";
+        const manageDonors = isAdminPage
+            ? "manageDonors.html"
+            : "admin/manageDonors.html";
 
         const requestList = isAdminPage
             ? "requestList.html"
@@ -53,7 +53,7 @@ fetch(headerPath)
             navLinks.innerHTML = `
                 <a href="${home}">Home</a>
                 <a href="${adminDashboard}">Dashboard</a>
-                <a href="${donorList}">Donors</a>
+                <a href="${manageDonors}">Donors</a>
                 <a href="${requestList}">Requests</a>
                 <a href="${profile}">Profile</a>
                 <a href="#" id="logoutBtn">Logout</a>

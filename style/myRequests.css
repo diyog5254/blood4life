@@ -1,0 +1,76 @@
+/* My Requests */
+
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.main-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #c62828;
+}
+
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.request-table th {
+    background: #c62828;
+    color: #fff;
+    padding: 14px;
+    text-align: center;
+}
+
+.request-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.request-table tr:hover {
+    background: #f8f8f8;
+}
+
+.request-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status */
+
+.status-pending {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.status-approved {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.status-rejected {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .main-container {
+        padding: 15px;
+    }
+
+    .request-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+}

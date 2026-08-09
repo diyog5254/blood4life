@@ -17,8 +17,8 @@ if (!loggedInUser) {
 // AUTO FILL
 
 
-let patientName = document.getElementById("patientName").value.trim();
-document.getElementById("email").value = loggedInUser.email;
+let patientName = document.getElementById("email").value = loggedInUser.email;
+document.getElementById("contact").value = loggedInUser.phone || "";
 
 // REQUEST FORM
 
@@ -52,41 +52,25 @@ document.getElementById("requestForm").addEventListener("submit", function (even
     }
 
     // SAVE REQUEST
-
     let requests = JSON.parse(localStorage.getItem("requests")) || [];
 
     let newRequest = {
-
-        requestId: Date.now(),
-
-        userId: loggedInUser.id,
-
-        patientName: patientName,
-
-        email: loggedInUser.email,
-
-        bloodGroup: bloodGroup,
-
-        hospital: hospital,
-
-        contact: contact,
-
-        units: units,
-
-        emergency: emergency,
-
-        reason: reason,
-
-        requestDate: new Date().toLocaleString(),
-
+        id: Date.now(),
+        patientName: document.getElementById("patientName").value,
+        email: document.getElementById("email").value,
+        bloodGroup: document.getElementById("bloodGroup").value,
+        hospital: document.getElementById("hospital").value,
+        contact: document.getElementById("contact").value,
+        units: document.getElementById("units").value,
+        emergency: document.getElementById("emergency").value,
+        reason: document.getElementById("reason").value,
         status: "Pending"
-
     };
+
 
     requests.push(newRequest);
 
     localStorage.setItem("requests", JSON.stringify(requests));
-
     // SUCCESS
 
     showPopup(
@@ -94,6 +78,8 @@ document.getElementById("requestForm").addEventListener("submit", function (even
         "Blood Request Submitted Successfully.",
         "dashboardpage.html"
     );
+
+    this.reset();
 
 });
 

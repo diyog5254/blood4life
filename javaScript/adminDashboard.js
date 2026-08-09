@@ -63,7 +63,7 @@ donors.slice(-5).reverse().forEach(function (donor) {
 
     row.innerHTML = `
 
-        <td>${donor.name}</td>
+        <td>${donor.fullName || ""}</td>
 
         <td>${donor.email}</td>
 
@@ -77,16 +77,13 @@ donors.slice(-5).reverse().forEach(function (donor) {
     donorTable.appendChild(row);
 
 });
-
 // LOAD BLOOD REQUESTS
 
 const requestTable = document.getElementById("requestTableBody");
 
-
 requests.forEach(function (request, index) {
 
     let row = document.createElement("tr");
-
 
     row.innerHTML = `
 
@@ -100,22 +97,25 @@ requests.forEach(function (request, index) {
 
         <td>${request.status}</td>
 
-
         <td>
+            <div class="request-actions">
 
-            <button onclick="updateRequestStatus(${index}, 'Approved')">
-                Approve
-            </button>
+                <button
+                    class="approve-btn"
+                    onclick="updateRequestStatus(${index}, 'Approved')">
+                    Approve
+                </button>
 
+                <button
+                    class="reject-btn"
+                    onclick="updateRequestStatus(${index}, 'Rejected')">
+                    Reject
+                </button>
 
-            <button onclick="updateRequestStatus(${index}, 'Rejected')">
-                Reject
-            </button>
-
+            </div>
         </td>
 
     `;
-
 
     requestTable.appendChild(row);
 

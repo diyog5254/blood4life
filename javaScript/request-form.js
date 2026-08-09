@@ -1,6 +1,9 @@
 // LOGIN CHECK
 
-let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+const loggedInUser = JSON.parse(
+    localStorage.getItem("loggedInUser")
+);
+
 
 if (!loggedInUser) {
 
@@ -11,89 +14,272 @@ if (!loggedInUser) {
         "warning"
     );
 
+    throw new Error("User not logged in");
 }
 
+// AUTO FILL USER INFORMATION
 
-// AUTO FILL
+document.getElementById("email").value =
+    loggedInUser.email || "";
 
 
-let patientName = document.getElementById("email").value = loggedInUser.email;
-document.getElementById("contact").value = loggedInUser.phone || "";
+// Email
+
+document.getElementById("email").value =
+    loggedInUser.email || "";
+
+
+// Contact
+
+document.getElementById("contact").value =
+    loggedInUser.phone || "";
 
 // REQUEST FORM
 
-document.getElementById("requestForm").addEventListener("submit", function (event) {
+document
+    .getElementById("requestForm")
+    .addEventListener("submit", function (event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    let bloodGroup = document.getElementById("bloodGroup").value;
+        // GET FORM VALUES
 
-    let hospital = document.getElementById("hospital").value.trim();
+        let patientName =
+            document.getElementById("patientName")
+                .value
+                .trim();
 
-    let contact = document.getElementById("contact").value.trim();
 
-    let units = Number(document.getElementById("units").value);
+        let email =
+            document.getElementById("email")
+                .value
+                .trim();
 
-    let emergency = document.getElementById("emergency").value;
 
-    let reason = document.getElementById("reason").value.trim();
+        let bloodGroup =
+            document.getElementById("bloodGroup")
+                .value;
 
-    // VALIDATION
 
-    if (units < 1) {
+        let hospital =
+            document.getElementById("hospital")
+                .value
+                .trim();
+
+
+        let contact =
+            document.getElementById("contact")
+                .value
+                .trim();
+
+
+        let units =
+            Number(
+                document.getElementById("units")
+                    .value
+            );
+
+
+        let emergency =
+            document.getElementById("emergency")
+                .value;
+
+
+        let reason =
+            document.getElementById("reason")
+                .value
+                .trim();
+
+        // VALIDATION
+
+        if (!patientName) {
+
+            showPopup(
+                "Invalid Patient Name",
+                "Patient name is required.",
+                null,
+                "warning"
+            );
+
+            return;
+
+        }
+
+
+        if (!bloodGroup) {
+
+            showPopup(
+                "Blood Group Required",
+                "Please select a blood group.",
+                null,
+                "warning"
+            );
+
+            return;
+
+        }
+
+
+        if (!hospital) {
+
+            showPopup(
+                "Hospital Required",
+                "Please enter hospital name.",
+                null,
+                "warning"
+            );
+
+            return;
+
+        }
+
+
+        if (!contact) {
+
+            showPopup(
+                "Contact Required",
+                "Please enter contact number.",
+                null,
+                "warning"
+            );
+
+            return;
+
+        }
+
+
+        if (units < 1 || units > 10) {
+
+            showPopup(
+                "Invalid Units",
+                "Blood units must be between 1 and 10.",
+                null,
+                "warning"
+            );
+
+            return;
+        }
+
+
+        if (!emergency) {
+
+            showPopup(
+                "Emergency Level Required",
+                "Please select emergency level.",
+                null,
+                "warning"
+            );
+
+            return;
+
+        }
+
+
+        if (!reason) {
+
+            showPopup(
+                "Reason Required",
+                "Please enter the reason for the blood request.",
+                null,
+                "warning"
+            );
+
+            return;
+
+        }
+
+        // LOAD EXISTING REQUESTS
+
+        let requests =
+            JSON.parse(
+                localStorage.getItem("requests")
+            ) || [];
+
+        // CREATE NEW REQUEST
+
+        let newRequest = {
+
+            requestId: Date.now(),
+
+            patientName: patientName,
+
+            email: email,
+
+            bloodGroup: bloodGroup,
+
+            hospital: hospital,
+
+            contact: contact,
+
+            units: units,
+
+            emergency: emergency,
+
+            reason: reason,
+
+            requestDate:
+                new Date().toLocaleDateString(),
+
+            status: "Pending"
+
+        };
+
+        // SAVE REQUEST
+
+        requests.push(newRequest);
+
+
+        localStorage.setItem(
+            "requests",
+            JSON.stringify(requests)
+        );
+
+        // SUCCESS
 
         showPopup(
-            "Invalid Units",
-            "Units must be at least 1.",
-            null,
-            "warning"
+            "Success",
+            "Blood Request Submitted Successfully.",
+            "dashboardpage.html",
+            "success"
         );
-        return;
-    }
-
-    // SAVE REQUEST
-    let requests = JSON.parse(localStorage.getItem("requests")) || [];
-
-    let newRequest = {
-        id: Date.now(),
-        patientName: document.getElementById("patientName").value,
-        email: document.getElementById("email").value,
-        bloodGroup: document.getElementById("bloodGroup").value,
-        hospital: document.getElementById("hospital").value,
-        contact: document.getElementById("contact").value,
-        units: document.getElementById("units").value,
-        emergency: document.getElementById("emergency").value,
-        reason: document.getElementById("reason").value,
-        status: "Pending"
-    };
 
 
-    requests.push(newRequest);
+        // Reset form
 
-    localStorage.setItem("requests", JSON.stringify(requests));
-    // SUCCESS
+        this.reset();
 
-    showPopup(
-        "Success",
-        "Blood Request Submitted Successfully.",
-        "dashboardpage.html"
-    );
 
-    this.reset();
+        // Restore auto-filled information
 
-});
+        document.getElementById("patientName").value =
+            loggedInUser.fullName || "";
+
+        document.getElementById("email").value =
+            loggedInUser.email || "";
+
+        document.getElementById("contact").value =
+            loggedInUser.phone || "";
+
+    });
 
 // MOBILE MENU
 
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector(".Header nav");
+const menuBtn =
+    document.querySelector(".menu-btn");
 
-if (menuBtn) {
+const nav =
+    document.querySelector(".Header nav");
 
-    menuBtn.addEventListener("click", function () {
 
-        nav.classList.toggle("open");
+if (menuBtn && nav) {
 
-    });
+    menuBtn.addEventListener(
+        "click",
+        function () {
+
+            nav.classList.toggle("open");
+
+        }
+    );
 
 }

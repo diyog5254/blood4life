@@ -1,6 +1,13 @@
-// ADMIN LOGIN CHECK
+console.log("manageDonors.js loaded");
 
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+console.log(
+    "Donors:",
+    JSON.parse(localStorage.getItem("donors"))
+);// ADMIN LOGIN CHECK
+
+const loggedInUser = JSON.parse(
+    localStorage.getItem("loggedInUser")
+);
 
 if (!loggedInUser || loggedInUser.role !== "Admin") {
 
@@ -11,20 +18,28 @@ if (!loggedInUser || loggedInUser.role !== "Admin") {
         "error"
     );
 
+    throw new Error("Unauthorized access");
 }
 
 // LOAD DONORS
 
-let donors = JSON.parse(localStorage.getItem("donors")) || [];
+let donors = JSON.parse(
+    localStorage.getItem("donors")
+) || [];
 
-const donorTable = document.getElementById("donorTableBody");
+
+const donorTable = document.getElementById(
+    "donorTableBody"
+);
 
 
+// Display donors when page loads
 displayDonors();
 
 // EDIT DONOR
 
 let editEmail = "";
+
 
 function editDonor(email) {
 
@@ -34,11 +49,14 @@ function editDonor(email) {
 
     });
 
+
     if (!donor) {
 
         showPopup(
             "Error",
-            "Donor not found."
+            "Donor not found.",
+            null,
+            "error"
         );
 
         return;
@@ -49,18 +67,25 @@ function editDonor(email) {
     editEmail = email;
 
 
-    document.getElementById("editName").value = donor.fullName;
+    document.getElementById("editName").value =
+        donor.fullName || "";
 
-    document.getElementById("editEmail").value = donor.email;
+    document.getElementById("editEmail").value =
+        donor.email || "";
 
-    document.getElementById("editBloodGroup").value = donor.bloodGroup;
+    document.getElementById("editBloodGroup").value =
+        donor.bloodGroup || "";
 
-    document.getElementById("editPhone").value = donor.phone;
+    document.getElementById("editPhone").value =
+        donor.phone || "";
 
-    document.getElementById("editAddress").value = donor.address;
+    document.getElementById("editAddress").value =
+        donor.address || "";
 
 
-    document.getElementById("editDonorForm").style.display = "block";
+    document.getElementById(
+        "editDonorForm"
+    ).style.display = "block";
 
 }
 
@@ -72,89 +97,104 @@ function deleteDonor(email) {
         "Delete Donor",
         "Are you sure you want to delete this donor?",
         function () {
-            deleteDonor(id);
+
+            // Remove donor from donors array
+
+            donors = donors.filter(function (donor) {
+
+                return donor.email !== email;
+
+            });
+
+
+            // Save updated donors
+
+            localStorage.setItem(
+                "donors",
+                JSON.stringify(donors)
+            );
+
+            // UPDATE USERS DATA
+
+            let users = JSON.parse(
+                localStorage.getItem("users")
+            ) || [];
+
+
+            users.forEach(function (user) {
+
+                if (user.email === email) {
+
+                    resetDonorData(user);
+
+                }
+
+            });
+
+
+            localStorage.setItem(
+                "users",
+                JSON.stringify(users)
+            );
+
+            // UPDATE LOGGED IN USER
+
+            let currentUser = JSON.parse(
+                localStorage.getItem("loggedInUser")
+            );
+
+
+            if (
+                currentUser &&
+                currentUser.email === email
+            ) {
+
+                resetDonorData(currentUser);
+
+
+                localStorage.setItem(
+                    "loggedInUser",
+                    JSON.stringify(currentUser)
+                );
+
+            }
+
+
+            // Refresh table
+
+            displayDonors();
+
+
+            showPopup(
+                "Deleted",
+                "Donor removed successfully!",
+                null,
+                "success"
+            );
+
         }
     );
-
-
-    localStorage.setItem(
-        "donors",
-        JSON.stringify(donors)
-    );
-
-    // RESET DONOR DATA FUNCTION
-
-    function resetDonorData(user) {
-
-        user.role = "User";
-
-        user.bloodGroup = "";
-        user.phone = "";
-        user.whatsapp = "";
-        user.address = "";
-        user.gender = "";
-        user.weight = "";
-        user.age = "";
-        user.previousDonation = "";
-
-    }
-
-    // UPDATE USERS DATA
-
-    let users = JSON.parse(
-        localStorage.getItem("users")
-    ) || [];
-
-
-    users.forEach(function (user) {
-
-        if (user.email === email) {
-
-            resetDonorData(user);
-
-        }
-
-    });
-
-
-    localStorage.setItem(
-        "users",
-        JSON.stringify(users)
-    );
-
-    // UPDATE LOGGED IN USER
-
-    let currentUser = JSON.parse(
-        localStorage.getItem("loggedInUser")
-    );
-
-
-    if (currentUser && currentUser.email === email) {
-
-        resetDonorData(currentUser);
-
-
-        localStorage.setItem(
-            "loggedInUser",
-            JSON.stringify(currentUser)
-        );
-
-    }
-
-
-
-    showPopup(
-        "Deleted",
-        "Donor removed successfully!"
-    );
-
-
-    displayDonors();
-
 
 }
-// UPDATE DONOR
 
+// RESET DONOR DATA
+
+function resetDonorData(user) {
+
+    user.role = "User";
+
+    user.bloodGroup = "";
+    user.phone = "";
+    user.whatsapp = "";
+    user.address = "";
+    user.gender = "";
+    user.weight = "";
+    user.age = "";
+    user.previousDonation = "";
+
+}
+
+// UPDATE DONOR
 
 function updateDonor() {
 
@@ -162,7 +202,9 @@ function updateDonor() {
 
         showPopup(
             "Error",
-            "No donor selected."
+            "No donor selected.",
+            null,
+            "error"
         );
 
         return;
@@ -170,16 +212,25 @@ function updateDonor() {
     }
 
 
-    let updatedName = document.getElementById("editName").value;
-    let updatedBloodGroup = document.getElementById("editBloodGroup").value;
-    let updatedPhone = document.getElementById("editPhone").value;
-    let updatedAddress = document.getElementById("editAddress").value;
+    let updatedName =
+        document.getElementById("editName").value.trim();
+
+    let updatedBloodGroup =
+        document.getElementById("editBloodGroup").value;
+
+    let updatedPhone =
+        document.getElementById("editPhone").value.trim();
+
+    let updatedAddress =
+        document.getElementById("editAddress").value.trim();
 
     // UPDATE DONOR DATA
 
-    let donor = donors.find(
-        donor => donor.email === editEmail
-    );
+    let donor = donors.find(function (donor) {
+
+        return donor.email === editEmail;
+
+    });
 
 
     if (donor) {
@@ -197,14 +248,18 @@ function updateDonor() {
         JSON.stringify(donors)
     );
 
-    // UPDATE USER DATA
+    // UPDATE USERS DATA
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let users = JSON.parse(
+        localStorage.getItem("users")
+    ) || [];
 
 
-    let user = users.find(
-        user => user.email === editEmail
-    );
+    let user = users.find(function (user) {
+
+        return user.email === editEmail;
+
+    });
 
 
     if (user) {
@@ -229,7 +284,10 @@ function updateDonor() {
     );
 
 
-    if (currentUser && currentUser.email === editEmail) {
+    if (
+        currentUser &&
+        currentUser.email === editEmail
+    ) {
 
         currentUser.fullName = updatedName;
         currentUser.bloodGroup = updatedBloodGroup;
@@ -245,145 +303,159 @@ function updateDonor() {
     }
 
 
+    // Refresh table
+
     displayDonors();
+
 
     closeEditForm();
 
 
     showPopup(
         "Updated",
-        "Donor information updated successfully!",
-        "donorList.html"
+        "Donor information updated successfully.",
+        null,
+        "success"
     );
 
 }
 
 // DISPLAY DONORS
-const donors = JSON.parse(localStorage.getItem("donors")) || [];
 
-const donorTableBody = document.getElementById("donorTableBody");
+function displayDonors() {
 
+    const donorTableBody =
+        document.getElementById("donorTableBody");
 
-donors.forEach(function (donor) {
+    donorTableBody.innerHTML = "";
 
-    donorTableBody.innerHTML += `
+    if (donors.length === 0) {
 
-    <tr>
-
-        <td>${donor.fullName}</td>
-
-        <td>${donor.email}</td>
-
-        <td>${donor.bloodGroup}</td>
-
-        <td>${donor.phone}</td>
-
-        <td>${donor.address}</td>
-
-    </tr>
-
-    `;
-
-});
-donorTable.innerHTML = "";
-
-
-donors.forEach(function (donor) {
-
-
-    let row = document.createElement("tr");
-
-
-    row.innerHTML = `
-
-        <td>${donor.fullName}</td>
-
-        <td>${donor.email}</td>
-
-        <td>${donor.bloodGroup}</td>
-
-        <td>${donor.phone}</td>
-
-        <td>${donor.address}</td>
-
-        <td>
-
-    <button onclick="editDonor('${donor.email}')">
-        Edit
-    </button>
-
-
-    <button onclick="deleteDonor('${donor.email}')">
-        Delete
-    </button>
-
-</td>
-
+        donorTableBody.innerHTML = `
+            <tr>
+                <td colspan="6">
+                    No donors registered yet.
+                </td>
+            </tr>
         `;
 
-
-    donorTable.appendChild(row);
-
-
-});
+        return;
+    }
 
 
+    donors.forEach(function (donor) {
 
-// CLOSE FORM
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${donor.fullName || ""}</td>
+
+            <td>${donor.email || ""}</td>
+
+            <td>${donor.bloodGroup || ""}</td>
+
+            <td>${donor.phone || ""}</td>
+
+            <td>${donor.address || ""}</td>
+
+            <td>
+                <button onclick="editDonor('${donor.email}')">
+                    Edit
+                </button>
+
+                <button onclick="deleteDonor('${donor.email}')">
+                    Delete
+                </button>
+            </td>
+        `;
+
+        donorTableBody.appendChild(row);
+
+    });
+
+}
+displayDonors();
+
+// CLOSE EDIT FORM
 
 function closeEditForm() {
 
-    document.getElementById("editDonorForm").style.display = "none";
+    document.getElementById(
+        "editDonorForm"
+    ).style.display = "none";
+
+
+    editEmail = "";
 
 }
 
 // SEARCH AND FILTER
+const searchInput =
+    document.getElementById("searchInput");
 
-document.getElementById("searchInput")
-    .addEventListener("keyup", filterDonors);
-
-
-document.getElementById("bloodFilter")
-    .addEventListener("change", filterDonors);
+const bloodFilter =
+    document.getElementById("bloodFilter");
 
 
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "keyup",
+        filterDonors
+    );
+
+}
+
+
+if (bloodFilter) {
+
+    bloodFilter.addEventListener(
+        "change",
+        filterDonors
+    );
+
+}
+
+// FILTER DONORS
 
 function filterDonors() {
 
-    let search = document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-
-    let blood = document
-        .getElementById("bloodFilter")
-        .value;
-
-
-    let filtered = donors.filter(function (donor) {
-
-
-        let nameMatch = donor.fullName
+    let search =
+        searchInput.value
             .toLowerCase()
-            .includes(search);
+            .trim();
 
 
-        let bloodMatch =
-            blood === "" ||
-            donor.bloodGroup === blood;
+    let blood =
+        bloodFilter.value;
 
 
-        return nameMatch && bloodMatch;
+    let filtered = donors.filter(
+        function (donor) {
+
+            let name =
+                (donor.fullName || "")
+                    .toLowerCase();
 
 
-    });
+            let nameMatch =
+                name.includes(search);
+
+
+            let bloodMatch =
+                blood === "" ||
+                donor.bloodGroup === blood;
+
+
+            return nameMatch && bloodMatch;
+
+        }
+    );
 
 
     displayFilteredDonors(filtered);
 
 }
-
 // DISPLAY FILTERED DONORS
 
 function displayFilteredDonors(donorList) {
@@ -391,31 +463,52 @@ function displayFilteredDonors(donorList) {
     donorTable.innerHTML = "";
 
 
+    if (donorList.length === 0) {
+
+        donorTable.innerHTML = `
+            <tr>
+                <td colspan="6">
+                    No matching donors found.
+                </td>
+            </tr>
+        `;
+
+        return;
+
+    }
+
+
     donorList.forEach(function (donor) {
 
-        let row = document.createElement("tr");
+        let row =
+            document.createElement("tr");
 
 
         row.innerHTML = `
 
-        <td>${donor.fullName}</td>
-        <td>${donor.email}</td>
-        <td>${donor.bloodGroup}</td>
-        <td>${donor.phone}</td>
-        <td>${donor.address}</td>
+            <td>${donor.fullName || ""}</td>
 
-        <td>
+            <td>${donor.email || ""}</td>
 
-    <button onclick="editDonor('${donor.email}')">
-        Edit
-    </button>
+            <td>${donor.bloodGroup || ""}</td>
 
+            <td>${donor.phone || ""}</td>
 
-    <button onclick="deleteDonor('${donor.email}')">
-        Delete
-    </button>
+            <td>${donor.address || ""}</td>
 
-</td>
+            <td>
+
+                <button
+                    onclick="editDonor('${donor.email}')">
+                    Edit
+                </button>
+
+                <button
+                    onclick="deleteDonor('${donor.email}')">
+                    Delete
+                </button>
+
+            </td>
 
         `;
 

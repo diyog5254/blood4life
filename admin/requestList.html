@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../style/navbars.css">
+    <link rel="stylesheet" href="../style/requestList.css">
     <link rel="stylesheet" href="../style/adminDashboard.css">
-    <link rel="stylesheet" href="../style/dashboardPage.css">
+    <!-- <link rel="stylesheet" href="../style/dashboardPage.css"> -->
     <link rel="stylesheet" href="../style/pop-up.css">
 </head>
 
@@ -38,42 +39,42 @@
             </select>
 
         </div>
+        <div class="table-wrapper">
 
-        <table class="donor-table">
+            <table class="donor-table">
 
-            <thead>
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Blood</th>
+                        <th>Hospital</th>
+                        <th>Contact</th>
+                        <th>Units</th>
+                        <th>Emergency</th>
+                        <th>Request Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
 
-                <tr>
-                    <th>Patient</th>
-                    <th>Blood</th>
-                    <th>Hospital</th>
-                    <th>Contact</th>
-                    <th>Units</th>
-                    <th>Emergency</th>
-                    <th>Request Date</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
+                <tbody id="requestTableBody"></tbody>
 
-            </thead>
+            </table>
 
-            <tbody id="requestTableBody">
-
-            </tbody>
-
-        </table>
+        </div>
 
     </main>
 
     <div id="footer"></div>
-    
+
     <div id="popup-container"></div>
 
     <script src="../javaScript/header.js"></script>
     <script src="../javaScript/footer.js"></script>
     <script src="../javaScript/popup.js"></script>
+    <!-- <script src="../javaScript/adminDashboard.js"></script> -->
     <script src="../javaScript/requestList.js"></script>
-    
+
 </body>
 
 </html>

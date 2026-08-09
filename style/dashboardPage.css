@@ -261,44 +261,6 @@ body {
 }
 
 
-/*  Recent Activity*/
-
-.recent-activity {
-
-    background: #fff;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
-
-}
-
-.recent-activity h2 {
-
-    color: #c62828;
-
-    margin-bottom: 20px;
-
-}
-
-.recent-activity ul {
-
-    list-style: none;
-
-    padding: 0;
-
-}
-
-.recent-activity li {
-
-    padding: 12px;
-
-    border-bottom: 1px solid #eee;
-
-}
-
 .edit-btn {
 
     background: #2563eb;
@@ -326,7 +288,7 @@ body {
 }
 
 
-/* =Responsive*/
+/* Responsive*/
 
 @media(max-width:768px) {
 
@@ -373,3 +335,4 @@ body {
     }
 
 }
+
